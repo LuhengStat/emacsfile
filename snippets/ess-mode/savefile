@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name: Save variable using a random name 
+# key: savefile
+# --
+## save data 
+simdir = getwd()
+tempsimdirv=unlist(strsplit(simdir,split=""))
+PosNeedTemp = which(tempsimdirv=="/")
+PosNeedTemp = PosNeedTemp[length(PosNeedTemp)-1]
+simdir = substr(simdir, PosNeedTemp+1, 1000)
+simdir = gsub('/', '_', simdir)
+simdir = gsub(' ', '', simdir)
+arg1 = substr(as.character(abs(rnorm(1))), 3, 9)
+filename = paste(Dirsave, simdir, '_', arg1, '.RData', sep = '')
+save(${1:variable}, file = filename)
+StillNeedNum =  NeedNum - length(dir(Dirsave))*FileSaveSkip
+if (StillNeedNum<=0){
+flag = 0
+}
+`yas/selected-text`$0

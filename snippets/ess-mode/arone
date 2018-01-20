@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: AR(1) matrix
+# key: arone
+# --
+## AR(1) 
+Sigma = array(0, dim = c(p, p))
+rho = ${1:rho.val}
+Sigma = rho^(abs(col(Sigma) - row(Sigma)))
+`yas/selected-text`$0

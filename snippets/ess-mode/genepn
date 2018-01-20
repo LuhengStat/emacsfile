@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: Generate p*n data
+# key: genepn
+# --
+## Generate X: p*n
+Z = matrix( rnorm(p*n, 0, 1), nrow = p, ncol = n)
+cholSigma = chol(Sigma)
+# t(cholSigma) %*% cholSigma -> testSigma
+X = t(cholSigma)%*%Z
+Sample2 = EstSample(t(X))
+`yas/selected-text`$0

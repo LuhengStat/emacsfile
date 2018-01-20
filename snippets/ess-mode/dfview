@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: as.data.frame 
+# key: dfview
+# --
+DataTransToView <- function(X) {
+  if (max(dim(X))>500){
+    out = X[1:min(500, nrow(X)), 1:min(500, ncol(X))]
+  }else{
+    out = X
+  }
+  out = round(out, ${1:3})
+  out
+}
+temp = as.data.frame(DataTransToView(${2:variable}))

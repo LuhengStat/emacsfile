@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Generate n*p data
+# key: genenp
+# --
+## Generate X: n*p 
+Z = matrix( rnorm(n*p, 0, 1), nrow = n, ncol = p)
+cholSigma = chol(Sigma)
+# t(cholSigma) %*% cholSigma -> Sigma
+X = Z %*% cholSigma
+`yas/selected-text`$0

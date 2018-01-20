@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Compound matrix
+# key: comsym
+# --
+## Compound Symmetry 
+rho = ${1:rho.val}
+Sigma = (1 - rho)*diag(p) + rho*matrix(1, p, p)
+`yas/selected-text`$0

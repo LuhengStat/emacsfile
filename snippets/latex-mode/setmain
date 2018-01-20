@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: setmain
+# key: setmain
+# --
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: "../main.tex"
+%%% End:

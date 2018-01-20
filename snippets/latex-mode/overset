@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: overset
+# key: overset
+# --
+\overset{$1}{\operatorname{$2}}$0

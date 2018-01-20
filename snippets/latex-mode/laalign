@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: laalign
+# key: laalign
+# --
+\begin{equation}
+  \begin{aligned}
+    $0
+  \end{aligned}
+\end{equation}

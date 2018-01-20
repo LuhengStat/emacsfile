@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: Repeat Start 
+# key: repstart
+# --
+Dirsave = './out/'
+FileSaveSkip = 1
+flag = 1
+NeedNum = ${1:repeat.num}
+StillNeedNum =  NeedNum - length(dir(Dirsave))*FileSaveSkip
+if (StillNeedNum<0){
+  flag = 0
+}
+`yas/selected-text`$0

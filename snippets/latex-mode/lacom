@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: lacom
+# key: lacom
+# --
+%%%%%%%%%%%%%%%%%% $1 %%%%%%%%%%%%%%%%%%
+`yas/selected-text`$0

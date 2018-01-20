@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: latex equation
+# key: laeq
+# --
+\begin{equation}
+  $0
+\end{equation}

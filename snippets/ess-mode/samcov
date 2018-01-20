@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: Sample Cov Est
+# key: samcov
+# --
+## Estimate the sample matrix 
+EstSample <- function(X){
+  # Estimate the sample covariance matrix, X is n*p matrix
+  n = nrow(X)
+  p = ncol(X)
+  S = t(X) %*% (diag(n) - matrix(1/n, n, n)) %*% X/(n - 1)
+}
+`yas/selected-text`$0
