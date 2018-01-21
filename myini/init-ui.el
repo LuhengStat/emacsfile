@@ -12,6 +12,7 @@
 ;;(load-theme 'sanityinc-tomorrow-night t)
 ;;(load-theme 'leuven t)
 
+
 (toggle-frame-maximized)
 
 (blink-cursor-mode 0)
@@ -36,7 +37,7 @@
 ;; line-spacing
 (setq-default line-spacing 5)
 (setq modelinesize 150)
-(set-face-attribute 'mode-line nil  :height modelinesize)
+(set-face-attribute 'mode-line nil :height modelinesize)
 (set-face-attribute 'mode-line-inactive nil  :height modelinesize)
 
 
@@ -127,6 +128,7 @@
     tex-mode
     TeX-mode
     reftex-mode
+    disable-mouse-mode
     ))
 
 (defun purge-minor-modes ()

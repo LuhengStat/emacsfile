@@ -1,7 +1,6 @@
 
 ;; org-agenda
 (global-set-key (kbd "C-c t") 'org-agenda)
-(global-set-key [f6] 'org-agenda)
 
 ;; browser the kill ring
 (global-set-key (kbd "C-c C-y") 'browse-kill-ring)
