@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: minlim
+# key: minlim
+# --
+\min\\limits_{$1}$0

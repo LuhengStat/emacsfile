@@ -80,7 +80,7 @@
  '(font-latex-subscript-face ((t nil)))
  '(font-latex-superscript-face ((t nil)))
  '(iedit-occurrence ((t (:background "CadetBlue2"))))
- '(show-paren-match ((t (:background "#2f63b1")))))
+ '(show-paren-match ((t (:background "RoyalBlue1")))))
 
  
 
