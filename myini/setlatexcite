@@ -59,5 +59,8 @@
  '(iedit-occurrence ((t (:background "CadetBlue2")))))
 
 
+ '(hl-paren-colors (quote ("RoyalBlue1" "SkyBlue2" "pink3" "DarkSlateGray4")))
 
-
+ '(hl-paren-colors
+   (quote
+    ("DeepSkyBlue1" "SeaGreen3" "PaleVioletRed1" "magenta1")))

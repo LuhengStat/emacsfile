@@ -35,8 +35,8 @@
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 (add-hook 'reftex-toc-mode-hook (lambda () (setq truncate-lines nil)))
 ;; line-spacing
-(setq-default line-spacing 5)
-(setq modelinesize 150)
+(setq-default line-spacing 3)
+(setq modelinesize 125)
 (set-face-attribute 'mode-line nil :height modelinesize)
 (set-face-attribute 'mode-line-inactive nil  :height modelinesize)
 
@@ -178,8 +178,8 @@
      charset
      (font-spec :name "-*-Hiragino Sans GB-normal-normal-normal-*-*-*-*-*-p-0-iso10646-1"
 		:weight 'normal
-		:slant 'normal
-		:size 18.5))))
+		:slant 'normal)))
+  (setq face-font-rescale-alist '(("Hiragino Sans GB" . 1.05)))  )
 
 ;; 16 20.5
 ;; 14 16.5

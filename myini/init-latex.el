@@ -1,4 +1,5 @@
 
+;; for the \left \right part 
 (add-hook 'latex-mode-hook
           (lambda ()
 	    (autopair-mode -1)))
@@ -8,6 +9,7 @@
 (setq-default LaTeX-electric-left-right-brace t)
 
 
+;; two dollars in one time
 (defun brf-TeX-Inserting (sta stb stc num)
   " after entering stb insert stc and go back with the cursor by num positions.
     With prefix nothings gets replaced. If the previous char was sta nothing will be 
@@ -39,8 +41,6 @@
 (setq font-latex-deactivated-keyword-classes
       '("italic-command" "bold-command" "italic-declaration" "bold-declaration"))
 
-
-;;(setq-default TeX-master nil)
 
 (setq-default TeX-parse-self t) ;; Enable parsing of the file itself on load
 (setq-default TeX-auto-save t) ;; Enable save on command executation (e.g., LaTeX)
@@ -78,6 +78,8 @@
 (setq-default TeX-master nil) ; Query for master file.
 ;;(setq reftex-toc-split-windows-horizontally t)
 (setq reftex-toc-split-windows-fraction 0.4)
+;; do not promot for the reference <2018-01-23 Tue> by wlh
+(setq reftex-ref-macro-prompt nil)
 
 
 (setq font-latex-match-reference-keywords
@@ -104,6 +106,19 @@
 (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
 (setq TeX-view-program-list
      '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b"))) 
+
+
+;; redefine some keyblindings for the Latex mode
+(add-hook 'LaTeX-mode-hook
+	  (lambda ()
+	    (define-key LaTeX-mode-map (kbd "C-c C-c") 'TeX-command-run-all)
+	    (define-key LaTeX-mode-map (kbd "C-c C-a") 'TeX-command-master)
+	    (define-key LaTeX-mode-map (kbd "C-c )") 'LaTeX-close-environment)
+	    (define-key LaTeX-mode-map (kbd "C-c 0") 'LaTeX-close-environment)
+	    (define-key LaTeX-mode-map (kbd "C-c 9") 'reftex-label)
+	    (define-key LaTeX-mode-map (kbd "C-c ]") 'reftex-reference)
+	    ))
+
 
 
 

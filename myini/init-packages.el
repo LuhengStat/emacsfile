@@ -33,7 +33,7 @@
 		     ;;find-file-in-project
 		     evil
 		     elpy
-		     magit
+		     ;;magit
 		     flycheck
 		     exec-path-from-shell
 		     py-autopep8
@@ -45,6 +45,7 @@
 		     counsel-projectile
 		     popwin
 		     ag
+		     cal-china-x
 		     ))
 
 ;; activate all the packages (in particular autoloads)
@@ -198,6 +199,15 @@
 	  (lambda () (set-process-query-on-exit-flag (get-buffer-process (current-buffer)) nil)))
 
 
+(require 'cal-china-x)
+(setq mark-holidays-in-calendar t)
+(setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
+(setq cal-china-x-general-holidays '((holiday-lunar 1 15 "元宵节")))
+(setq other-holidays '((holiday-lunar 12 27 "Lisa's Birthday")))
+(setq calendar-holidays
+      (append cal-china-x-important-holidays
+	      cal-china-x-general-holidays
+	      other-holidays))
 
 
 (provide 'init-packages)

@@ -30,7 +30,7 @@
 ")
  '(package-selected-packages
    (quote
-    (cal-china-x matlab-mode atom-one-dark-theme ample-theme treemacs-projectile treemacs counsel-projectile projectile company-auctex spacemacs-theme cnfonts py-autopep8 exec-path-from-shell flycheck elpy evil expand-region iedit transpose-frame ess-R-data-view ess-view youdao-dictionary browse-kill-ring org-ac yasnippet window-numbering undo-tree avy autopair counsel swiper highlight-parentheses auto-complete auto-complete-auctex)))
+    (matlab-mode atom-one-dark-theme ample-theme treemacs-projectile treemacs counsel-projectile projectile company-auctex spacemacs-theme cnfonts py-autopep8 exec-path-from-shell flycheck elpy evil expand-region iedit transpose-frame ess-R-data-view ess-view youdao-dictionary browse-kill-ring org-ac yasnippet window-numbering undo-tree avy autopair counsel swiper highlight-parentheses auto-complete auto-complete-auctex)))
  '(projectile-mode-line
    (quote
     (:eval
@@ -82,7 +82,7 @@
  '(font-latex-script-char-face ((t (:foreground "burlywood"))))
  '(font-latex-subscript-face ((t nil)))
  '(font-latex-superscript-face ((t nil)))
- ;; '(iedit-occurrence ((t (:background "CadetBlue2"))))
+ '(iedit-occurrence ((t (:background "CadetBlue2"))))
  '(show-paren-match ((t (:background "RoyalBlue1")))))
 
 

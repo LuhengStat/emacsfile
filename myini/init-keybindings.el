@@ -20,9 +20,9 @@
 (setq url-automatic-caching t)
 ;; Example Key binding
 (global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point)
-;; Integrate with popwin-el (https://github.com/m2ym/popwin-el)
-;;(push '("*Youdao Dictionary*" :width 0.3 :position right) popwin:special-display-config)
-(push "*Youdao Dictionary*" popwin:special-display-config)
+;; Integrate with popwin-el (https://github.com/m2ym/popwin-el)    (left top right bottom)
+(push '("*Youdao Dictionary*" :width 0.3 :height 0.36 :position bottom) popwin:special-display-config)
+;;(push "*Youdao Dictionary*" popwin:special-display-config)
 
 
 ;; ess quit R
@@ -33,13 +33,6 @@
 (define-key inferior-ess-mode-map (kbd "C-c C-a") 'ess-abort)
 (define-key ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
 (define-key inferior-ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
-
-
-(add-hook 'LaTeX-mode-hook
-	  (lambda ()
-	    (define-key LaTeX-mode-map (kbd "C-c C-c") 'TeX-command-run-all)
-	    (define-key LaTeX-mode-map (kbd "C-c C-a") 'TeX-command-master)
-	    ))
 
 
 ;; ivy
