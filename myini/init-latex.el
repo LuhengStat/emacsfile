@@ -37,7 +37,8 @@
  '(font-latex-subscript-face ((t nil)))
  '(font-latex-superscript-face ((t nil)))
  )
-;; Exclude bold/italic from keywords
+
+;; Exclude bold/italic from keywords, can be customized
 (setq font-latex-deactivated-keyword-classes
       '("italic-command" "bold-command" "italic-declaration" "bold-declaration"))
 
@@ -76,8 +77,8 @@
 
  	
 (setq-default TeX-master nil) ; Query for master file.
-;;(setq reftex-toc-split-windows-horizontally t)
-(setq reftex-toc-split-windows-fraction 0.4)
+(setq reftex-toc-split-windows-horizontally nil)
+(setq reftex-toc-split-windows-fraction 0.25)
 ;; do not promot for the reference <2018-01-23 Tue> by wlh
 (setq reftex-ref-macro-prompt nil)
 
@@ -106,6 +107,34 @@
 (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
 (setq TeX-view-program-list
      '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b"))) 
+
+
+;; set the face of the toc 
+(defface my-reftex-section-heading-face
+  '((t :inherit font-lock-function-name-face :height 125))
+  "My RefTeX section heading face.")
+(setq reftex-section-heading-face 'my-reftex-section-heading-face)
+
+;; description of the toc buffer
+(defface my-reftex-toc-header-face
+  '((t :inherit font-lock-doc-face :height 115))
+  "My RefTeX section heading face.")
+(setq reftex-toc-header-face 'my-reftex-toc-header-face)
+
+;; 2016 Statistica Sinica 26, 69--95
+(defface my-reftex-bib-extra-face
+  '((t :inherit font-lock-comment-face :height 136))
+  "My RefTeX section heading face.")
+(setq reftex-bib-extra-face 'my-reftex-bib-extra-face)
+(setq reftex-bib-year-face 'my-reftex-bib-extra-face)
+
+(defface my-reftex-bib-extra-face
+  '((t :inherit font-lock-comment-face :height 136))
+  "My RefTeX section heading face.")
+(setq reftex-index-header-face 'my-reftex-bib-extra-face)
+(setq reftex-index-section-face 'my-reftex-bib-extra-face)
+(setq reftex-index-tag-face 'my-reftex-bib-extra-face)
+(setq reftex-index-face 'my-reftex-bib-extra-face)
 
 
 ;; redefine some keyblindings for the Latex mode

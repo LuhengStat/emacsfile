@@ -1,4 +1,7 @@
 
+;; disable some keys
+(global-set-key (kbd "s-x") 'nil)
+
 ;; org-agenda
 (global-set-key (kbd "C-c t") 'org-agenda)
 
@@ -81,6 +84,8 @@
 	    (define-key elpy-mode-map (kbd "<M-left>") 'previous-buffer)
 	    (define-key elpy-mode-map (kbd "<M-right>") 'next-buffer)
 	    ))
+(global-set-key (kbd "s-[") 'previous-buffer)
+(global-set-key (kbd "s-]") 'next-buffer)
 
 
 (global-set-key (kbd "<C-tab>") 'iedit-mode)
@@ -94,9 +99,11 @@
 (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
 (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
 (define-key projectile-mode-map [?\s-g] 'counsel-projectile-ag)
-(define-key projectile-mode-map [?\s-b] 'projectile-ibuffer)
+;;(define-key projectile-mode-map [?\s-b] 'projectile-ibuffer)
 
 
+(global-set-key (kbd "s-SPC") 'set-mark-command)
+(global-set-key (kbd "s-b") 'ivy-switch-buffer)
 (global-set-key (kbd "s-SPC") 'set-mark-command)
 
 
@@ -104,6 +111,23 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C--") 'er/contract-region)
+
+;; ace-window
+(global-set-key (kbd "s-o") 'ace-window)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(defvar aw-dispatch-alist
+  '((?x aw-delete-window "Delete Window")
+	(?m aw-swap-window "Swap Windows")
+	(?M aw-move-window "Move Window")
+	(?j aw-switch-buffer-in-window "Select Buffer")
+	(?n aw-flip-window)
+	(?u aw-switch-buffer-other-window "Switch Buffer Other Window")
+	(?c aw-split-window-fair "Split Fair Window")
+	(?v aw-split-window-vert "Split Vert Window")
+	(?b aw-split-window-horz "Split Horz Window")
+	(?o delete-other-windows "Delete Other Windows")
+	(?? aw-show-dispatch-help))
+  "List of actions for `aw-dispatch-default'.")
 
 
 (provide 'init-keybindings)

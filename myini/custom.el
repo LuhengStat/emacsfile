@@ -28,9 +28,12 @@
  '(initial-scratch-message ";; Hello, Luheng.
 
 ")
+ '(org-agenda-files
+   (quote
+    ("/Users/wlh/Documents/Personal/Org/goodhabit.org" "/Users/wlh/Documents/Personal/Org/workdiary.org" "/Users/wlh/Documents/Personal/Org/diary.org" "/Users/wlh/Documents/Personal/Org/keepinmind.org")))
  '(package-selected-packages
    (quote
-    (cal-china-x matlab-mode atom-one-dark-theme ample-theme treemacs-projectile treemacs counsel-projectile projectile company-auctex spacemacs-theme cnfonts py-autopep8 exec-path-from-shell flycheck elpy evil expand-region iedit transpose-frame ess-R-data-view ess-view youdao-dictionary browse-kill-ring org-ac yasnippet window-numbering undo-tree avy autopair counsel swiper highlight-parentheses auto-complete auto-complete-auctex)))
+    (youdao-dictionary window-numbering treemacs-projectile transpose-frame spacemacs-theme py-autopep8 popwin org-ac matlab-mode iedit highlight-parentheses git-commit ghub flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy counsel-projectile company-auctex cnfonts cal-china-x browse-kill-ring autopair auto-complete-auctex atom-one-dark-theme ample-theme ag)))
  '(projectile-mode-line
    (quote
     (:eval
@@ -79,10 +82,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#262626" :foreground "#b2b2b2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 180 :width normal :foundry "nil" :family "Inconsolata"))))
  '(font-latex-script-char-face ((t (:foreground "burlywood"))))
  '(font-latex-subscript-face ((t nil)))
  '(font-latex-superscript-face ((t nil)))
- ;; '(iedit-occurrence ((t (:background "CadetBlue2"))))
+ '(highlight ((t (:background "#464f91" :foreground "gray81"))))
+ '(region ((t (:background "#464f91" :foreground "gray81"))))
  '(show-paren-match ((t (:background "RoyalBlue1")))))
 
 

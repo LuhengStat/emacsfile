@@ -18,7 +18,7 @@
 		     autopair
 		     avy
 		     undo-tree
-		     window-numbering
+		     ;;window-numbering
 		     yasnippet
 		     org-ac
 		     browse-kill-ring
@@ -158,9 +158,9 @@
 
 
 ;; windows numbering
-(setq window-numbering-assign-func
-      (lambda () (when (equal (buffer-name) "*Calculator*") 9)))
-(window-numbering-mode 1)
+;;(setq window-numbering-assign-func
+;;      (lambda () (when (equal (buffer-name) "*Calculator*") 9)))
+;;(window-numbering-mode 1)
 
 
 ;; save history

@@ -12,6 +12,7 @@
 ;;(load-theme 'sanityinc-tomorrow-night t)
 ;;(load-theme 'leuven t)
 
+;;(set-face-bold-p 'bold nil)
 
 (toggle-frame-maximized)
 
@@ -32,6 +33,7 @@
 
 
 (setq truncate-lines nil)
+(setq truncate-partial-width-windows nil)
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 (add-hook 'reftex-toc-mode-hook (lambda () (setq truncate-lines nil)))
 ;; line-spacing
@@ -179,7 +181,7 @@
      (font-spec :name "-*-Hiragino Sans GB-normal-normal-normal-*-*-*-*-*-p-0-iso10646-1"
 		:weight 'normal
 		:slant 'normal)))
-  (setq face-font-rescale-alist '(("Hiragino Sans GB" . 1.05)))  )
+  (setq face-font-rescale-alist '(("Hiragino Sans GB" . 1.05))))
 
 ;; 16 20.5
 ;; 14 16.5
