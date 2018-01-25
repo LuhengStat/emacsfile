@@ -152,7 +152,7 @@
   "autotically choose whether to set the reftex-toc-split-window 
 true or not"
   (interactive)
-  (if (< (window-width) 100)
+  (if (< (window-width) 125)
       (setq reftex-toc-split-windows-horizontally nil)
     (setq reftex-toc-split-windows-horizontally t)))
 

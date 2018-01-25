@@ -32,4 +32,6 @@
  '(aw-leading-char-face ((t (:foreground "red" :height 1.6))))
  '(font-latex-subscript-face ((t nil)))
  '(font-latex-superscript-face ((t nil)))
- '(iedit-occurrence ((t (:background "CadetBlue2")))))
+ '(iedit-occurrence ((t (:background "CadetBlue2"))))
+ '(org-agenda-clocking ((t (:background "SkyBlue1")))))
+

@@ -132,6 +132,7 @@
 	(?o delete-other-windows "Delete Other Windows")
 	(?? aw-show-dispatch-help))
   "List of actions for `aw-dispatch-default'.")
+(global-set-key (kbd "s-0") 'delete-other-windows)
 
 
 (provide 'init-keybindings)
