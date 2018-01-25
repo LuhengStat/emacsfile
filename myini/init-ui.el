@@ -1,8 +1,8 @@
 
 ;;(load-theme 'monokai t)
-(load-theme 'spacemacs-dark t)
-(custom-set-faces
- '(font-latex-script-char-face ((t (:foreground "burlywood")))))
+;;(load-theme 'spacemacs-dark t)
+;;(custom-set-faces
+;; '(font-latex-script-char-face ((t (:foreground "burlywood")))))
 
 ;;(load-theme 'ample t)
 ;;(custom-set-faces
@@ -15,13 +15,15 @@
 ;;(set-face-bold-p 'bold nil)
 
 (toggle-frame-maximized)
+;; always wrap without indicators
+(global-visual-line-mode t)
 
 (blink-cursor-mode 0)
 (defun s-cursor()
   ;; set cursor-type with a line
   ;;(setq-default cursor-type 'bar) 
   ;; set cursor color
-  (set-cursor-color "light green")
+  (set-cursor-color "#3180f1")
   )
 (if window-system
     (s-cursor))
@@ -72,8 +74,8 @@
 
 
 ;; highlight current line
-;;(global-hl-line-mode +1)
-(set-face-background 'hl-line "grey9")
+(global-hl-line-mode +1)
+;;(set-face-background 'hl-line "grey9")
 (unless (display-graphic-p)
   (set-face-background 'hl-line "#121212"))
 
@@ -264,6 +266,7 @@
 
 ;; choose horizon window if proper
 (setq split-width-threshold 140)
+
 
 
 

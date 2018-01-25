@@ -77,7 +77,6 @@
 
  	
 (setq-default TeX-master nil) ; Query for master file.
-(setq reftex-toc-split-windows-horizontally nil)
 (setq reftex-toc-split-windows-fraction 0.25)
 ;; do not promot for the reference <2018-01-23 Tue> by wlh
 (setq reftex-ref-macro-prompt nil)
@@ -149,6 +148,32 @@
 	    ))
 
 
+(defun my-choose-horizon-toc ()
+  "autotically choose whether to set the reftex-toc-split-window 
+true or not"
+  (interactive)
+  (if (< (window-width) 100)
+      (setq reftex-toc-split-windows-horizontally nil)
+    (setq reftex-toc-split-windows-horizontally t)))
+
+(defun my-reftex-toc ()
+  "let reftex-toc being more reasonable"
+  (interactive)
+  (my-choose-horizon-toc)
+  (reftex-toc))
+
+(defun my-reftex-toc-recenter ()
+  "let the reftex-toc-recenter more reasonable"
+  (interactive)
+  (my-choose-horizon-toc)
+  (reftex-toc-recenter)
+  )
+
+(progn
+  (require 'reftex-toc)
+  (define-key reftex-mode-map (kbd "C-c =") 'my-reftex-toc )
+  (define-key reftex-mode-map (kbd "C-c -") 'my-reftex-toc-recenter )
+  )
 
 
 (provide 'init-latex)

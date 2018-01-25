@@ -64,3 +64,17 @@
  '(hl-paren-colors
    (quote
     ("DeepSkyBlue1" "SeaGreen3" "PaleVioletRed1" "magenta1")))
+
+(defun my-choose-horizon-toc ()
+  "autotically choose whether to set the reftex-toc-split-window 
+true or not"
+  (interactive)
+  (if (> (length (window-list)) 1)
+      (setq reftex-toc-split-windows-horizontally nil)
+    (setq reftex-toc-split-windows-horizontally t)))
+
+(defun my-reftex-toc ()
+  "let reftex-toc being more reasonable"
+  (interactive)
+  (my-choose-horizon-toc)
+  (reftex-toc))
