@@ -16,7 +16,7 @@
 
 (toggle-frame-maximized)
 ;; always wrap without indicators
-(global-visual-line-mode t)
+
 
 (blink-cursor-mode 0)
 (defun s-cursor()
@@ -262,7 +262,6 @@
 
 ;; choose horizon window if proper
 (setq split-width-threshold 140)
-
 
 
 

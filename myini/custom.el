@@ -30,8 +30,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(aw-leading-char-face ((t (:foreground "red" :height 1.6))))
+ '(error ((t (:foreground "Red" :weight normal))))
  '(font-latex-subscript-face ((t nil)))
  '(font-latex-superscript-face ((t nil)))
  '(iedit-occurrence ((t (:background "CadetBlue2"))))
  '(org-agenda-clocking ((t (:background "SkyBlue1")))))
+
 

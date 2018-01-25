@@ -2,6 +2,12 @@
 (require 'org)
 
 (setq org-agenda-files '("/Users/wlh/Documents/Personal/Org/"))
+(custom-set-faces
+ '(error ((t (:foreground "Red" :weight normal))))
+ '(org-agenda-clocking ((t (:background "SkyBlue1")))))
+
+(setq org-clock-continuously nil)
+
 
 (eval-after-load 'org
   (progn
@@ -15,7 +21,7 @@
 
 (setq org-todo-keyword-faces
       '(("TODO" . (:foreground "#fa8072" :weight bold))
-	("DONE" . (:foreground "#86dc2f" :weight bold))
+	;;("DONE" . (:foreground "SeaGreen4" :weight bold))
 	("STARTED" . "yellow")
 	("CANCELED" . (:foreground "blue" :weight bold))))
 

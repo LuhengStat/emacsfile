@@ -137,10 +137,10 @@
 ;; autocomplete the parenthesis
 (require 'autopair)
 (autopair-global-mode 1)
-(setq ac-auto-show-menu 0)
-(setq ac-delay 0)
+;;(setq ac-auto-show-menu 0)
+;;(setq ac-delay 0)
 ;; company mode
-(setq company-idle-delay 0) 
+;;(setq company-idle-delay 0) 
 
 
 (require 'avy)

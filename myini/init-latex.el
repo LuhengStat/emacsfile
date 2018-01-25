@@ -55,7 +55,7 @@
 (setq-default TeX-source-correlate-start-server t)
 
  
-(require 'company-auctex)
+;;(require 'company-auctex)
 (require 'auto-complete-auctex)
 (company-auctex-init)
 
@@ -175,5 +175,7 @@ true or not"
   (define-key reftex-mode-map (kbd "C-c -") 'my-reftex-toc-recenter )
   )
 
+(add-hook 'reftex-mode-hook 'visual-line-mode)
+(add-hook 'Latex-mode-hook 'visual-line-mode)
 
 (provide 'init-latex)
