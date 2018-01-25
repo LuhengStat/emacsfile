@@ -80,20 +80,16 @@
   (set-face-background 'hl-line "#121212"))
 
 
-;; color of the minbuffer M-X C-X
-;;(set-face-foreground 'minibuffer-prompt "#0000ff")
-;;(set-face-foreground 'minibuffer-prompt "#aadf6a")
-;;(set-face-foreground 'mode-line "#aaffaa")
-;;(set-face-background 'mode-line "#44475a")
-;;(set-face-background 'mode-line-inactive "#313131")
+;;(defun acg-initial-buffer-choice ()
+;;  (if (get-buffer "*ESS*")
+;;      (kill-buffer "*ESS*"))
+;;  (setq curbuf (current-buffer))
+;;  (switch-to-buffer curbuf)
+;;  (delete-other-windows))
+;;(setq initial-buffer-choice 'acg-initial-buffer-choice)
 
-(defun acg-initial-buffer-choice ()
-  (if (get-buffer "*ESS*")
+(if (get-buffer "*ESS*")
       (kill-buffer "*ESS*"))
-  (setq curbuf (current-buffer))
-  (switch-to-buffer curbuf)
-  (delete-other-windows))
-(setq initial-buffer-choice 'acg-initial-buffer-choice)
 
 ;; show the search results number
 (defun my-isearch-update-post-hook()

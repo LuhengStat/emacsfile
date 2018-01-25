@@ -14,7 +14,7 @@
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil)
- '(inhibit-startup-screen t)
+ '(inhibit-startup-screen nil)
   '(initial-scratch-message ";; Hello, Luheng.
 
 "))
