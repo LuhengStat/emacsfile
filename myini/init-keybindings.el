@@ -90,7 +90,8 @@
 	    ))
 (global-set-key (kbd "s-[") 'previous-buffer)
 (global-set-key (kbd "s-]") 'next-buffer)
-
+(global-set-key (kbd "M-p") 'backward-paragraph)
+(global-set-key (kbd "M-n") 'forward-paragraph)
 
 (global-set-key (kbd "<C-tab>") 'iedit-mode)
 
