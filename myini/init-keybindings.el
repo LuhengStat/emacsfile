@@ -37,9 +37,13 @@
 (define-key ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
 (define-key inferior-ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
 
-
+(defun my-push-mark-swiper ()
+  "push a mark to add the current position to the mark ring"
+  (interactive)
+  (push-mark)
+  (swiper))
 ;; ivy
-(global-set-key "\C-s" 'swiper)
+(global-set-key "\C-s" 'my-push-mark-swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
 (global-set-key (kbd "C-x C-b") 'ivy-switch-buffer)

@@ -46,6 +46,7 @@
 		     popwin
 		     ag
 		     cal-china-x
+		     ace-window
 		     ))
 
 ;; activate all the packages (in particular autoloads)

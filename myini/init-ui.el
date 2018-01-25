@@ -39,7 +39,7 @@
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 (add-hook 'reftex-toc-mode-hook (lambda () (setq truncate-lines nil)))
 ;; line-spacing
-(setq-default line-spacing 3)
+(setq-default line-spacing 5)
 (setq modelinesize 125)
 (set-face-attribute 'mode-line nil :height modelinesize)
 (set-face-attribute 'mode-line-inactive nil  :height modelinesize)
