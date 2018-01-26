@@ -15,7 +15,6 @@
  '(org-agenda-block-separator
    "==============================================================================")
  '(org-agenda-current-time-string "now - - - - - - - - - - - - - - - - - - - - - - - -")
- '(org-clock-continuously nil t)
  '(package-selected-packages
    (quote
     (youdao-dictionary window-numbering treemacs-projectile transpose-frame spacemacs-theme py-autopep8 popwin org-ac matlab-mode iedit highlight-parentheses git-commit ghub flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ample-theme ag)))
