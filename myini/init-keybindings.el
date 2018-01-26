@@ -1,9 +1,37 @@
 
+;; user define functions
+(defun MyDef-open-line-and-next ()
+  "open a new line and go to the next line"
+  (interactive)
+  (open-line 1)
+  (next-line)
+  )
+(global-set-key (kbd "C-j") 'MyDef-open-line-and-next)
+(add-hook 'bibtex-mode-hook
+	  (lambda ()
+	    (define-key bibtex-mode-map (kbd "C-j") 'MyDef-open-line-and-next)))
+(defun MyDef-fill-paragraph ()
+  "let the position being better after indented"
+  (interactive)
+  (fill-paragraph)
+  (recenter 16))
+;;(global-set-key (kbd "M-q") 'MyDef-fill-paragraph)
+
+
+;; easy move in read-only buffers
+(setq view-read-only t)     ; enter view-mode for read-only files
+(define-key view-mode-map (kbd "n") 'next-line)
+(define-key view-mode-map (kbd "p") 'previous-line)
+(define-key view-mode-map (kbd "]") 'end-of-buffer)
+(define-key view-mode-map (kbd "[") 'beginning-of-buffer)
+
 ;; disable some keys
 (global-set-key (kbd "s-x") 'nil)
 
 ;; org-agenda
 (global-set-key (kbd "C-c t") 'org-agenda)
+(global-set-key [?\s-t] 'org-agenda)
+
 
 ;; browser the kill ring
 (global-set-key (kbd "C-c C-y") 'browse-kill-ring)
@@ -37,13 +65,13 @@
 (define-key ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
 (define-key inferior-ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
 
-(defun my-push-mark-swiper ()
+(defun MyDef-push-mark-swiper ()
   "push a mark to add the current position to the mark ring"
   (interactive)
   (push-mark)
   (swiper))
 ;; ivy
-(global-set-key "\C-s" 'my-push-mark-swiper)
+(global-set-key "\C-s" 'MyDef-push-mark-swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
 (global-set-key (kbd "C-x C-b") 'ivy-switch-buffer)
@@ -67,7 +95,7 @@
 ;; avy go to anywhere 
 (global-set-key (kbd "C-'") 'avy-goto-line)
 ;;(global-set-key (kbd "C-;") 'avy-goto-char)
-(defun my-avy-goto-char ()
+(defun MyDef-avy-goto-char ()
   "let avy-goto-char go to the below of the searching charachter"
   (interactive)
   (call-interactively 'avy-goto-char)
@@ -77,7 +105,6 @@
 
 ;; open fold tree
 (global-set-key [f8] 'treemacs-toggle)
-(global-set-key [?\s-t] 'treemacs-find-file)
 
 
 ;; easy to change buffer
@@ -90,6 +117,10 @@
 	    ))
 (global-set-key (kbd "s-[") 'previous-buffer)
 (global-set-key (kbd "s-]") 'next-buffer)
+
+(global-set-key (kbd "<s-left>") 'winner-undo)
+(global-set-key (kbd "<s-right>") 'winner-redo)
+
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-set-key (kbd "M-n") 'forward-paragraph)
 

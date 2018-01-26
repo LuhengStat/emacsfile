@@ -37,7 +37,7 @@
 		     flycheck
 		     exec-path-from-shell
 		     py-autopep8
-		     cnfonts
+		     ;;cnfonts
 		     spacemacs-theme
 		     company
 		     company-auctex

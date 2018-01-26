@@ -29,7 +29,8 @@
 
 
 ;; Only change sectioning colour
-(setq font-latex-fontify-sectioning 'color)
+;;(setq font-latex-fontify-sectioning 'color)
+
 ;; super-/sub-script on baseline
 (setq font-latex-script-display (quote (nil)))
 ;; Do not change super-/sub-script font
@@ -109,31 +110,31 @@
 
 
 ;; set the face of the toc 
-(defface my-reftex-section-heading-face
+(defface MyDef-reftex-section-heading-face
   '((t :inherit font-lock-function-name-face :height 125))
   "My RefTeX section heading face.")
-(setq reftex-section-heading-face 'my-reftex-section-heading-face)
+(setq reftex-section-heading-face 'MyDef-reftex-section-heading-face)
 
 ;; description of the toc buffer
-(defface my-reftex-toc-header-face
+(defface MyDef-reftex-toc-header-face
   '((t :inherit font-lock-doc-face :height 115))
   "My RefTeX section heading face.")
-(setq reftex-toc-header-face 'my-reftex-toc-header-face)
+(setq reftex-toc-header-face 'MyDef-reftex-toc-header-face)
 
 ;; 2016 Statistica Sinica 26, 69--95
-(defface my-reftex-bib-extra-face
+(defface MyDef-reftex-bib-extra-face
   '((t :inherit font-lock-comment-face :height 136))
   "My RefTeX section heading face.")
-(setq reftex-bib-extra-face 'my-reftex-bib-extra-face)
-(setq reftex-bib-year-face 'my-reftex-bib-extra-face)
+(setq reftex-bib-extra-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-bib-year-face 'MyDef-reftex-bib-extra-face)
 
-(defface my-reftex-bib-extra-face
+(defface MyDef-reftex-bib-extra-face
   '((t :inherit font-lock-comment-face :height 136))
   "My RefTeX section heading face.")
-(setq reftex-index-header-face 'my-reftex-bib-extra-face)
-(setq reftex-index-section-face 'my-reftex-bib-extra-face)
-(setq reftex-index-tag-face 'my-reftex-bib-extra-face)
-(setq reftex-index-face 'my-reftex-bib-extra-face)
+(setq reftex-index-header-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-index-section-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-index-tag-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-index-face 'MyDef-reftex-bib-extra-face)
 
 
 ;; redefine some keyblindings for the Latex mode
@@ -148,7 +149,7 @@
 	    ))
 
 
-(defun my-choose-horizon-toc ()
+(defun MyDef-choose-horizon-toc ()
   "autotically choose whether to set the reftex-toc-split-window 
 true or not"
   (interactive)
@@ -156,23 +157,23 @@ true or not"
       (setq reftex-toc-split-windows-horizontally nil)
     (setq reftex-toc-split-windows-horizontally t)))
 
-(defun my-reftex-toc ()
+(defun MyDef-reftex-toc ()
   "let reftex-toc being more reasonable"
   (interactive)
-  (my-choose-horizon-toc)
+  (MyDef-choose-horizon-toc)
   (reftex-toc))
 
-(defun my-reftex-toc-recenter ()
+(defun MyDef-reftex-toc-recenter ()
   "let the reftex-toc-recenter more reasonable"
   (interactive)
-  (my-choose-horizon-toc)
+  (MyDef-choose-horizon-toc)
   (reftex-toc-recenter)
   )
 
 (progn
   (require 'reftex-toc)
-  (define-key reftex-mode-map (kbd "C-c =") 'my-reftex-toc )
-  (define-key reftex-mode-map (kbd "C-c -") 'my-reftex-toc-recenter )
+  (define-key reftex-mode-map (kbd "C-c =") 'MyDef-reftex-toc )
+  (define-key reftex-mode-map (kbd "C-c -") 'MyDef-reftex-toc-recenter )
   )
 
 (add-hook 'reftex-mode-hook 'visual-line-mode)

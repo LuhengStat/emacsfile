@@ -74,7 +74,7 @@
 
 
 ;; highlight current line
-(global-hl-line-mode +1)
+;;(global-hl-line-mode +1)
 ;;(set-face-background 'hl-line "grey9")
 (unless (display-graphic-p)
   (set-face-background 'hl-line "#121212"))
@@ -92,7 +92,7 @@
       (kill-buffer "*ESS*"))
 
 ;; show the search results number
-(defun my-isearch-update-post-hook()
+(defun MyDef-isearch-update-post-hook()
   (let (suffix num-before num-after num-total-set-keyal)
     (setq num-before (count-matches isearch-string (point-min) (point)))
     (setq num-after (count-matches isearch-string (point) (point-max)))
@@ -102,7 +102,7 @@
                    (format "  [%d of %d]" num-before num-total)))
     (setq isearch-message-suffix-add suffix)
     (isearch-message)))
-(add-hook 'isearch-update-post-hook 'my-isearch-update-post-hook)
+(add-hook 'isearch-update-post-hook 'MyDef-isearch-update-post-hook)
 
 
 

@@ -6,17 +6,9 @@
  '(error ((t (:foreground "Red" :weight normal))))
  '(org-agenda-clocking ((t (:background "SkyBlue1")))))
 
-(setq org-clock-continuously nil)
-
-
-(eval-after-load 'org
-  (progn
-    (define-key org-mode-map (kbd "C-'") nil)))
-
 
 (require 'org-ac)
 (org-ac/config-default)
-
 
 
 (setq org-todo-keyword-faces
@@ -31,7 +23,7 @@
 (setq org-startup-indented t)
 
 ;; continue with the clock
-(setq org-clock-continuously t)
+(setq org-clock-continuously nil)
 
 (setq org-html-validation-link nil)
 
@@ -43,8 +35,8 @@
     (define-key org-mode-map (kbd "S-C-<down>") nil)
     (define-key org-mode-map (kbd "S-C-<up>") nil)
     (define-key org-mode-map (kbd "M-<left>") nil)
-    (define-key org-mode-map (kbd "M-<right>") nil)))
-    
+    (define-key org-mode-map (kbd "M-<right>") nil)
+    (define-key org-mode-map (kbd "C-'") nil)))
 
 
 (provide 'init-org)

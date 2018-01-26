@@ -1,47 +1,47 @@
 
 
 ;; set the face of the toc 
-(defface my-reftex-section-heading-face
+(defface MyDef-reftex-section-heading-face
   '((t :inherit font-lock-function-name-face :height 115))
   "My RefTeX section heading face.")
-(setq reftex-section-heading-face 'my-reftex-section-heading-face)
+(setq reftex-section-heading-face 'MyDef-reftex-section-heading-face)
 
-(defface my-reftex-toc-header-face
+(defface MyDef-reftex-toc-header-face
   '((t :inherit font-lock-doc-face :height 100))
   "My RefTeX section heading face.")
-(setq reftex-toc-header-face 'my-reftex-toc-header-face)
+(setq reftex-toc-header-face 'MyDef-reftex-toc-header-face)
 
 ;; ref-cite buffer
-(defface my-reftex-bib-author-face
+(defface MyDef-reftex-bib-author-face
   '((t :inherit font-lock-keyword-face :height 125))
   "My RefTeX section heading face.")
-(setq reftex-bib-author-face 'my-reftex-bib-author-face)
+(setq reftex-bib-author-face 'MyDef-reftex-bib-author-face)
 
-(defface my-reftex-bib-title-face
+(defface MyDef-reftex-bib-title-face
   '((t :inherit font-lock-function-name-face :height 135))
   "My RefTeX section heading face.")
-(setq reftex-bib-title-face 'my-reftex-bib-title-face)
+(setq reftex-bib-title-face 'MyDef-reftex-bib-title-face)
 
 ;; 2016 Statistica Sinica 26, 69--95
-(defface my-reftex-bib-extra-face
+(defface MyDef-reftex-bib-extra-face
   '((t :inherit font-lock-comment-face :height 125))
   "My RefTeX section heading face.")
-(setq reftex-bib-extra-face 'my-reftex-bib-extra-face)
-(setq reftex-bib-year-face 'my-reftex-bib-extra-face)
+(setq reftex-bib-extra-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-bib-year-face 'MyDef-reftex-bib-extra-face)
 
-(defface my-reftex-label-face
+(defface MyDef-reftex-label-face
   '((t :inherit font-lock-constant-face :height 145))
   "My RefTeX section heading face.")
-(setq reftex-label-face 'my-reftex-label-face)
+(setq reftex-label-face 'MyDef-reftex-label-face)
 
-(defface my-reftex-bib-extra-face
+(defface MyDef-reftex-bib-extra-face
   '((t :inherit font-lock-comment-face :height 125))
   "My RefTeX section heading face.")
-(setq reftex-select-mark-face 'my-reftex-bib-extra-face)
-(setq reftex-index-header-face 'my-reftex-bib-extra-face)
-(setq reftex-index-section-face 'my-reftex-bib-extra-face)
-(setq reftex-index-tag-face 'my-reftex-bib-extra-face)
-(setq reftex-index-face 'my-reftex-bib-extra-face)
+(setq reftex-select-mark-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-index-header-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-index-section-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-index-tag-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-index-face 'MyDef-reftex-bib-extra-face)
 
 
 
@@ -65,7 +65,7 @@
    (quote
     ("DeepSkyBlue1" "SeaGreen3" "PaleVioletRed1" "magenta1")))
 
-(defun my-choose-horizon-toc ()
+(defun MyDef-choose-horizon-toc ()
   "autotically choose whether to set the reftex-toc-split-window 
 true or not"
   (interactive)
@@ -73,8 +73,8 @@ true or not"
       (setq reftex-toc-split-windows-horizontally nil)
     (setq reftex-toc-split-windows-horizontally t)))
 
-(defun my-reftex-toc ()
+(defun MyDef-reftex-toc ()
   "let reftex-toc being more reasonable"
   (interactive)
-  (my-choose-horizon-toc)
+  (MyDef-choose-horizon-toc)
   (reftex-toc))
