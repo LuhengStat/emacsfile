@@ -19,11 +19,11 @@
 
 
 ;; easy move in read-only buffers
-(setq view-read-only t)     ; enter view-mode for read-only files
-(define-key view-mode-map (kbd "n") 'next-line)
-(define-key view-mode-map (kbd "p") 'previous-line)
-(define-key view-mode-map (kbd "]") 'end-of-buffer)
-(define-key view-mode-map (kbd "[") 'beginning-of-buffer)
+;;(setq view-read-only t)     ; enter view-mode for read-only files
+;;(define-key view-mode-map (kbd "n") 'next-line)
+;;(define-key view-mode-map (kbd "p") 'previous-line)
+;;(define-key view-mode-map (kbd "]") 'end-of-buffer)
+;;(define-key view-mode-map (kbd "[") 'beginning-of-buffer)
 
 ;; disable some keys
 (global-set-key (kbd "s-x") 'nil)
@@ -47,10 +47,10 @@
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)1
 
 
-;; Enable Cache, for youdao translator
+;; Enable Cache, for youdao translator h
 (setq url-automatic-caching t)
 ;; Example Key binding
-(global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point)
+(global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point-tooltip)
 ;; Integrate with popwin-el (https://github.com/m2ym/popwin-el)    (left top right bottom)
 (push '("*Youdao Dictionary*" :width 0.3 :height 0.36 :position bottom) popwin:special-display-config)
 ;;(push "*Youdao Dictionary*" popwin:special-display-config)
