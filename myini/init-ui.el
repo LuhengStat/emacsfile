@@ -14,6 +14,18 @@
 
 ;;(set-face-bold-p 'bold nil)
 
+
+;;(defun acg-initial-buffer-choice ()
+;;  (if (get-buffer "*ESS*")
+;;      (kill-buffer "*ESS*"))
+;;  (setq curbuf (current-buffer))
+;;  (switch-to-buffer curbuf)
+;;  (delete-other-windows))
+;;(setq initial-buffer-choice 'acg-initial-buffer-choice)
+(if (get-buffer "*ESS*")
+      (kill-buffer "*ESS*"))
+
+
 (toggle-frame-maximized)
 ;; always wrap without indicators
 
@@ -79,17 +91,6 @@
 (unless (display-graphic-p)
   (set-face-background 'hl-line "#121212"))
 
-
-;;(defun acg-initial-buffer-choice ()
-;;  (if (get-buffer "*ESS*")
-;;      (kill-buffer "*ESS*"))
-;;  (setq curbuf (current-buffer))
-;;  (switch-to-buffer curbuf)
-;;  (delete-other-windows))
-;;(setq initial-buffer-choice 'acg-initial-buffer-choice)
-
-(if (get-buffer "*ESS*")
-      (kill-buffer "*ESS*"))
 
 ;; show the search results number
 (defun MyDef-isearch-update-post-hook()

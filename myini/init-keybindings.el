@@ -28,11 +28,6 @@
 ;; disable some keys
 (global-set-key (kbd "s-x") 'nil)
 
-;; org-agenda
-(global-set-key (kbd "C-c t") 'org-agenda)
-(global-set-key [?\s-t] 'org-agenda)
-
-
 ;; browser the kill ring
 (global-set-key (kbd "C-c C-y") 'browse-kill-ring)
 (add-hook 'org-mode-hook

@@ -7,7 +7,6 @@
  '(column-number-mode t)
  '(fringe-mode (quote (nil . 0)) nil (fringe))
  '(hl-paren-colors (quote ("blue" "Red" "DeepPink1" "dark cyan")))
- '(inhibit-startup-screen nil)
  '(initial-scratch-message ";; Hello, Luheng.
 
 ")
@@ -19,6 +18,7 @@
    (quote
     (youdao-dictionary window-numbering treemacs-projectile transpose-frame spacemacs-theme py-autopep8 popwin org-ac matlab-mode iedit highlight-parentheses git-commit ghub flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ample-theme ag)))
  '(safe-local-variable-values (quote ((projectile-project-name . "PhdThesis"))))
+ '(save-abbrevs (quote silently))
  '(scroll-bar-mode nil)
  '(scroll-conservatively 1000)
  '(scroll-margin 3)

@@ -7,8 +7,35 @@
  '(error ((t (:foreground "Red" :weight normal))))
  '(org-agenda-clocking ((t (:background "SkyBlue1")))))
 
-;;(setq org-agenda-custom-commands
-;;      '(("c" "Simple agenda view" agenda ""))
+(setq org-agenda-span 'day)
+(setq org-agenda-custom-commands
+      '(("d" "Simple agenda view"
+	 ((agenda "")
+	  (alltodo "")))))
+
+;; use org-agenda-view
+(setq inhibit-splash-screen t)
+;;(org-agenda-list 1)
+(org-agenda nil "d")
+(delete-other-windows)
+
+;;If you are looking for function to add to a hook or initialize
+;;you can wrap this up using a lambda expression. 
+;;(setq initial-buffer-choice (lambda ()
+;;  (org-agenda nil "d")
+;;  (get-buffer "*Org Agenda*")
+;;  (delete-other-windows)))
+
+
+(defun MyDef-org-agenda-view ()
+  "set a org-agenda-view i choose most"
+  (interactive)
+  (org-agenda nil "d"))
+
+;; org-agenda
+(global-set-key (kbd "C-c t") 'org-agenda)
+(global-set-key [?\s-t] 'MyDef-org-agenda-view)
+
 
 
 (require 'org-ac)
