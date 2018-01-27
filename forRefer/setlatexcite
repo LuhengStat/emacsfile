@@ -1,4 +1,4 @@
-
+(byte-recompile-directory (expand-file-name "~/.emacs.d/myini/") 0)
 
 ;; set the face of the toc 
 (defface MyDef-reftex-section-heading-face
