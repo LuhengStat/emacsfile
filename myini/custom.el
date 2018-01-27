@@ -17,6 +17,11 @@
  '(package-selected-packages
    (quote
     (youdao-dictionary window-numbering treemacs-projectile transpose-frame spacemacs-theme py-autopep8 popwin org-ac matlab-mode iedit highlight-parentheses git-commit ghub flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ample-theme ag)))
+ '(projectile-mode-line
+   (quote
+    (:eval
+     (format " Proj[%s]"
+	     (projectile-project-name)))))
  '(safe-local-variable-values (quote ((projectile-project-name . "PhdThesis"))))
  '(save-abbrevs (quote silently))
  '(scroll-bar-mode nil)

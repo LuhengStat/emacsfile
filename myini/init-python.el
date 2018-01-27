@@ -20,4 +20,6 @@
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i")
 
+(add-hook 'elpy-mode-hook (lambda () (highlight-indentation-mode -1)))
+
 (provide 'init-python)

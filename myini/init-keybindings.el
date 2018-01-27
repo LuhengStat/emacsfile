@@ -19,11 +19,21 @@
 
 
 ;; easy move in read-only buffers
-;;(setq view-read-only t)     ; enter view-mode for read-only files
-;;(define-key view-mode-map (kbd "n") 'next-line)
-;;(define-key view-mode-map (kbd "p") 'previous-line)
-;;(define-key view-mode-map (kbd "]") 'end-of-buffer)
-;;(define-key view-mode-map (kbd "[") 'beginning-of-buffer)
+;; enter view-mode for read-only files
+(setq view-read-only t)
+(add-hook 'view-mode-hook
+	  (lambda ()
+	    (define-key view-mode-map (kbd "n") 'forward-paragraph)
+	    (define-key view-mode-map (kbd "p") 'backward-paragraph)
+	    (define-key view-mode-map (kbd "]") 'end-of-buffer)
+	    (define-key view-mode-map (kbd "[") 'beginning-of-buffer)))
+(add-hook 'help-mode-hook
+	  (lambda ()
+	    (define-key help-mode-map (kbd "n") 'forward-paragraph)
+	    (define-key help-mode-map (kbd "p") 'backward-paragraph)
+	    (define-key help-mode-map (kbd "]") 'end-of-buffer)
+	    (define-key help-mode-map (kbd "[") 'beginning-of-buffer)))
+
 
 ;; disable some keys
 (global-set-key (kbd "s-x") 'nil)
