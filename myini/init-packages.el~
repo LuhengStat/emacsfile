@@ -187,7 +187,7 @@
 (require 'iedit)
 
 
-;;evil-mode
+evil-mode
 (require 'evil)
 ;;(evil-mode 1)
 ;;(setq evil-emacs-state-cursor '("blue" bar)

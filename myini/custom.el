@@ -39,8 +39,9 @@
  ;; If there is more than one, they won't work right.
  '(aw-leading-char-face ((t (:foreground "red" :height 1.6))))
  '(error ((t (:foreground "Red" :weight normal))))
- '(font-latex-sectioning-1-face ((t (:inherit font-latex-sectioning-2-face :height 1.05))))
- '(font-latex-sectioning-2-face ((t (:inherit font-latex-sectioning-3-face :height 1.1))))
+ '(font-latex-sectioning-0-face ((t (:inherit font-latex-sectioning-1-face :height 1.0))))
+ '(font-latex-sectioning-1-face ((t (:inherit font-latex-sectioning-2-face :height 1.0))))
+ '(font-latex-sectioning-2-face ((t (:inherit font-latex-sectioning-3-face :height 1.0))))
  '(font-latex-sectioning-3-face ((t (:inherit font-latex-sectioning-4-face :height 1.0))))
  '(font-latex-sectioning-4-face ((t (:inherit font-latex-sectioning-5-face :height 1.0))))
  '(font-latex-sectioning-5-face ((t (:inherit variable-pitch :foreground "blue4" :weight normal))))

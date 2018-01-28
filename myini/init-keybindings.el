@@ -21,18 +21,23 @@
 ;; easy move in read-only buffers
 ;; enter view-mode for read-only files
 (setq view-read-only t)
-(add-hook 'view-mode-hook
-	  (lambda ()
-	    (define-key view-mode-map (kbd "n") 'forward-paragraph)
-	    (define-key view-mode-map (kbd "p") 'backward-paragraph)
-	    (define-key view-mode-map (kbd "]") 'end-of-buffer)
-	    (define-key view-mode-map (kbd "[") 'beginning-of-buffer)))
-(add-hook 'help-mode-hook
-	  (lambda ()
-	    (define-key help-mode-map (kbd "n") 'forward-paragraph)
-	    (define-key help-mode-map (kbd "p") 'backward-paragraph)
-	    (define-key help-mode-map (kbd "]") 'end-of-buffer)
-	    (define-key help-mode-map (kbd "[") 'beginning-of-buffer)))
+;;(add-hook 'view-mode-hook
+;;	  (lambda ()
+;;	    (define-key view-mode-map (kbd "n") 'forward-paragraph)
+;;	    (define-key view-mode-map (kbd "p") 'backward-paragraph)
+;;	    (define-key view-mode-map (kbd "]") 'end-of-buffer)
+;;	    (define-key view-mode-map (kbd "[") 'beginning-of-buffer)
+;;	    (define-key view-mode-map (kbd "l") 'recenter-top-bottom)))
+;;(add-hook 'help-mode-hook
+;;	  (lambda ()
+;;	    (define-key help-mode-map (kbd "n") 'forward-paragraph)
+;;	    (define-key help-mode-map (kbd "p") 'backward-paragraph)
+;;	    (define-key help-mode-map (kbd "]") 'end-of-buffer)
+;;	    (define-key help-mode-map (kbd "[") 'beginning-of-buffer)
+;;	    (define-key help-mode-map (kbd "l") 'recenter-top-bottom)))
+(add-hook 'help-mode-hook 'turn-on-evil-mode)
+(add-hook 'view-mode-hook 'turn-on-evil-mode)
+(global-set-key (kbd "s-1")  'evil-mode)
 
 
 ;; disable some keys
@@ -55,9 +60,9 @@
 ;; Enable Cache, for youdao translator h
 (setq url-automatic-caching t)
 ;; Example Key binding
-(global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point-tooltip)
+(global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point)
 ;; Integrate with popwin-el (https://github.com/m2ym/popwin-el)    (left top right bottom)
-(push '("*Youdao Dictionary*" :width 0.3 :height 0.36 :position bottom) popwin:special-display-config)
+(push '("*Youdao Dictionary*" :width 0.5 :height 0.36 :position bottom) popwin:special-display-config)
 ;;(push "*Youdao Dictionary*" popwin:special-display-config)
 
 
