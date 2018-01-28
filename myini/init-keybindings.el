@@ -114,7 +114,7 @@
 
 
 ;; open fold tree
-(global-set-key [f8] 'treemacs-toggle)
+;;(global-set-key [f8] 'treemacs-toggle)
 
 
 ;; easy to change buffer

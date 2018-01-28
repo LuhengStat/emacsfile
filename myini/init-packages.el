@@ -129,9 +129,9 @@
 ;;(require 'neotree)
 ;; jump to the current file
 ;;(setq neo-smart-open t)
-(require 'treemacs)
-(treemacs-follow-mode 1)
-(treemacs-filewatch-mode 1)
+;;(require 'treemacs)
+;;(treemacs-follow-mode 1)
+;;(treemacs-filewatch-mode 1)
 
 
 ;; autocomplete the parenthesis
