@@ -1,6 +1,13 @@
 
 (require 'org)
 
+(setq org-todo-keyword-faces
+      '(("TODO" . (:foreground "#fa8072" :weight bold))
+	;;("DONE" . (:foreground "SeaGreen4" :weight bold))
+	("STARTED" . "yellow")
+	("CANCELED" . (:foreground "blue" :weight bold))))
+
+
 ;; agenda views
 (setq org-agenda-files '("/Users/wlh/Documents/Personal/Org/"))
 (custom-set-faces
@@ -15,17 +22,8 @@
 
 ;; use org-agenda-view
 (setq inhibit-splash-screen t)
-;;(org-agenda-list 1)
 (org-agenda nil "d")
 (delete-other-windows)
-
-;;If you are looking for function to add to a hook or initialize
-;;you can wrap this up using a lambda expression. 
-;;(setq initial-buffer-choice (lambda ()
-;;  (org-agenda nil "d")
-;;  (get-buffer "*Org Agenda*")
-;;  (delete-other-windows)))
-
 
 (defun MyDef-org-agenda-view ()
   "set a org-agenda-view i choose most"
@@ -37,16 +35,8 @@
 (global-set-key [?\s-t] 'MyDef-org-agenda-view)
 
 
-
 (require 'org-ac)
 (org-ac/config-default)
-
-
-(setq org-todo-keyword-faces
-      '(("TODO" . (:foreground "#fa8072" :weight bold))
-	;;("DONE" . (:foreground "SeaGreen4" :weight bold))
-	("STARTED" . "yellow")
-	("CANCELED" . (:foreground "blue" :weight bold))))
 
 
 

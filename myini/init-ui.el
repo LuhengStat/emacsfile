@@ -89,6 +89,7 @@
 ;;(global-hl-line-mode +1)
 ;;(set-face-background 'hl-line "grey9")
 (unless (display-graphic-p)
+  (global-hl-line-mode +1)
   (set-face-background 'hl-line "#121212"))
 
 
@@ -139,6 +140,10 @@
       (when trg
         (setcar trg "")))))
 (add-hook 'after-change-major-mode-hook 'purge-minor-modes)
+
+(require 'diminish)
+(diminish 'auto-fill-mode)
+(diminish 'auto-fill-function)
 
 
 ;;(add-to-list 'default-frame-alist '(font . "-*-Monaco-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")) 

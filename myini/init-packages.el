@@ -10,8 +10,8 @@
 (setq package-list '(auto-complete
 		     highlight-parentheses
 		     ;;neotree
-		     treemacs
-		     treemacs-projectile
+		     ;;treemacs
+		     ;;treemacs-projectile
 		     swiper
 		     counsel
 		     ivy
