@@ -5,6 +5,9 @@
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(column-number-mode t)
+ '(custom-safe-themes
+   (quote
+    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(fringe-mode (quote (nil . 0)) nil (fringe))
  '(hl-paren-colors (quote ("blue" "Red" "DeepPink1" "dark cyan")))
  '(initial-scratch-message ";; Hello, Luheng.
@@ -14,8 +17,6 @@
  '(org-agenda-block-separator
    "==============================================================================")
  '(org-agenda-current-time-string "now - - - - - - - - - - - - - - - - - - - - - - - -")
- '(org-agenda-inhibit-startup t)
- '(org-agenda-window-setup (quote reorganize-frame))
  '(package-selected-packages
    (quote
     (ace-window avy youdao-dictionary window-numbering treemacs-projectile transpose-frame spacemacs-theme py-autopep8 popwin org-ac matlab-mode iedit highlight-parentheses git-commit ghub flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ample-theme ag)))
@@ -51,6 +52,9 @@
  '(font-latex-warning-face ((t (:foreground "red"))))
  '(iedit-occurrence ((t (:background "CadetBlue2"))))
  '(org-agenda-clocking ((t (:background "SkyBlue1"))))
+ '(org-level-1 ((t (:inherit outline-1 :height 1.15))))
+ '(org-level-2 ((t (:inherit outline-2 :height 1.1))))
+ '(org-level-3 ((t (:inherit outline-3 :height 1.05))))
  '(org-upcoming-deadline ((t (:foreground "blue violet")))))
 
 

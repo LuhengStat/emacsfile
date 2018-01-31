@@ -53,12 +53,22 @@
 
 ;; use org-agenda-view
 (setq inhibit-splash-screen t)
-;;(custom-set-variables
-;; '(org-agenda-window-setup (quote current-window)))
+(setq org-agenda-inhibit-startup t)
 (org-agenda nil "d")
-(custom-set-variables
- '(org-agenda-window-setup (quote reorganize-frame)))
 (delete-other-windows)
 
+
+(defun my/org-clock-query-out ()
+  "Ask the user before clocking out.
+This is a useful function for adding to `kill-emacs-query-functions'."
+  (if (and
+       (featurep 'org-clock)
+       (funcall 'org-clocking-p)
+       (y-or-n-p "You are currently clocking time, clock out? "))
+      (org-clock-out) 
+    t)) ;; only fails on keyboard quit or error
+
+;; timeclock.el puts this on the wrong hook!
+(add-hook 'kill-emacs-query-functions 'my/org-clock-query-out)
 
 (provide 'init-org)
