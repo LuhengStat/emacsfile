@@ -131,6 +131,7 @@
     TeX-mode
     reftex-mode
     disable-mouse-mode
+    auto-fill-function
     ))
 
 (defun purge-minor-modes ()
@@ -141,9 +142,8 @@
         (setcar trg "")))))
 (add-hook 'after-change-major-mode-hook 'purge-minor-modes)
 
-(require 'diminish)
-(diminish 'auto-fill-mode)
-(diminish 'auto-fill-function)
+;;(require 'diminish)
+;;(diminish 'auto-fill-function)
 
 
 ;;(add-to-list 'default-frame-alist '(font . "-*-Monaco-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")) 
@@ -223,7 +223,6 @@
 
 (if window-system
     (s2-font))
-
 
 
 ;;;; 设置编辑环境

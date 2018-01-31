@@ -22,4 +22,7 @@
 
 (add-hook 'elpy-mode-hook (lambda () (highlight-indentation-mode -1)))
 
+;;(add-hook 'python-mode-hook 'linum-mode)
+
+
 (provide 'init-python)
