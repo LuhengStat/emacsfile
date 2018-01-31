@@ -28,13 +28,11 @@
 
 
 (toggle-frame-maximized)
-;; always wrap without indicators
-
 
 (blink-cursor-mode 0)
 (defun s-cursor()
   ;; set cursor-type with a line
-  ;;(setq-default cursor-type 'bar) 
+  ;;(setq-default cursor-type 'bar)
   ;; set cursor color
   (set-cursor-color "#3180f1")
   )

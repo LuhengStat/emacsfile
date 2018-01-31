@@ -14,11 +14,15 @@
  '(org-agenda-block-separator
    "==============================================================================")
  '(org-agenda-current-time-string "now - - - - - - - - - - - - - - - - - - - - - - - -")
+ '(org-agenda-inhibit-startup t)
  '(org-agenda-window-setup (quote reorganize-frame))
  '(package-selected-packages
    (quote
     (ace-window avy youdao-dictionary window-numbering treemacs-projectile transpose-frame spacemacs-theme py-autopep8 popwin org-ac matlab-mode iedit highlight-parentheses git-commit ghub flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ample-theme ag)))
- '(safe-local-variable-values (quote ((projectile-project-name . "PhdThesis"))))
+ '(safe-local-variable-values
+   (quote
+    ((projectile-project-name . RCVCov)
+     (projectile-project-name . "PhdThesis"))))
  '(save-abbrevs (quote silently))
  '(scroll-bar-mode nil)
  '(scroll-conservatively 1000)

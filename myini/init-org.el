@@ -53,8 +53,8 @@
 
 ;; use org-agenda-view
 (setq inhibit-splash-screen t)
-(custom-set-variables
- '(org-agenda-window-setup (quote current-window)))
+;;(custom-set-variables
+;; '(org-agenda-window-setup (quote current-window)))
 (org-agenda nil "d")
 (custom-set-variables
  '(org-agenda-window-setup (quote reorganize-frame)))
