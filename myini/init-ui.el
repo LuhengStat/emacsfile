@@ -23,7 +23,8 @@
 ;;  (delete-other-windows))
 ;;(setq initial-buffer-choice 'acg-initial-buffer-choice)
 (if (get-buffer "*ESS*")
-      (kill-buffer "*ESS*"))
+    (kill-buffer "*ESS*")
+  )
 
 
 (toggle-frame-maximized)

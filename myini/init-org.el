@@ -16,7 +16,6 @@
 
 ;; continue with the clock
 (setq org-clock-continuously nil)
-
 (setq org-html-validation-link nil)
 
 
@@ -43,11 +42,6 @@
 	 ((agenda "")
 	  (alltodo "")))))
 
-;; use org-agenda-view
-(setq inhibit-splash-screen t)
-(org-agenda nil "d")
-(delete-other-windows)
-
 (defun MyDef-org-agenda-view ()
   "set a org-agenda-view i choose most"
   (interactive)
@@ -57,6 +51,14 @@
 (global-set-key (kbd "C-c t") 'org-agenda)
 (global-set-key [?\s-t] 'MyDef-org-agenda-view)
 
+;; use org-agenda-view
+(setq inhibit-splash-screen t)
+(custom-set-variables
+ '(org-agenda-window-setup (quote current-window)))
+(org-agenda nil "d")
+(custom-set-variables
+ '(org-agenda-window-setup (quote reorganize-frame)))
+(delete-other-windows)
 
 
 (provide 'init-org)

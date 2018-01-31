@@ -1,6 +1,6 @@
 #!/bin/sh
 source ~/.bash_profile
-cp -R ~/.emacs.d/myini/init-*.el ~/Documents/GitHub/emacsfile/myini/
+cp -R ~/.emacs.d/myini/*.el ~/Documents/GitHub/emacsfile/myini/
 cp -R ~/.emacs.d/snippets/* ~/Documents/GitHub/emacsfile/snippets/
 cp -R ~/.emacs ~/Documents/GitHub/emacsfile/
 currentPath=`pwd`
