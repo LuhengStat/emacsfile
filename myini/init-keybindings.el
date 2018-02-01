@@ -74,8 +74,8 @@
   "If there has a youdao buffer, close it"
   (interactive)
   (if (get-buffer-window "*Youdao Dictionary*")
-      (progn   (if (< (window-width) 125)
-		   (kill-buffer "*Youdao Dictionary*")
+      (progn   (if (or (< (window-width) 125) (> (window-height) 25))
+		   (previous-buffer)
 		 (popwin:close-popup-window)))
     (youdao-dictionary-search-at-point)))
 
@@ -86,8 +86,8 @@
   "define the window of calendar"
   (interactive)
   (if (get-buffer-window "*Calendar*")
-      (progn   (if (< (window-width) 125)
-		   (kill-buffer "*Calendar*")
+      (progn   (if (or (< (window-width) 125) (> (window-height) 25))
+		   (calendar-exit)
 		 (popwin:close-popup-window)))
     (org-agenda-goto-calendar)))
 
