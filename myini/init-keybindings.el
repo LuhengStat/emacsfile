@@ -149,7 +149,7 @@ if we are not in a project, just use the function counsel-ag"
   (interactive)
   (if projectile-require-project-root
       (progn
-	;;(message "Not in a project, use counsel-ag instead")
+	(message "Not in a project, use counsel-ag instead")
 	(counsel-ag))
     (counsel-projectile-ag)))
 (define-key projectile-mode-map [?\s-g] 'MyDef-enhanced-counsel-projectile-ag)

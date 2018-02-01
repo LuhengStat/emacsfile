@@ -41,23 +41,24 @@
 
 
 ;; agenda views
-(setq org-agenda-files '("/Users/wlh/Documents/Personal/Org/"))
+;;(setq org-agenda-files '("/Users/wlh/Documents/Personal/Org/"))
 (custom-set-faces
  '(error ((t (:foreground "Red" :weight normal))))
  '(org-agenda-clocking ((t (:background "SkyBlue1")))))
 
-;;(setq org-agenda-log-mode-items '(closed))
-
 (setq org-agenda-span 'day)
+(setq org-agenda-include-diary t)
 
 (setq org-agenda-custom-commands
       '(("d" "Simple agenda view"
-	 ((tags "PRIORITY=\"A\""
+	 (
+	  (tags "PRIORITY=\"A\""
                 ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
-                 (org-agenda-overriding-header "High-priority Tasks:")))
-	  (agenda "")
-	  (alltodo "")))))
-
+                 (org-agenda-overriding-header "High-priority Tasks:")))	  
+	  (agenda "")	
+	  (alltodo ""		   
+		   ((org-agenda-overriding-header "Global Tasks:")))
+	  ))))
 
 (defun MyDef-org-agenda-view ()
   "set a org-agenda-view i choose most"

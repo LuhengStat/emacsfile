@@ -9,7 +9,9 @@
    (quote
     ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(fringe-mode (quote (nil . 0)) nil (fringe))
- '(hl-paren-colors (quote ("blue" "Red" "DeepPink1" "dark cyan")))
+ '(hl-paren-colors
+   (quote
+    ("blue" "Red" "Magenta" "dark cyan" "dark goldenrod")))
  '(initial-scratch-message ";; Hello, Luheng.
 
 ")
@@ -17,6 +19,10 @@
  '(org-agenda-block-separator
    "==============================================================================")
  '(org-agenda-current-time-string "now - - - - - - - - - - - - - - - - - - - - - - - -")
+ '(org-agenda-files
+   (quote
+    ("/Users/wlh/Documents/Personal/Org/diary.org" "/Users/wlh/Documents/Personal/Org/goodhabit.org" "/Users/wlh/Documents/Personal/Org/workdiary.org")))
+ '(org-agenda-restore-windows-after-quit t)
  '(package-selected-packages
    (quote
     (ace-window avy youdao-dictionary window-numbering treemacs-projectile transpose-frame spacemacs-theme py-autopep8 popwin org-ac matlab-mode iedit highlight-parentheses git-commit ghub flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ample-theme ag)))
