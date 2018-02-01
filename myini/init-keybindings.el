@@ -95,7 +95,6 @@
 (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
 (global-set-key (kbd "C-c g") 'counsel-git)
 (global-set-key (kbd "C-c j") 'counsel-git-grep)
-(global-set-key (kbd "C-c o") 'counsel-ag)
 (global-set-key (kbd "C-x l") 'counsel-locate)
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
@@ -144,7 +143,16 @@
 
 (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
 (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
-(define-key projectile-mode-map [?\s-g] 'counsel-projectile-ag)
+(defun MyDef-enhanced-counsel-projectile-ag ()
+  "Enhanced the function of counsel-projectile-ag
+if we are not in a project, just use the function counsel-ag"
+  (interactive)
+  (if projectile-require-project-root
+      (progn
+	;;(message "Not in a project, use counsel-ag instead")
+	(counsel-ag))
+    (counsel-projectile-ag)))
+(define-key projectile-mode-map [?\s-g] 'MyDef-enhanced-counsel-projectile-ag)
 ;;(define-key projectile-mode-map [?\s-b] 'projectile-ibuffer)
 
 
@@ -174,7 +182,10 @@
 	(?o delete-other-windows "Delete Other Windows")
 	(?? aw-show-dispatch-help))
   "List of actions for `aw-dispatch-default'.")
-(global-set-key (kbd "s-0") 'delete-other-windows)
+(global-set-key (kbd "s-0") 'delete-window)
+(global-set-key (kbd "s-1") 'delete-other-windows)
+(global-set-key (kbd "s-2") 'split-window-below)
+(global-set-key (kbd "s-3") 'split-window-right)
 
 
 (provide 'init-keybindings)
