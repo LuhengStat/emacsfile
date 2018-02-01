@@ -1,5 +1,11 @@
 
 ;; user define functions
+(defun MyDef-quick-save-flash-ideas ()
+  "quickly save some flash ideas"
+  (interactive)
+  (find-file-other-window "/Users/wlh/Documents/Learning/FlashIdeas.org"))
+(global-set-key (kbd "s-6") 'MyDef-quick-save-flash-ideas)
+
 (defun MyDef-open-line-and-next ()
   "open a new line and go to the next line"
   (interactive)
@@ -10,6 +16,7 @@
 (add-hook 'bibtex-mode-hook
 	  (lambda ()
 	    (define-key bibtex-mode-map (kbd "C-j") 'MyDef-open-line-and-next)))
+
 (defun MyDef-fill-paragraph ()
   "let the position being better after indented"
   (interactive)
@@ -60,11 +67,28 @@
 ;; Enable Cache, for youdao translator h
 (setq url-automatic-caching t)
 ;; Example Key binding
-(global-set-key (kbd "s-y") 'youdao-dictionary-search-at-point)
 ;; Integrate with popwin-el (https://github.com/m2ym/popwin-el)    (left top right bottom)
 (push '("*Youdao Dictionary*" :width 0.5 :height 0.36 :position bottom) popwin:special-display-config)
 ;;(push "*Youdao Dictionary*" popwin:special-display-config)
+(defun Mydef-youdao ()
+  "If there has a youdao buffer, close it"
+  (interactive)
+  (if (get-buffer-window "*Youdao Dictionary*")
+      (popwin:close-popup-window)
+    (youdao-dictionary-search-at-point)))
 
+(global-set-key (kbd "s-y") 'Mydef-youdao)
+
+(push "*Calendar*" popwin:special-display-config)
+(defun Mydef-org-agenda-show-calendar ()
+  "define the window of calendar"
+  (interactive)
+  (if (get-buffer-window "*Calendar*")
+      (popwin:close-popup-window)
+    (org-agenda-goto-calendar)))
+
+(define-key org-agenda-mode-map "c" 'Mydef-org-agenda-show-calendar)
+(define-key calendar-mode-map "c" 'popwin:close-popup-window)
 
 ;; ess quit R
 (defun ess-abort ()
@@ -143,16 +167,19 @@
 
 (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
 (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
+
 (defun MyDef-enhanced-counsel-projectile-ag ()
   "Enhanced the function of counsel-projectile-ag
 if we are not in a project, just use the function counsel-ag"
   (interactive)
   (if projectile-require-project-root
       (progn
-	(message "Not in a project, use counsel-ag instead")
-	(counsel-ag))
-    (counsel-projectile-ag)))
-(define-key projectile-mode-map [?\s-g] 'MyDef-enhanced-counsel-projectile-ag)
+	(message "projectile-ag")
+	(counsel-projectile-ag)
+	)
+    (message "Not in a project, use counsel-ag instead")
+    (counsel-ag)))
+(define-key projectile-mode-map [?\s-g] 'counsel-projectile-ag)
 ;;(define-key projectile-mode-map [?\s-b] 'projectile-ibuffer)
 
 

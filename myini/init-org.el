@@ -51,13 +51,8 @@
 
 (setq org-agenda-custom-commands
       '(("d" "Simple agenda view"
-	 (
-	  (tags "PRIORITY=\"A\""
-                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
-                 (org-agenda-overriding-header "High-priority Tasks:")))	  
-	  (agenda "")	
-	  (alltodo ""		   
-		   ((org-agenda-overriding-header "Global Tasks:")))
+	 ((agenda "")	
+	  (alltodo "" ((org-agenda-overriding-header "Global Tasks:")))
 	  ))))
 
 (defun MyDef-org-agenda-view ()
@@ -83,7 +78,9 @@ This is a useful function for adding to `kill-emacs-query-functions'."
        (featurep 'org-clock)
        (funcall 'org-clocking-p)
        (y-or-n-p "You are currently clocking time, clock out? "))
-      (org-clock-out) 
+      (progn
+	(org-clock-out)
+	(save-buffers-kill-terminal))       
     t)) ;; only fails on keyboard quit or error
 
 ;; timeclock.el puts this on the wrong hook!
