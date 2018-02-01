@@ -84,11 +84,13 @@
   "define the window of calendar"
   (interactive)
   (if (get-buffer-window "*Calendar*")
-      (popwin:close-popup-window)
+      (progn   (if (< (window-width) 125)
+		   (kill-buffer "*Calendar*")
+		 (popwin:close-popup-window)))
     (org-agenda-goto-calendar)))
 
 (define-key org-agenda-mode-map "c" 'Mydef-org-agenda-show-calendar)
-(define-key calendar-mode-map "c" 'popwin:close-popup-window)
+(define-key calendar-mode-map "c" 'Mydef-org-agenda-show-calendar)
 
 ;; ess quit R
 (defun ess-abort ()
