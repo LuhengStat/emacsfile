@@ -58,7 +58,11 @@
 (defun MyDef-org-agenda-view ()
   "set a org-agenda-view i choose most"
   (interactive)
-  (org-agenda nil "d"))
+  (if (get-buffer-window "*Org Agenda*")
+      (progn
+	(switch-to-buffer "*Org Agenda*")
+	(org-agenda-quit))
+    (org-agenda nil "d")))
 
 ;; org-agenda
 (global-set-key (kbd "C-c t") 'org-agenda)
