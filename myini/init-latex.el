@@ -55,9 +55,9 @@
 (setq-default TeX-source-correlate-mode t) ;; Enable synctex
 (setq-default TeX-source-correlate-start-server t)
 
- 
-(require 'company-auctex)
+
 ;;(require 'auto-complete-auctex)
+(require 'company-auctex)
 (company-auctex-init)
 
 

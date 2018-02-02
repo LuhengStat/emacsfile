@@ -3,8 +3,7 @@
 ;; See this page here
 ;; https://stat.ethz.ch/pipermail/ess-help/2013-March/008719.html
 ;; Make sure that this is after the auto-complete package initialization
-(setq  ess-tab-complete-in-script t)
-(setq ess-use-auto-complete t)
+(setq ess-use-company t)
 (ess-toggle-underscore nil)
 
 ;; auto-change the directionary to the position of the current file

@@ -92,9 +92,18 @@
 
 ;; company-mode
 (global-company-mode)
-(setq company-idle-delay 0)
 ;; this configure is copied from https://oremacs.com/
-(setq company-show-numbers t)
+(define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
+(define-key company-active-map (kbd "M-n") 'company-select-next) 
+(define-key company-active-map (kbd "M-p") 'company-select-previous) 
+(define-key company-active-map [tab] 'company-select-next)
+(define-key company-active-map (kbd "<C-tab>") 'company-select-previous)
+(setq company-selection-wrap-around t
+      company-tooltip-align-annotations t
+      company-idle-delay 0.36
+      company-minimum-prefix-length 2
+      company-tooltip-limit 10
+      company-show-numbers t)
 
 (let ((map company-active-map))
   (mapc
