@@ -20,7 +20,6 @@
 
 (require 'init-keybindings)
 
-(set-face-bold-p 'bold nil)
 
 
 

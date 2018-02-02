@@ -90,21 +90,33 @@
 ;;(ac-config-default)
 ;;(setq ac-auto-start 2)
 
-;; company-mode
+;; company-mode 
 (global-company-mode)
-;; this configure is copied from https://oremacs.com/
 (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
 (define-key company-active-map (kbd "M-n") 'company-select-next) 
-(define-key company-active-map (kbd "M-p") 'company-select-previous) 
-(define-key company-active-map [tab] 'company-select-next)
-(define-key company-active-map (kbd "<C-tab>") 'company-select-previous)
+(define-key company-active-map (kbd "M-p") 'company-select-previous)
+(define-key company-active-map [tab] 'company-complete-common)
+;;(define-key company-active-map (kbd "<C-tab>") 'company-select-previous)
 (setq company-selection-wrap-around t
       company-tooltip-align-annotations t
       company-idle-delay 0.36
       company-minimum-prefix-length 2
-      company-tooltip-limit 10
+      company-tooltip-limit 9
       company-show-numbers t)
 
+;; Add yasnippet support for all company backends
+(defvar company-mode/enable-yas t
+  "Enable yasnippet for all backends.")
+
+(defun company-mode/backend-with-yas (backend)
+  (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
+      backend
+    (append (if (consp backend) backend (list backend))
+            '(:with company-yasnippet))))
+
+(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+
+;; this configure is copied from https://oremacs.com/
 (let ((map company-active-map))
   (mapc
    (lambda (x)
@@ -118,7 +130,6 @@
 
 (defun ora-company-number ()
   "Forward to `company-complete-number'.
-
 Unless the number is potentially part of the candidate.
 In that case, insert the number."
   (interactive)
