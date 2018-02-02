@@ -178,8 +178,12 @@ if we are not in a project, just use the function counsel-ag"
   (interactive)
   (if (equal (projectile-project-name) "-")
       (progn
-	(message "Not in a project, use counsel-ag instead")
-	(counsel-ag))
+	(if (not (buffer-file-name))
+	    (progn
+	      (message "Not a valid file, use swiper")
+	      (swiper))
+	  (message "Not in a project, use counsel-ag instead")
+	  (counsel-ag)))
     (message "In Proj[%s], use counsel-projectile-ag"
 	     (projectile-project-name))
     (counsel-projectile-ag)))
