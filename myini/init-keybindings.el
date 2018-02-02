@@ -17,6 +17,14 @@
 	  (lambda ()
 	    (define-key bibtex-mode-map (kbd "C-j") 'MyDef-open-line-and-next)))
 
+(defun MyDef-mark-whole-line ()
+  "mark the whole line"
+  (interactive)
+  (call-interactively 'move-beginning-of-line)
+  (call-interactively 'set-mark-command)
+  (call-interactively 'move-end-of-line))
+(global-set-key (kbd "C-x C-l") 'MyDef-mark-whole-line)
+
 (defun MyDef-fill-paragraph ()
   "let the position being better after indented"
   (interactive)
@@ -96,6 +104,11 @@
 (define-key calendar-mode-map (kbd "s-c") 'MyDef-org-agenda-show-calendar)
 (define-key org-agenda-mode-map (kbd "c") 'MyDef-org-agenda-show-calendar)
 (define-key calendar-mode-map (kbd "c") 'MyDef-org-agenda-show-calendar)
+(define-key calendar-mode-map (kbd "f") 'calendar-forward-day)
+(define-key calendar-mode-map (kbd "b") 'calendar-backward-day)
+(define-key calendar-mode-map (kbd "n") 'calendar-forward-week)
+(define-key calendar-mode-map (kbd "p") 'calendar-backward-week)
+
 
 ;; ess quit R
 (defun ess-abort ()
