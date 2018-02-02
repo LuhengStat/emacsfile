@@ -182,13 +182,8 @@ if we are not in a project, just use the function counsel-ag"
   (if (equal (projectile-project-name) "-")
       (progn
 	(if (not (buffer-file-name))
-	    (progn
-	      (message "Not a valid file, use swiper")
-	      (swiper))
-	  (message "Not in a project, use counsel-ag instead")
+	    (swiper)
 	  (counsel-ag)))
-    (message "In Proj[%s], use counsel-projectile-ag"
-	     (projectile-project-name))
     (counsel-projectile-ag)))
 (define-key projectile-mode-map [?\s-g] 'MyDef-enhanced-counsel-ag)
 
