@@ -27,6 +27,7 @@
   )
 
 
+;;(sml/setup)
 (toggle-frame-maximized)
 
 (blink-cursor-mode 0)
@@ -141,9 +142,8 @@
         (setcar trg "")))))
 (add-hook 'after-change-major-mode-hook 'purge-minor-modes)
 
-;;(require 'diminish)
-;;(diminish 'auto-fill-function)
-
+(dim-major-name 'help-mode "H")
+(dim-major-name 'emacs-lisp-mode "Lisp")
 
 ;;(add-to-list 'default-frame-alist '(font . "-*-Monaco-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")) 
 ;;(set-face-attribute 'default t :font "-*-Monaco-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1" )

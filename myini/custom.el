@@ -7,7 +7,7 @@
  '(column-number-mode t)
  '(custom-safe-themes
    (quote
-    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(fringe-mode (quote (nil . 0)) nil (fringe))
  '(hl-paren-colors
    (quote
@@ -34,7 +34,13 @@
  '(org-clock-report-include-clocking-task t)
  '(package-selected-packages
    (quote
-    (ace-window avy youdao-dictionary window-numbering treemacs-projectile transpose-frame spacemacs-theme py-autopep8 popwin org-ac matlab-mode iedit highlight-parentheses git-commit ghub flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ample-theme ag)))
+    (dim ace-window avy youdao-dictionary window-numbering treemacs-projectile transpose-frame spacemacs-theme py-autopep8 popwin org-ac matlab-mode iedit highlight-parentheses git-commit ghub flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ample-theme ag)))
+ '(projectile-mode t nil (projectile))
+ '(projectile-mode-line
+   (quote
+    (:eval
+     (format " Proj[%s]"
+	     (projectile-project-name)))))
  '(safe-local-variable-values
    (quote
     ((projectile-project-name . RCVCov)
@@ -53,7 +59,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(aw-leading-char-face ((t (:foreground "red" :height 1.6))))
+ '(aw-leading-char-face ((t (:foreground "red" :height 1.2))))
  '(error ((t (:foreground "Red" :weight normal))))
  '(font-latex-sectioning-0-face ((t (:inherit font-latex-sectioning-1-face :height 1.0))))
  '(font-latex-sectioning-1-face ((t (:inherit font-latex-sectioning-2-face :height 1.0))))

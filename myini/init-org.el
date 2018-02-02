@@ -3,7 +3,7 @@
 
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
-              (sequence "WAITING(w@/)" "HOLD(h@/)" "|" "CANCELLED(c@/)" "PHONE" "MEETING"))))
+              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))))
 (setq org-use-fast-todo-selection t)
 (setq org-treat-S-cursor-todo-selection-as-state-change nil)
 
@@ -27,7 +27,7 @@
 ;; continue with the clock
 (setq org-clock-continuously nil)
 (setq org-html-validation-link nil)
-
+(setq org-clock-mode-line-total 'current)
 
 (eval-after-load 'org
   (progn

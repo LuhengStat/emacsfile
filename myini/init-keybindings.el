@@ -68,9 +68,9 @@
 (setq url-automatic-caching t)
 ;; Example Key binding
 ;; Integrate with popwin-el (https://github.com/m2ym/popwin-el)    (left top right bottom)
-(push '("*Youdao Dictionary*" :width 0.5 :height 0.36 :position bottom) popwin:special-display-config)
-;;(push "*Youdao Dictionary*" popwin:special-display-config)
-(defun Mydef-youdao ()
+;;(push '("*Youdao Dictionary*" :width 0.5 :height 0.36 :position bottom) popwin:special-display-config)
+(push "*Youdao Dictionary*" popwin:special-display-config)
+(defun MyDef-youdao ()
   "If there has a youdao buffer, close it"
   (interactive)
   (if (get-buffer-window "*Youdao Dictionary*")
@@ -79,10 +79,10 @@
 		 (popwin:close-popup-window)))
     (youdao-dictionary-search-at-point)))
 
-(global-set-key (kbd "s-y") 'Mydef-youdao)
+(global-set-key (kbd "s-y") 'MyDef-youdao)
 
 (push "*Calendar*" popwin:special-display-config)
-(defun Mydef-org-agenda-show-calendar ()
+(defun MyDef-org-agenda-show-calendar ()
   "define the window of calendar"
   (interactive)
   (if (get-buffer-window "*Calendar*")
@@ -91,8 +91,8 @@
 		 (popwin:close-popup-window)))
     (org-agenda-goto-calendar)))
 
-(define-key org-agenda-mode-map "c" 'Mydef-org-agenda-show-calendar)
-(define-key calendar-mode-map "c" 'Mydef-org-agenda-show-calendar)
+(define-key org-agenda-mode-map "c" 'MyDef-org-agenda-show-calendar)
+(define-key calendar-mode-map "c" 'MyDef-org-agenda-show-calendar)
 
 ;; ess quit R
 (defun ess-abort ()
@@ -172,19 +172,18 @@
 (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
 (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
 
-(defun MyDef-enhanced-counsel-projectile-ag ()
+(defun MyDef-enhanced-counsel-ag ()
   "Enhanced the function of counsel-projectile-ag
 if we are not in a project, just use the function counsel-ag"
   (interactive)
-  (if projectile-require-project-root
+  (if (equal (projectile-project-name) "-")
       (progn
-	(message "projectile-ag")
-	(counsel-projectile-ag)
-	)
-    (message "Not in a project, use counsel-ag instead")
-    (counsel-ag)))
-(define-key projectile-mode-map [?\s-g] 'counsel-projectile-ag)
-;;(define-key projectile-mode-map [?\s-b] 'projectile-ibuffer)
+	(message "Not in a project, use counsel-ag instead")
+	(counsel-ag))
+    (message "In Proj[%s], use counsel-projectile-ag"
+	     (projectile-project-name))
+    (counsel-projectile-ag)))
+(define-key projectile-mode-map [?\s-g] 'MyDef-enhanced-counsel-ag)
 
 
 (global-set-key (kbd "s-SPC") 'set-mark-command)
