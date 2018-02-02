@@ -6,7 +6,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/myini/")
 
-(setq custom-file (expand-file-name "myini/custom.el" user-emacs-directory))
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load-file custom-file)
 
 (require 'init-packages)
