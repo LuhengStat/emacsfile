@@ -90,10 +90,12 @@
 		   (calendar-exit)
 		 (popwin:close-popup-window)))
     (org-agenda-goto-calendar)))
-(global-set-key (kbd "s-c") 'nil)
 
+(global-set-key (kbd "s-c") 'calendar)
 (define-key org-agenda-mode-map (kbd "s-c") 'MyDef-org-agenda-show-calendar)
 (define-key calendar-mode-map (kbd "s-c") 'MyDef-org-agenda-show-calendar)
+(define-key org-agenda-mode-map (kbd "c") 'MyDef-org-agenda-show-calendar)
+(define-key calendar-mode-map (kbd "c") 'MyDef-org-agenda-show-calendar)
 
 ;; ess quit R
 (defun ess-abort ()
