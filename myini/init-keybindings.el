@@ -110,15 +110,6 @@
 (define-key calendar-mode-map (kbd "p") 'calendar-backward-week)
 
 
-;; ess quit R
-(defun ess-abort ()
-  (interactive)
-  (kill-process (ess-get-process)))
-(define-key ess-mode-map (kbd "C-c C-a") 'ess-abort)
-(define-key inferior-ess-mode-map (kbd "C-c C-a") 'ess-abort)
-(define-key ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
-(define-key inferior-ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
-
 (defun MyDef-push-mark-swiper ()
   "push a mark to add the current position to the mark ring"
   (interactive)

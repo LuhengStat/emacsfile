@@ -87,66 +87,51 @@
 
 ;;;;;;;;;;;;;;;;; auto-complete
 ;;(require 'auto-complete-config)
-(ac-config-default)
+;;(ac-config-default)
+;;(setq ac-auto-start 2)
+
+;; company-mode
+(global-company-mode)
+(setq company-idle-delay 0)
+;; this configure is copied from https://oremacs.com/
+(setq company-show-numbers t)
+
+(let ((map company-active-map))
+  (mapc
+   (lambda (x)
+     (define-key map (format "%d" x) 'ora-company-number))
+   (number-sequence 0 9))
+  (define-key map " " (lambda ()
+                        (interactive)
+                        (company-abort)
+                        (self-insert-command 1)))
+  (define-key map (kbd "<return>") nil))
+
+(defun ora-company-number ()
+  "Forward to `company-complete-number'.
+
+Unless the number is potentially part of the candidate.
+In that case, insert the number."
+  (interactive)
+  (let* ((k (this-command-keys))
+         (re (concat "^" company-prefix k)))
+    (if (cl-find-if (lambda (s) (string-match re s))
+                    company-candidates)
+        (self-insert-command 1)
+      (company-complete-number (string-to-number k)))))
+
 
 ;; ag highlight
 (setq ag-highlight-search t)
-
-
-;; Get tab completion in R script files
-;; See this page here
-;; https://stat.ethz.ch/pipermail/ess-help/2013-March/008719.html
-;; Make sure that this is after the auto-complete package initialization
-(setq  ess-tab-complete-in-script t)
-(setq ess-use-auto-complete t)
-(ess-toggle-underscore nil)
-
-;; auto-change the directionary to the position of the current file
-;;(add-hook 'ess-mode-hook 'ess-use-this-dir)
-
-;; set the default style, same with RStudio
-(setq ess-default-style 'RStudio)
-
-(setq ac-auto-start 2)
-;;(set-face-attribute 'ac-candidate-face nil   :background "#00222c" :foreground "light gray")
-;;(set-face-attribute 'ac-selection-face nil   :background "SteelBlue4" :foreground "white")
-;;(set-face-attribute 'popup-tip-face    nil   :background "#003A4E" :foreground "light gray")
-
-(setq 
- ac-auto-show-menu 1
- ac-candidate-limit nil
- ac-delay 0
- ac-disable-faces (quote (font-lock-comment-face font-lock-doc-face))
- ac-ignore-case 'smart
- ac-menu-height 10
- ac-quick-help-delay 0.05
- ac-quick-help-prefer-pos-tip t
- ac-use-quick-help nil
- )
-
-
-;;;;;;;;;;;;;;;;;; neotree settings
-;;(require 'neotree)
-;; jump to the current file
-;;(setq neo-smart-open t)
-;;(require 'treemacs)
-;;(treemacs-follow-mode 1)
-;;(treemacs-filewatch-mode 1)
-
 
 ;; autocomplete the parenthesis
 (require 'autopair)
 (autopair-global-mode 1)
 ;;(setq ac-auto-show-menu 0)
 ;;(setq ac-delay 0)
-;; company mode
-;;(setq company-idle-delay 0) 
-
 
 (require 'avy)
-
 (require 'counsel)
-
 
 ;; redo-undo tree
 (require 'undo-tree)
@@ -158,29 +143,15 @@
 (popwin-mode t)
 
 
-;; windows numbering
-;;(setq window-numbering-assign-func
-;;      (lambda () (when (equal (buffer-name) "*Calculator*") 9)))
-;;(window-numbering-mode 1)
-
-
 ;; save history
 ;;(savehist-mode 1)
 ;;(setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
 ;;(setq savehist-file "~/.emacs.d/tmp/savehist")
 
 
-;;(require 'ess-view)
-;;(setq ess-view--spreadsheet-program "/Applications/Table Tool.app/Contents/MacOS/Table Tool")
-
-
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
-
-
-;;(require 'ess-R-object-popup)
-;;(define-key ess-mode-map "\C-c\C-g" 'ess-R-object-popup)
 
 
 ;; highlight selected words in the whole buffer

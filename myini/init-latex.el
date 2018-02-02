@@ -56,8 +56,8 @@
 (setq-default TeX-source-correlate-start-server t)
 
  
-;;(require 'company-auctex)
-(require 'auto-complete-auctex)
+(require 'company-auctex)
+;;(require 'auto-complete-auctex)
 (company-auctex-init)
 
 
