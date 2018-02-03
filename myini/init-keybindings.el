@@ -90,6 +90,7 @@
 		 (popwin:close-popup-window)))
     (youdao-dictionary-search-at-point)))
 (global-set-key (kbd "s-y") 'MyDef-youdao)
+(global-set-key (kbd "C-s-y") 'youdao-dictionary-search-from-input)
 
 (defun MyDef-youdao-input ()
   "close the older youdao windw before input the new word"
