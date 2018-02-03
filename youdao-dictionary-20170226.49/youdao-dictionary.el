@@ -201,7 +201,8 @@ i.e. `[语][计] dictionary' => 'dictionary'."
           (goto-char (point-min))
           (set (make-local-variable 'youdao-dictionary-current-buffer-word) word))
         (switch-to-buffer-other-window buffer-name))
-    (message "Nothing to look up")))
+    (message "Nothing to look up, try to use search from input")
+    (search-from-input)))
 
 :autoload
 (defun search-at-point ()
