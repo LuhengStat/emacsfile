@@ -74,10 +74,13 @@
 
 ;; Enable Cache, for youdao translator h
 (setq url-automatic-caching t)
+;; Set file path for saving search history
+(setq youdao-dictionary-search-history-file "/Users/wlh/Documents/Learning/youdao.txt")
 ;; Example Key binding
 ;; Integrate with popwin-el (https://github.com/m2ym/popwin-el)    (left top right bottom)
 ;;(push '("*Youdao Dictionary*" :width 0.5 :height 0.36 :position bottom) popwin:special-display-config)
 (push "*Youdao Dictionary*" popwin:special-display-config)
+
 (defun MyDef-youdao ()
   "If there has a youdao buffer, close it"
   (interactive)
@@ -86,8 +89,17 @@
 		   (previous-buffer)
 		 (popwin:close-popup-window)))
     (youdao-dictionary-search-at-point)))
-
 (global-set-key (kbd "s-y") 'MyDef-youdao)
+
+(defun MyDef-youdao-input ()
+  "close the older youdao windw before input the new word"
+  (interactive)
+  (youdao-dictionary-search-from-input)
+  (delete-window)
+  (popwin:popup-last-buffer))
+(add-hook 'youdao-dictionary-mode-hook
+	  (lambda ()
+	    (define-key youdao-dictionary-mode-map (kbd "<tab>") 'MyDef-youdao-input)))
 
 (push "*Calendar*" popwin:special-display-config)
 (defun MyDef-org-agenda-show-calendar ()

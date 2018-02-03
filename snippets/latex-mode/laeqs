@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: latex equation with star
+# name: equation*
 # key: laeqs
 # --
 \begin{equation*}

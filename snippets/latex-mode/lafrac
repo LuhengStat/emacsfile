@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: lafrac
+# name: fraction
 # key: lafrac
 # --
 \frac{$1}{$2}$0

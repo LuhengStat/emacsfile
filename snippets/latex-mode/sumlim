@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: sumlim
+# name: sum limits
 # key: sumlim
 # --
 \sum\\limits_{$1}^{$2}$0

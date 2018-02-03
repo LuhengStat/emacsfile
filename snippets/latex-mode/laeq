@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: latex equation
+# name: equation
 # key: laeq
 # --
 \begin{equation}

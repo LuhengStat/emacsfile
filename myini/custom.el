@@ -29,12 +29,12 @@
  '(org-agenda-current-time-string "now - - - - - - - - - - - - - - - - - - - - - - - -")
  '(org-agenda-files
    (quote
-    ("~/Documents/Personal/Org/othernotes.org" "/Users/wlh/Documents/Personal/Org/diary.org" "/Users/wlh/Documents/Personal/Org/goodhabit.org" "/Users/wlh/Documents/Personal/Org/workdiary.org")))
+    ("~/Documents/Learning/FlashIdeas.org" "~/Documents/Personal/Org/othernotes.org" "/Users/wlh/Documents/Personal/Org/diary.org" "/Users/wlh/Documents/Personal/Org/goodhabit.org" "/Users/wlh/Documents/Personal/Org/workdiary.org")))
  '(org-agenda-restore-windows-after-quit t)
  '(org-clock-report-include-clocking-task t)
  '(package-selected-packages
    (quote
-    (dim ace-window avy youdao-dictionary window-numbering treemacs-projectile transpose-frame spacemacs-theme py-autopep8 popwin org-ac matlab-mode iedit highlight-parentheses git-commit ghub flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ample-theme ag)))
+    (youdao-dictionary osx-dictionary dim ace-window avy window-numbering treemacs-projectile transpose-frame spacemacs-theme py-autopep8 popwin org-ac matlab-mode iedit highlight-parentheses git-commit ghub flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ample-theme ag)))
  '(projectile-mode t nil (projectile))
  '(projectile-mode-line
    (quote

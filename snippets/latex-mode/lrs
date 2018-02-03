@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: square brackets
+# name: brackets []
 # key: lrs
 # --
 \left[$0\right]

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: maxlim
+# name: max limits
 # key: maxlim
 # --
 \max\\limits_{$1}$0

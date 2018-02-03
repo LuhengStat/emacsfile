@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: lalim
+# name: limits
 # key: lalim
 # --
 \limits_{$1}^{$2}$0

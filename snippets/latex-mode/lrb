@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: brace
+# name: brace {}
 # key: lrb
 # --
 \left\\{ $0 \right\\}

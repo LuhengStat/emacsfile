@@ -1,4 +1,9 @@
 
+;;(require 'auto-complete-auctex)
+(require 'company-auctex)
+(company-auctex-init)
+
+
 ;; for the \left \right part 
 (add-hook 'latex-mode-hook
           (lambda ()
@@ -54,11 +59,6 @@
 ;; Synctex for windows
 (setq-default TeX-source-correlate-mode t) ;; Enable synctex
 (setq-default TeX-source-correlate-start-server t)
-
-
-;;(require 'auto-complete-auctex)
-(require 'company-auctex)
-(company-auctex-init)
 
 
 (setq TeX-parse-self t) ; Enable parse on load.
