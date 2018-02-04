@@ -1,3 +1,6 @@
+(use-package hungry-delete
+  :init
+  (global-hungry-delete-mode))
 
 ;; user define functions
 (defun MyDef-quick-save-flash-ideas ()
@@ -36,22 +39,22 @@
 ;; easy move in read-only buffers
 ;; enter view-mode for read-only files
 (setq view-read-only t)
-;;(add-hook 'view-mode-hook
-;;	  (lambda ()
-;;	    (define-key view-mode-map (kbd "n") 'forward-paragraph)
-;;	    (define-key view-mode-map (kbd "p") 'backward-paragraph)
-;;	    (define-key view-mode-map (kbd "]") 'end-of-buffer)
-;;	    (define-key view-mode-map (kbd "[") 'beginning-of-buffer)
-;;	    (define-key view-mode-map (kbd "l") 'recenter-top-bottom)))
-;;(add-hook 'help-mode-hook
-;;	  (lambda ()
-;;	    (define-key help-mode-map (kbd "n") 'forward-paragraph)
-;;	    (define-key help-mode-map (kbd "p") 'backward-paragraph)
-;;	    (define-key help-mode-map (kbd "]") 'end-of-buffer)
-;;	    (define-key help-mode-map (kbd "[") 'beginning-of-buffer)
-;;	    (define-key help-mode-map (kbd "l") 'recenter-top-bottom)))
-(add-hook 'help-mode-hook 'turn-on-evil-mode)
-(add-hook 'view-mode-hook 'turn-on-evil-mode)
+(add-hook 'view-mode-hook
+	  (lambda ()
+	    (define-key view-mode-map (kbd "n") 'forward-paragraph)
+	    (define-key view-mode-map (kbd "p") 'backward-paragraph)
+	    (define-key view-mode-map (kbd "]") 'end-of-buffer)
+	    (define-key view-mode-map (kbd "[") 'beginning-of-buffer)
+	    (define-key view-mode-map (kbd "l") 'recenter-top-bottom)))
+(add-hook 'help-mode-hook
+	  (lambda ()
+	    (define-key help-mode-map (kbd "n") 'forward-paragraph)
+	    (define-key help-mode-map (kbd "p") 'backward-paragraph)
+	    (define-key help-mode-map (kbd "]") 'end-of-buffer)
+	    (define-key help-mode-map (kbd "[") 'beginning-of-buffer)
+	    (define-key help-mode-map (kbd "l") 'recenter-top-bottom)))
+;;(add-hook 'help-mode-hook 'turn-on-evil-mode)
+;;(add-hook 'view-mode-hook 'turn-on-evil-mode)
 (global-set-key (kbd "s-e")  'evil-mode)
 
 

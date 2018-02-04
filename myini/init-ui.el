@@ -132,6 +132,7 @@
     reftex-mode
     disable-mouse-mode
     auto-fill-function
+    hungry-delete-mode
     ))
 
 (defun purge-minor-modes ()

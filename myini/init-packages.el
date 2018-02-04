@@ -50,6 +50,7 @@
 		     cal-china-x
 		     ace-window
 		     dim
+		     hungry-delete
 		     ))
 
 ;; activate all the packages (in particular autoloads)
@@ -185,7 +186,7 @@ In that case, insert the number."
 
 
 ;;evil-mode
-(require 'evil)
+;;(require 'evil)
 ;;(evil-mode 1)
 ;;(setq evil-emacs-state-cursor '("blue" bar)
 ;;      evil-normal-state-cursor '("black")
