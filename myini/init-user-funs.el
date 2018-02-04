@@ -48,7 +48,7 @@ With a prefix ARG, invalidate the cache first."
             :require-match t
             :action (lambda (x)
                         (with-ivy-window
-                          (MyDef-counsel-projectile-find-file-action (expand-file-name x ivy--directory))))
+                          (MyDef-counsel-projectile-find-file-action x)))
             :caller 'MyDef-counsel-projectile-find-file))
 
 (defun counsel-rg-jump (&optional initial-input initial-directory)
