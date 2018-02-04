@@ -5,7 +5,18 @@
   (interactive
    (find-file-read-args "Find file: "
                         (confirm-nonexistent-file-or-buffer)))
-  (if (cl-search ".pdf" (downcase filename))
+  (if (or (cl-search ".pdf" (downcase filename))
+	  (cl-search ".eps" (downcase filename))
+	  (cl-search ".jpg" (downcase filename))
+	  (cl-search ".xlsx" (downcase filename))
+	  (cl-search ".xls" (downcase filename))
+	  (cl-search ".jpg" (downcase filename))
+	  (cl-search ".rmvb" (downcase filename))
+	  (cl-search ".mkv" (downcase filename))
+	  (cl-search ".mp4" (downcase filename))
+	  (cl-search ".flv" (downcase filename))
+	  (cl-search ".mp3" (downcase filename))
+	  )
       (shell-command (format "open \"%s\"" filename))
     (find-file filename)))
 
