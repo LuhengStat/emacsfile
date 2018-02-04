@@ -7,7 +7,8 @@
 (setq package-check-signature nil)
 
 ;; list the packages you want
-(setq package-list '(auto-complete
+(setq package-list '(use-package
+		     auto-complete
 		     highlight-parentheses
 		     ;;neotree
 		     ;;treemacs
@@ -45,8 +46,10 @@
 		     counsel-projectile
 		     popwin
 		     ag
+		     rg
 		     cal-china-x
 		     ace-window
+		     dim
 		     ))
 
 ;; activate all the packages (in particular autoloads)
@@ -61,6 +64,9 @@
   (unless (package-installed-p package)
     (package-install package)))(setq package-list '(package1 package2))
 
+;; This is only needed once, near the top of the file
+(eval-when-compile
+  (require 'use-package))
 
 ;;;;;;;;;;;;;;;;; swiper
 (ivy-mode 1)
@@ -126,7 +132,7 @@
                         (interactive)
                         (company-abort)
                         (self-insert-command 1)))
-  (define-key map (kbd "<return>") nil))
+  (define-key map (kbd "<return>") nil)) 
 
 (defun ora-company-number ()
   "Forward to `company-complete-number'.

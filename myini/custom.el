@@ -5,9 +5,6 @@
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(column-number-mode t)
- '(custom-safe-themes
-   (quote
-    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(fringe-mode (quote (nil . 0)) nil (fringe))
  '(hl-paren-colors
    (quote
@@ -34,7 +31,7 @@
  '(org-clock-report-include-clocking-task t)
  '(package-selected-packages
    (quote
-    (youdao-dictionary osx-dictionary dim ace-window avy window-numbering treemacs-projectile transpose-frame spacemacs-theme py-autopep8 popwin org-ac matlab-mode iedit highlight-parentheses git-commit ghub flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ample-theme ag)))
+    (rg youdao-dictionary use-package transpose-frame spacemacs-theme py-autopep8 popwin org-ac iedit highlight-parentheses flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy dim counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ag ace-window)))
  '(projectile-mode t nil (projectile))
  '(projectile-mode-line
    (quote

@@ -188,9 +188,8 @@
 ;;(global-set-key (kbd "C-c \\") 'find-file-in-project)
 
 (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
-(define-key projectile-mode-map [?\s-f] 'projectile-find-file)
 
-(defun MyDef-enhanced-counsel-ag ()
+(defun MyDef-enhanced-counsel-search ()
   "Enhanced the function of counsel-projectile-ag
 if we are not in a project, just use the function counsel-ag"
   (interactive)
@@ -198,9 +197,18 @@ if we are not in a project, just use the function counsel-ag"
       (progn
 	(if (not (buffer-file-name))
 	    (swiper)
-	  (counsel-ag)))
-    (counsel-projectile-ag)))
-(define-key projectile-mode-map [?\s-g] 'MyDef-enhanced-counsel-ag)
+	  (counsel-rg)))
+    (counsel-projectile-rg)))
+(define-key projectile-mode-map [?\s-g] 'MyDef-enhanced-counsel-search)
+
+(defun MyDef-enhanced-find-file ()
+  "Enhanced the function of counsel-projectile-find-file
+if we are not in a project, just use the function find-file"
+  (interactive)
+  (if (equal (projectile-project-name) "-")
+      (counsel-file-jump)
+    (counsel-projectile-find-file)))
+(define-key projectile-mode-map [?\s-f] 'MyDef-enhanced-find-file)
 
 
 (global-set-key (kbd "s-SPC") 'set-mark-command)
