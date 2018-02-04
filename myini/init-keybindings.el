@@ -201,12 +201,13 @@ if we are not in a project, just use the function counsel-ag"
     (counsel-projectile-rg)))
 (define-key projectile-mode-map [?\s-g] 'MyDef-enhanced-counsel-search)
 
+(require 'init-user-funs)
 (defun MyDef-enhanced-find-file ()
   "Enhanced the function of counsel-projectile-find-file
 if we are not in a project, just use the function find-file"
   (interactive)
   (if (equal (projectile-project-name) "-")
-      (counsel-file-jump)
+      (counsel-rg-jump)
     (counsel-projectile-find-file)))
 (define-key projectile-mode-map [?\s-f] 'MyDef-enhanced-find-file)
 
