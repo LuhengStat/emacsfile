@@ -208,7 +208,7 @@ if we are not in a project, just use the function find-file"
   (interactive)
   (if (equal (projectile-project-name) "-")
       (counsel-rg-jump)
-    (counsel-projectile-find-file)))
+    (MyDef-counsel-projectile-find-file)))
 (define-key projectile-mode-map [?\s-f] 'MyDef-enhanced-find-file)
 
 

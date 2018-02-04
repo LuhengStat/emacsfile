@@ -1,4 +1,45 @@
 
+
+(defun MyDef-find-file (filename)
+  "Open file with better suggestions 2018-02-04"
+  (interactive
+   (find-file-read-args "Find file: "
+                        (confirm-nonexistent-file-or-buffer)))
+  (if (cl-search ".pdf" (downcase filename))
+      (shell-command (format "open \"%s\"" filename))
+    (find-file filename)))
+
+(defun MyDef-dired-find-file ()
+  "let the dired mode can open file correctly"
+  (interactive)
+  (let ((find-file-run-dired t))
+    (MyDef-find-file (dired-get-file-for-visit))))
+
+(add-hook 'dired-mode-hook
+	  (lambda ()
+	    (define-key dired-mode-map (kbd "<return>") 'MyDef-dired-find-file)))
+
+(defun MyDef-counsel-projectile-find-file-action (file)
+  "Find FILE and run `projectile-find-file-hook'."
+  (interactive)
+  (MyDef-find-file (projectile-expand-root file))
+  (run-hooks 'projectile-find-file-hook))
+
+(defun MyDef-counsel-projectile-find-file (&optional arg)
+  "Jump to a file in the current project.
+
+With a prefix ARG, invalidate the cache first."
+  (interactive "P")
+  (projectile-maybe-invalidate-cache arg)
+  (ivy-read (projectile-prepend-project-name "Find file: ")
+            (projectile-current-project-files)
+            :matcher #'counsel--find-file-matcher
+            :require-match t
+            :action (lambda (x)
+                        (with-ivy-window
+                          (MyDef-counsel-projectile-find-file-action (expand-file-name x ivy--directory))))
+            :caller 'MyDef-counsel-projectile-find-file))
+
 (defun counsel-rg-jump (&optional initial-input initial-directory)
   "Jump to a file below the current directory.
 List all files within the current directory or any of its subdirectories.
@@ -19,7 +60,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :initial-input initial-input
               :action (lambda (x)
                         (with-ivy-window
-                          (find-file (expand-file-name x ivy--directory))))
+                          (MyDef-find-file (expand-file-name x ivy--directory))))
               :preselect (counsel--preselect-file)
               :require-match 'confirm-after-completion
               :history 'file-name-history
