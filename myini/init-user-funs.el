@@ -8,8 +8,8 @@
   (cl-loop for x in
 	   '(.pdf .eps .jpg .xlsx .xls .jpg .rmvb .mkv .mp4 .flv .mp3 .m4a
 		  .doc .docx .enl)
-	 do (if (cl-search (format "%s" x) (downcase filename))
-		(setq fileflag t)))
+	   do (if (cl-search (format "%s" x) (downcase filename))
+		  (setq fileflag t)))
   (if fileflag
       (shell-command (format "open \"%s\"" filename))
     (find-file filename)))
@@ -61,8 +61,8 @@ With a prefix ARG, invalidate the cache first."
             :matcher #'counsel--find-file-matcher
             :require-match t
             :action (lambda (x)
-                        (with-ivy-window
-                          (MyDef-counsel-projectile-find-file-action x)))
+		      (with-ivy-window
+			(MyDef-counsel-projectile-find-file-action x)))
             :caller 'MyDef-counsel-projectile-find-file))
 
 (defun MyDef-counsel-projectile-open-folder (&optional arg)
@@ -76,8 +76,8 @@ With a prefix ARG, invalidate the cache first."
             :matcher #'counsel--find-file-matcher
             :require-match t
             :action (lambda (x)
-                        (with-ivy-window
-                          (MyDef-counsel-projectile-open-folder-action x)))
+		      (with-ivy-window
+			(MyDef-counsel-projectile-open-folder-action x)))
             :caller 'MyDef-counsel-projectile-find-file))
 
 (defun counsel-rg-jump (&optional initial-input initial-directory)

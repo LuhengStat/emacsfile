@@ -130,7 +130,7 @@
     tex-mode
     TeX-mode
     reftex-mode
-    disable-mouse-mode
+    disable-mouseg-mode
     auto-fill-function
     hungry-delete-mode
     ))

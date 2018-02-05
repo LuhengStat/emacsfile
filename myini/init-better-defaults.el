@@ -44,7 +44,6 @@
 (add-to-list 'recentf-exclude "\\.log\\'")
 (add-to-list 'recentf-exclude "\\.sty\\'")
 (add-to-list 'recentf-exclude "\\.toc\\'")
-(add-to-list 'recentf-exclude "\\.pdf\\'")
 
 
 ;; make backup to a designated dir, mirroring the full path
@@ -119,8 +118,6 @@ If the new path's directories does not exist, create them."
 
 
 ;; disable mouse in emacs
-;; Hello, Luheng.
-
 (define-minor-mode disable-mouse-mode
   "A minor-mode that disables all mouse keybinds."
   :global t

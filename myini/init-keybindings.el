@@ -139,6 +139,9 @@
   (call-interactively 'avy-goto-char)
   (forward-char))
 (global-set-key [(control ?\;)] 'avy-goto-char)
+(add-hook 'flyspell-mode-hook
+	  (lambda ()
+	    (define-key flyspell-mode-map (kbd "C-;") nil)))
 
 
 ;; open fold tree

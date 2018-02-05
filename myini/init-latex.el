@@ -96,6 +96,8 @@
 ;; AucTeX
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(eval-after-load 'flyspell (lambda()
+			     (require 'flyspell-correct-popup)))
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 (setq reftex-plug-into-AUCTeX t)
 (setq TeX-PDF-mode t)
@@ -179,4 +181,8 @@ true or not"
 (add-hook 'reftex-mode-hook 'visual-line-mode)
 (add-hook 'Latex-mode-hook 'visual-line-mode)
 
+
+
+
 (provide 'init-latex)
+
