@@ -197,6 +197,16 @@ if we are not in a project, just use the function find-file"
     (MyDef-counsel-projectile-find-file)))
 (define-key projectile-mode-map [?\s-f] 'MyDef-enhanced-find-file)
 
+(defun MyDef-enhanced-open-folder ()
+  "Enhanced the function of counsel-projectile-find-file
+if we are not in a project, just use the function find-file"
+  (interactive)
+  (if (equal (projectile-project-name) "-")
+      (counsel-rg-jump-to-folder)
+    (MyDef-counsel-projectile-open-folder)))
+
+(global-set-key (kbd "s-d") 'MyDef-enhanced-open-folder)
+(define-key projectile-mode-map (kbd "s-d") 'MyDef-enhanced-open-folder)
 
 (global-set-key (kbd "s-SPC") 'set-mark-command)
 (global-set-key (kbd "s-b") 'ivy-switch-buffer)
