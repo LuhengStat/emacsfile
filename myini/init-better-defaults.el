@@ -44,6 +44,7 @@
 (add-to-list 'recentf-exclude "\\.log\\'")
 (add-to-list 'recentf-exclude "\\.sty\\'")
 (add-to-list 'recentf-exclude "\\.toc\\'")
+(add-to-list 'recentf-exclude "\\.pdf\\'")
 
 
 ;; make backup to a designated dir, mirroring the full path

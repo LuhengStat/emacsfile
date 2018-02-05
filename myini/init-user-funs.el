@@ -1,4 +1,16 @@
 
+(defun ivy-call-open-folder ()
+  "Call action and recenter window according to the selected candidate."
+  (interactive)
+  (ivy-call)
+  (with-ivy-window
+    (MyDef-open-folder)))
+
+(defvar counsel-open-folder-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "<C-return>") 'ivy-call-open-folder)
+    map))
+
 (defun MyDef-find-file (filename)
   "Open file with better suggestions 2018-02-04"
   (interactive
@@ -14,7 +26,7 @@
       (shell-command (format "open \"%s\"" filename))
     (find-file filename)))
 
-(defun MyDef-open-folder (filename)
+(defun MyDef-open-folder (&optional filename)
   "Open folder of the current file"
   (interactive
    (find-file-read-args "Open Finder: "
@@ -60,6 +72,7 @@ With a prefix ARG, invalidate the cache first."
             (projectile-current-project-files)
             :matcher #'counsel--find-file-matcher
             :require-match t
+	    :keymap counsel-open-folder-map
             :action (lambda (x)
 		      (with-ivy-window
 			(MyDef-counsel-projectile-find-file-action x)))
@@ -77,6 +90,7 @@ With a prefix ARG, invalidate the cache first."
             :require-match t
             :action (lambda (x)
 		      (with-ivy-window
+			(message x)
 			(MyDef-counsel-projectile-open-folder-action x)))
             :caller 'MyDef-counsel-projectile-find-file))
 
