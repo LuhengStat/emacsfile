@@ -21,7 +21,7 @@
 		     undo-tree
 		     ;;window-numbering
 		     yasnippet
-		     org-ac
+		     ;;org-ac
 		     browse-kill-ring
 		     youdao-dictionary
 		     ess-view

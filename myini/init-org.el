@@ -17,8 +17,12 @@
               ("MEETING" :foreground "forest green" :weight bold)
               ("PHONE" :foreground "forest green" :weight bold))))
 
-(require 'org-ac)
-(org-ac/config-default)
+;;(require 'org-ac)
+;;(org-ac/config-default)
+
+(defun my-org-mode-hook ()
+  (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t))
+(add-hook 'org-mode-hook #'my-org-mode-hook)
 
 ;; auto indent in the org-mode
 (setq org-startup-indented t)
