@@ -100,8 +100,7 @@
   (popwin:popup-last-buffer))
 (add-hook 'youdao-dictionary-mode-hook
 	  (lambda ()
-	    (define-key youdao-dictionary-mode-map (kbd "<tab>") 'MyDef-youdao-input)
-	    (define-key youdao-dictionary-mode-map (kbd "<C-tab>") 'youdao-dictionary-search-from-input)))
+	    (define-key youdao-dictionary-mode-map (kbd "<tab>") 'MyDef-youdao-input)))
 
 
 ;; set for the swiper
