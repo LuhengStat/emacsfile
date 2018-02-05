@@ -234,10 +234,9 @@ i.e. `[语][计] dictionary' => 'dictionary'."
   "Search word from input and display result with buffer."
   (interactive)
   (let ((word (-prompt-input)))
-    (if (and (not (popwin:close-popup-window)) (get-buffer-window "*Youdao Dictionary*"))
-        (progn
-          (previous-buffer)
-          (delete-window)))
+    (if (get-buffer-window "*Youdao Dictionary*")
+      (progn   (if (not (popwin:close-popup-window))
+		   (previous-buffer))))
     (-search-and-show-in-buffer word)))
 
 :autoload

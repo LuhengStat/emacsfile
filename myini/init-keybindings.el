@@ -88,9 +88,8 @@
   "If there has a youdao buffer, close it"
   (interactive)
   (if (get-buffer-window "*Youdao Dictionary*")
-      (progn
-	(if (not (popwin:close-popup-window))
-	    (delete-window)))
+      (progn   (if (not (popwin:close-popup-window))
+		   (previous-buffer)))
     (youdao-dictionary-search-at-point)))
 (global-set-key (kbd "s-y") 'MyDef-youdao)
 
@@ -101,7 +100,8 @@
   (popwin:popup-last-buffer))
 (add-hook 'youdao-dictionary-mode-hook
 	  (lambda ()
-	    (define-key youdao-dictionary-mode-map (kbd "<tab>") 'MyDef-youdao-input)))
+	    (define-key youdao-dictionary-mode-map (kbd "<tab>") 'MyDef-youdao-input)
+	    (define-key youdao-dictionary-mode-map (kbd "<C-tab>") 'youdao-dictionary-search-from-input)))
 
 
 ;; set for the swiper
