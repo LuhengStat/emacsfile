@@ -35,22 +35,6 @@
   (recenter 16))
 ;;(global-set-key (kbd "M-q") 'MyDef-fill-paragraph)
 
-(defun MyDef-iedit-next-occurrence ()
-  "next occurrence with recenter"
-  (interactive)
-  (iedit-next-occurrence)
-  (recenter 12))
-
-(defun MyDef-iedit-prev-occurrence ()
-  "next occurrence with recenter"
-  (interactive)
-  (iedit-prev-occurrence)
-  (recenter 12))
-
-;;(add-hook 'iedit-mode-hook
-;;	  (lambda ()
-;;	    (define-key iedit-occurrence-keymap (kbd "<tab>") 'MyDef-iedit-next-occurrence)
-;;	    (define-key iedit-occurrence-keymap (kbd "<S-tab>") 'MyDef-iedit-prev-occurrence)))
 
 ;; easy move in read-only buffers
 ;; enter view-mode for read-only files
