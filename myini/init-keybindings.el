@@ -88,9 +88,9 @@
   "If there has a youdao buffer, close it"
   (interactive)
   (if (get-buffer-window "*Youdao Dictionary*")
-      (progn   (if (or (< (window-width) 125) (> (window-height) 25))
-		   (previous-buffer)
-		 (popwin:close-popup-window)))
+      (progn
+	(if (not (popwin:close-popup-window))
+	    (delete-window)))
     (youdao-dictionary-search-at-point)))
 (global-set-key (kbd "s-y") 'MyDef-youdao)
 
