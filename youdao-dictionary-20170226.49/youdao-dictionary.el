@@ -229,14 +229,14 @@ i.e. `[语][计] dictionary' => 'dictionary'."
         (-pos-tip (-format-result word))
       (message "Nothing to look up"))))
 
-:autoload
+:autoload ;; revised by Luheng Wang 
 (defun search-from-input ()
   "Search word from input and display result with buffer."
   (interactive)
   (let ((word (-prompt-input)))
     (if (get-buffer-window "*Youdao Dictionary*")
       (progn   (if (not (popwin:close-popup-window))
-		   (previous-buffer))))
+		   (previous-buffer)))) 
     (-search-and-show-in-buffer word)))
 
 :autoload
