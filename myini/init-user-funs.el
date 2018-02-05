@@ -21,6 +21,11 @@
                         (confirm-nonexistent-file-or-buffer)))
   (shell-command (format "open -R \"%s\"" filename)))
 
+(defvar MyDef-open-folder-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "<M-return>") 'MyDef-open-folder)
+    map))
+
 (defun MyDef-dired-find-file ()
   "let the dired mode can open file correctly"
   (interactive)
@@ -104,7 +109,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :preselect (counsel--preselect-file)
               :require-match 'confirm-after-completion
               :history 'file-name-history
-              :keymap counsel-find-file-map
+              :keymap MyDef-open-folder-map
               :caller 'counsel-rg-jump)))
 
 (defun counsel-rg-jump-to-folder (&optional initial-input initial-directory)
