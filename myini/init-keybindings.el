@@ -35,6 +35,22 @@
   (recenter 16))
 ;;(global-set-key (kbd "M-q") 'MyDef-fill-paragraph)
 
+(defun MyDef-iedit-next-occurrence ()
+  "next occurrence with recenter"
+  (interactive)
+  (iedit-next-occurrence)
+  (recenter 12))
+
+(defun MyDef-iedit-prev-occurrence ()
+  "next occurrence with recenter"
+  (interactive)
+  (iedit-prev-occurrence)
+  (recenter 12))
+
+;;(add-hook 'iedit-mode-hook
+;;	  (lambda ()
+;;	    (define-key iedit-occurrence-keymap (kbd "<tab>") 'MyDef-iedit-next-occurrence)
+;;	    (define-key iedit-occurrence-keymap (kbd "<S-tab>") 'MyDef-iedit-prev-occurrence)))
 
 ;; easy move in read-only buffers
 ;; enter view-mode for read-only files
@@ -180,7 +196,9 @@ if we are not in a project, just use the function counsel-ag"
   (if (equal (projectile-project-name) "-")
       (progn
 	(if (not (buffer-file-name))
-	    (swiper)
+	    (if (string-equal major-mode "dired-mode")
+		(counsel-rg)
+	     (swiper))
 	  (counsel-rg)))
     (counsel-projectile-rg)))
 (define-key projectile-mode-map [?\s-g] 'MyDef-enhanced-counsel-search)

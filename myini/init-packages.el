@@ -51,6 +51,7 @@
 		     ace-window
 		     dim
 		     hungry-delete
+		     ztree
 		     ))
 
 ;; activate all the packages (in particular autoloads)
