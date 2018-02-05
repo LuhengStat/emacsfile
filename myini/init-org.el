@@ -18,6 +18,41 @@
               ("PHONE" :foreground "forest green" :weight bold))))
 
 
+;; set for the calendar
+(push "*Calendar*" popwin:special-display-config)
+(defun MyDef-org-agenda-show-calendar ()
+  "define the window of calendar"
+  (interactive)
+  (if (get-buffer-window "*Calendar*")
+      (progn   (if (or (< (window-width) 125) (> (window-height) 25))
+		   (calendar-exit)
+		 (popwin:close-popup-window)))
+    (org-agenda-goto-calendar)))
+
+(global-set-key (kbd "s-c") 'calendar)
+(define-key org-agenda-mode-map (kbd "s-c") 'MyDef-org-agenda-show-calendar)
+(define-key calendar-mode-map (kbd "s-c") 'MyDef-org-agenda-show-calendar)
+(define-key org-agenda-mode-map (kbd "c") 'MyDef-org-agenda-show-calendar)
+(define-key calendar-mode-map (kbd "c") 'MyDef-org-agenda-show-calendar)
+(define-key calendar-mode-map (kbd "f") 'calendar-forward-day)
+(define-key calendar-mode-map (kbd "b") 'calendar-backward-day)
+(define-key calendar-mode-map (kbd "n") 'calendar-forward-week)
+(define-key calendar-mode-map (kbd "p") 'calendar-backward-week)
+
+
+(defun MyDef-org-agenda-show-holiday ()
+  "define the window of holiday"
+  (interactive)
+  (if (get-buffer-window "*Holidays*")
+      (progn
+	(switch-to-buffer "*Holidays*")
+	(if (or (< (window-width) 125) (> (window-height) 25))
+		   (quit-window)
+	  (popwin:close-popup-window)))
+    (org-agenda-holidays)))
+;;(define-key org-agenda-mode-map (kbd "H") 'MyDef-org-agenda-show-holiday)
+
+
 (require 'org-ac)
 (org-ac/config-default)
 

@@ -103,27 +103,8 @@
 	  (lambda ()
 	    (define-key youdao-dictionary-mode-map (kbd "<tab>") 'MyDef-youdao-input)))
 
-(push "*Calendar*" popwin:special-display-config)
-(defun MyDef-org-agenda-show-calendar ()
-  "define the window of calendar"
-  (interactive)
-  (if (get-buffer-window "*Calendar*")
-      (progn   (if (or (< (window-width) 125) (> (window-height) 25))
-		   (calendar-exit)
-		 (popwin:close-popup-window)))
-    (org-agenda-goto-calendar)))
 
-(global-set-key (kbd "s-c") 'calendar)
-(define-key org-agenda-mode-map (kbd "s-c") 'MyDef-org-agenda-show-calendar)
-(define-key calendar-mode-map (kbd "s-c") 'MyDef-org-agenda-show-calendar)
-(define-key org-agenda-mode-map (kbd "c") 'MyDef-org-agenda-show-calendar)
-(define-key calendar-mode-map (kbd "c") 'MyDef-org-agenda-show-calendar)
-(define-key calendar-mode-map (kbd "f") 'calendar-forward-day)
-(define-key calendar-mode-map (kbd "b") 'calendar-backward-day)
-(define-key calendar-mode-map (kbd "n") 'calendar-forward-week)
-(define-key calendar-mode-map (kbd "p") 'calendar-backward-week)
-
-
+;; set for the swiper
 (defun MyDef-push-mark-swiper ()
   "push a mark to add the current position to the mark ring"
   (interactive)
