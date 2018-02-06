@@ -95,9 +95,9 @@
 
 ;; AucTeX
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
-(eval-after-load 'flyspell (lambda()
-			     (require 'flyspell-correct-popup)))
+;;(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+;;(eval-after-load 'flyspell (lambda()
+;;			     (require 'flyspell-correct-popup)))
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 (setq reftex-plug-into-AUCTeX t)
 (setq TeX-PDF-mode t)
@@ -169,17 +169,22 @@ true or not"
   "let the reftex-toc-recenter more reasonable"
   (interactive)
   (MyDef-choose-horizon-toc)
-  (reftex-toc-recenter)
-  )
+  (reftex-toc-recenter))
 
-(progn
-  (require 'reftex-toc)
-  (define-key reftex-mode-map (kbd "C-c =") 'MyDef-reftex-toc )
-  (define-key reftex-mode-map (kbd "C-c -") 'MyDef-reftex-toc-recenter )
-  )
+;;(progn
+;;  (require 'reftex-toc)
+;;  (define-key reftex-mode-map (kbd "C-c =") 'MyDef-reftex-toc)
+;;  (define-key reftex-mode-map (kbd "C-c -") 'MyDef-reftex-toc-recenter))
 
-(add-hook 'reftex-mode-hook 'visual-line-mode)
-(add-hook 'Latex-mode-hook 'visual-line-mode)
+
+;;(add-hook 'reftex-select-bib-mode-hook 'visual-line-mode) not work
+
+(add-hook 'reftex-toc-mode-hook 'visual-line-mode)
+(add-hook 'reftex-mode-hook
+	  (lambda ()
+	    (define-key reftex-mode-map (kbd "C-c =") 'MyDef-reftex-toc)
+	    (define-key reftex-mode-map (kbd "C-c -") 'MyDef-reftex-toc-recenter)
+	    ))
 
 
 

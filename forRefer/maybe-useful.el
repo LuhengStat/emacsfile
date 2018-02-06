@@ -78,3 +78,11 @@ true or not"
   (interactive)
   (MyDef-choose-horizon-toc)
   (reftex-toc))
+
+
+(defun example ()
+  (interactive)
+  (let ((cands '(("one" . 1)
+                 ("two" . 2))))
+    (ivy-read "goto: " cands
+              :action (lambda (x) (goto-line (cdr x))))))

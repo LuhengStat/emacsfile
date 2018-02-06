@@ -49,7 +49,7 @@
 (setq truncate-lines nil)
 (setq truncate-partial-width-windows nil)
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
-(add-hook 'reftex-toc-mode-hook (lambda () (setq truncate-lines nil)))
+
 ;; line-spacing
 (setq-default line-spacing 3)
 (setq modelinesize 125)
@@ -130,7 +130,7 @@
     tex-mode
     TeX-mode
     reftex-mode
-    disable-mouseg-mode
+    disable-mouse-mode
     auto-fill-function
     hungry-delete-mode
     ))

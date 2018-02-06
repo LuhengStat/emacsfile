@@ -55,7 +55,7 @@
 (setq org-agenda-custom-commands
       '(("d" "Simple agenda view"
 	 ((agenda "")	
-	  (alltodo "" ((org-agenda-overriding-header "Global Tasks:")))
+	  ;;(alltodo "" ((org-agenda-overriding-header "Global Tasks:")))
 	  ))))
 
 (defun MyDef-org-agenda-view ()
