@@ -1,0 +1,82 @@
+(byte-recompile-directory (expand-file-name "~/.emacs.d/myini/") 0)
+
+;; set the face of the toc 
+(defface MyDef-reftex-section-heading-face
+  '((t :inherit font-lock-function-name-face :height 115))
+  "My RefTeX section heading face.")
+(setq reftex-section-heading-face 'MyDef-reftex-section-heading-face)
+
+(defface MyDef-reftex-toc-header-face
+  '((t :inherit font-lock-doc-face :height 100))
+  "My RefTeX section heading face.")
+(setq reftex-toc-header-face 'MyDef-reftex-toc-header-face)
+
+;; ref-cite buffer
+(defface MyDef-reftex-bib-author-face
+  '((t :inherit font-lock-keyword-face :height 125))
+  "My RefTeX section heading face.")
+(setq reftex-bib-author-face 'MyDef-reftex-bib-author-face)
+
+(defface MyDef-reftex-bib-title-face
+  '((t :inherit font-lock-function-name-face :height 135))
+  "My RefTeX section heading face.")
+(setq reftex-bib-title-face 'MyDef-reftex-bib-title-face)
+
+;; 2016 Statistica Sinica 26, 69--95
+(defface MyDef-reftex-bib-extra-face
+  '((t :inherit font-lock-comment-face :height 125))
+  "My RefTeX section heading face.")
+(setq reftex-bib-extra-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-bib-year-face 'MyDef-reftex-bib-extra-face)
+
+(defface MyDef-reftex-label-face
+  '((t :inherit font-lock-constant-face :height 145))
+  "My RefTeX section heading face.")
+(setq reftex-label-face 'MyDef-reftex-label-face)
+
+(defface MyDef-reftex-bib-extra-face
+  '((t :inherit font-lock-comment-face :height 125))
+  "My RefTeX section heading face.")
+(setq reftex-select-mark-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-index-header-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-index-section-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-index-tag-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-index-face 'MyDef-reftex-bib-extra-face)
+
+
+
+  
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(avy-lead-face ((t (:background "#293235" :foreground "yellow1"))))
+ '(avy-lead-face-0 ((t (:background "#293235" :foreground "Green"))))
+ '(font-latex-slide-title-face ((t (:inherit (variable-pitch font-lock-type-face) :height 1.1))))
+ '(font-latex-subscript-face ((t nil)))
+ '(font-latex-superscript-face ((t nil)))
+ '(iedit-occurrence ((t (:background "CadetBlue2")))))
+
+
+ '(hl-paren-colors (quote ("RoyalBlue1" "SkyBlue2" "pink3" "DarkSlateGray4")))
+
+ '(hl-paren-colors
+   (quote
+    ("DeepSkyBlue1" "SeaGreen3" "PaleVioletRed1" "magenta1")))
+
+(defun MyDef-choose-horizon-toc ()
+  "autotically choose whether to set the reftex-toc-split-window 
+true or not"
+  (interactive)
+  (if (> (length (window-list)) 1)
+      (setq reftex-toc-split-windows-horizontally nil)
+    (setq reftex-toc-split-windows-horizontally t)))
+
+(defun MyDef-reftex-toc ()
+  "let reftex-toc being more reasonable"
+  (interactive)
+  (MyDef-choose-horizon-toc)
+  (reftex-toc))
+
+
