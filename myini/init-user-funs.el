@@ -7,7 +7,7 @@
   (setq fileflag nil)
   (cl-loop for x in
 	   '(.pdf .eps .jpg .xlsx .xls .jpg .rmvb .mkv .mp4 .flv .mp3 .m4a
-		  .skim .doc .docx .enl)
+		  .bmp .png .skim .doc .docx .enl)
 	   do (if (cl-search (format "%s" x) (downcase filename))
 		  (setq fileflag t)))
   (if fileflag
