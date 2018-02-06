@@ -1,7 +1,4 @@
 
-(defun MyDef-action-open-folder (filename)
-  (shell-command (format "open -R \"%s\"" filename)))
-
 (defun MyDef-find-file (filename)
   "Open file with better suggestions 2018-02-04"
   (interactive
@@ -39,7 +36,7 @@
 (add-hook 'dired-mode-hook
 	  (lambda ()
 	    (define-key dired-mode-map (kbd "<return>") 'MyDef-dired-find-file)
-	    (define-key dired-mode-map (kbd "<s-return>") 'MyDef-dired-open-folder)))
+	    (define-key dired-mode-map (kbd "<C-return>") 'MyDef-dired-open-folder)))
 
 (defun MyDef-counsel-projectile-find-file-action (file)
   "Find FILE and run `projectile-find-file-hook'."
