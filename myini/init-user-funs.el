@@ -1,4 +1,7 @@
 
+(defun MyDef-action-open-folder (filename)
+  (shell-command (format "open -R \"%s\"" filename)))
+
 (defun MyDef-find-file (filename)
   "Open file with better suggestions 2018-02-04"
   (interactive
@@ -60,24 +63,9 @@ With a prefix ARG, invalidate the cache first."
             (projectile-current-project-files)
             :matcher #'counsel--find-file-matcher
             :require-match t
-            :action (lambda (x)
-		      (with-ivy-window
-			(MyDef-counsel-projectile-find-file-action x)))
-            :caller 'MyDef-counsel-projectile-find-file))
-
-(defun MyDef-counsel-projectile-open-folder (&optional arg)
-  "Jump to a file in the current project.
-
-With a prefix ARG, invalidate the cache first."
-  (interactive "P")
-  (projectile-maybe-invalidate-cache arg)
-  (ivy-read (projectile-prepend-project-name "Open Finder: ")
-            (projectile-current-project-files)
-            :matcher #'counsel--find-file-matcher
-            :require-match t
-            :action (lambda (x)
-		      (with-ivy-window
-			(MyDef-counsel-projectile-open-folder-action x)))
+            :action '(1
+		      ("o" MyDef-counsel-projectile-find-file-action "open file")
+		      ("f" MyDef-counsel-projectile-open-folder-action "open finder"))
             :caller 'MyDef-counsel-projectile-find-file))
 
 (defun counsel-rg-jump (&optional initial-input initial-directory)
@@ -98,14 +86,31 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
                "\n" t)
               :matcher #'counsel--find-file-matcher
               :initial-input initial-input
-              :action (lambda (x)
-                        (with-ivy-window
-                          (MyDef-find-file (expand-file-name x ivy--directory))))
+              :action '(1
+			("o" MyDef-find-file "open file")
+			("f" MyDef-open-folder "open finder"))
               :preselect (counsel--preselect-file)
               :require-match 'confirm-after-completion
               :history 'file-name-history
               :keymap counsel-find-file-map
               :caller 'counsel-rg-jump)))
+
+
+;; open folder part
+(defun MyDef-counsel-projectile-open-folder (&optional arg)
+  "Jump to a file in the current project.
+
+with a prefix ARG, invalidate the cache first."
+  (interactive "P")
+  (projectile-maybe-invalidate-cache arg)
+  (ivy-read (projectile-prepend-project-name "Open Finder: ")
+            (projectile-current-project-files)
+            :matcher #'counsel--find-file-matcher
+            :require-match t
+            :action (lambda (x)
+		      (with-ivy-window
+			(MyDef-counsel-projectile-open-folder-action x)))
+            :caller 'MyDef-counsel-projectile-find-file))
 
 (defun counsel-rg-jump-to-folder (&optional initial-input initial-directory)
   "Jump to a file below the current directory.

@@ -207,7 +207,7 @@ if we are not in a project, just use the function find-file"
       (counsel-rg-jump-to-folder)
     (MyDef-counsel-projectile-open-folder)))
 
-(global-set-key (kbd "s-d") 'MyDef-enhanced-open-folder)
+;;(global-set-key (kbd "s-d") 'MyDef-enhanced-open-folder)
 (define-key projectile-mode-map (kbd "s-d") 'MyDef-enhanced-open-folder)
 
 (global-set-key (kbd "s-SPC") 'set-mark-command)
