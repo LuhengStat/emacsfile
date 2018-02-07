@@ -122,8 +122,6 @@
 (global-set-key (kbd "<f1> l") 'counsel-find-library)
 (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
 (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-(global-set-key (kbd "C-c g") 'counsel-git)
-(global-set-key (kbd "C-c j") 'counsel-git-grep)
 (global-set-key (kbd "C-x l") 'counsel-locate)
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
@@ -206,9 +204,7 @@ if we are not in a project, just use the function find-file"
   (if (equal (projectile-project-name) "-")
       (counsel-rg-jump-to-folder)
     (MyDef-counsel-projectile-open-folder)))
-
-;;(global-set-key (kbd "s-d") 'MyDef-enhanced-open-folder)
-(define-key projectile-mode-map (kbd "s-d") 'MyDef-enhanced-open-folder)
+;;(define-key projectile-mode-map (kbd "s-d") 'MyDef-enhanced-open-folder)
 
 (global-set-key (kbd "s-SPC") 'set-mark-command)
 (global-set-key (kbd "s-b") 'ivy-switch-buffer)

@@ -1,7 +1,7 @@
 
 
 (setq package-archives '(("gnu"   . "https://elpa.emacs-china.org/gnu/")
-                         ("melpa" . "https://elpa.emacs-china.org/melpa-stable/")))			 
+                         ("melpa" . "https://elpa.emacs-china.org/melpa/")))			 
 
 (setq package-check-signature nil)
 
