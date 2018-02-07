@@ -29,6 +29,7 @@
    (quote
     ("~/Documents/Personal/Org/timelog.org" "~/Documents/Learning/FlashIdeas.org" "~/Documents/Personal/Org/othernotes.org" "/Users/wlh/Documents/Personal/Org/diary.org" "/Users/wlh/Documents/Personal/Org/goodhabit.org" "/Users/wlh/Documents/Personal/Org/workdiary.org")))
  '(org-agenda-restore-windows-after-quit t)
+ '(org-agenda-window-setup (quote only-window))
  '(org-clock-clocked-in-display (quote frame-title))
  '(org-clock-report-include-clocking-task t)
  '(package-selected-packages
