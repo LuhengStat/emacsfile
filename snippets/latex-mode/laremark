@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: temporary notes
+# key: laremark
+# --
+%%%% temporary notes: $1 %%%%$0

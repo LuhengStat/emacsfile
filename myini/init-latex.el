@@ -143,7 +143,6 @@
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
 	    (define-key LaTeX-mode-map (kbd "C-c C-c") 'TeX-command-run-all)
-	    (define-key LaTeX-mode-map (kbd "s-r") 'TeX-command-run-all)
 	    (define-key LaTeX-mode-map (kbd "C-c C-a") 'TeX-command-master)
 	    (define-key LaTeX-mode-map (kbd "C-c )") 'LaTeX-close-environment)
 	    (define-key LaTeX-mode-map (kbd "C-c 0") 'LaTeX-close-environment)

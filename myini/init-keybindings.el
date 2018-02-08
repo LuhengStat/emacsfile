@@ -55,7 +55,7 @@
 	    (define-key help-mode-map (kbd "l") 'recenter-top-bottom)))
 ;;(add-hook 'help-mode-hook 'turn-on-evil-mode)
 ;;(add-hook 'view-mode-hook 'turn-on-evil-mode)
-(global-set-key (kbd "s-e")  'evil-mode)
+;;(global-set-key (kbd "s-e")  'evil-mode)
 
 
 ;; disable some keys
@@ -126,7 +126,7 @@
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
 (global-set-key (kbd "C-c C-g") 'counsel-mark-ring)
-
+(global-set-key (kbd "\C-xg") 'counsel-bookmark)
 
 ;; avy go to anywhere 
 (global-set-key (kbd "C-'") 'avy-goto-line)
@@ -236,6 +236,8 @@ if we are not in a project, just use the function find-file"
 (global-set-key (kbd "s-1") 'delete-other-windows)
 (global-set-key (kbd "s-2") 'split-window-below)
 (global-set-key (kbd "s-3") 'split-window-right)
+
+
 
 
 (provide 'init-keybindings)

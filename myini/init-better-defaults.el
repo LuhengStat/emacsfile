@@ -33,7 +33,7 @@
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-auto-cleanup 'never) ;; in case if use Tramp
-(setq recentf-max-saved-items 500)
+(setq recentf-max-saved-items 1000)
 ;; open recent files when satart up
 ;;(recentf-open-files)
 (add-to-list 'recentf-exclude "~/.emacs.d/bookmarks")
