@@ -1,31 +1,10 @@
 
-(defun MyDef-find-file (filename)
-  "Open file with better suggestions 2018-02-04"
-  (interactive
-   (find-file-read-args "Find file: "
-                        (confirm-nonexistent-file-or-buffer)))
-  (setq fileflag nil)
-  (cl-loop for x in
-	   '(.pdf .eps .jpg .xlsx .xls .jpg .rmvb .mkv .mp4 .flv .mp3 .m4a
-		  .bmp .png .skim .doc .docx .enl)
-	   do (if (cl-search (format "%s" x) (downcase filename))
-		  (setq fileflag t)))
-  (if fileflag
-      (shell-command (format "open \"%s\"" filename))
-    (find-file filename)))
-
 (defun MyDef-open-folder (filename)
   "Open folder of the current file"
   (interactive
    (find-file-read-args "Open Finder: "
                         (confirm-nonexistent-file-or-buffer)))
   (shell-command (format "open -R \"%s\"" filename)))
-
-(defun MyDef-dired-find-file ()
-  "let the dired mode can open file correctly"
-  (interactive)
-  (let ((find-file-run-dired t))
-    (MyDef-find-file (dired-get-file-for-visit))))
 
 (defun MyDef-dired-open-folder ()
   "let the dired mode can open file correctly"
@@ -38,12 +17,6 @@
 	    (define-key dired-mode-map (kbd "<return>") 'MyDef-dired-find-file)
 	    (define-key dired-mode-map (kbd "<C-return>") 'MyDef-dired-open-folder)
 	    (define-key dired-mode-map (kbd "<DEL>") 'dired-up-directory)))
-
-(defun MyDef-counsel-projectile-find-file-action (file)
-  "Find FILE and run `projectile-find-file-hook'."
-  (interactive)
-  (MyDef-find-file (projectile-expand-root file))
-  (run-hooks 'projectile-find-file-hook))
 
 (defun MyDef-counsel-projectile-open-folder-action (file)
   "Find FILE and run `projectile-find-file-hook'."
@@ -62,7 +35,7 @@ With a prefix ARG, invalidate the cache first."
             :matcher #'counsel--find-file-matcher
             :require-match t
             :action '(1
-		      ("o" MyDef-counsel-projectile-find-file-action "open file")
+		      ("o" counsel-projectile-find-file-action "open file")
 		      ("f" MyDef-counsel-projectile-open-folder-action "open finder"))
             :caller 'MyDef-counsel-projectile-find-file))
 
@@ -85,7 +58,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :matcher #'counsel--find-file-matcher
               :initial-input initial-input
               :action '(1
-			("o" MyDef-find-file "open file")
+			("o" find-file "open file")
 			("f" MyDef-open-folder "open finder"))
               :preselect (counsel--preselect-file)
               :require-match 'confirm-after-completion
@@ -108,7 +81,7 @@ with a prefix ARG, invalidate the cache first."
             :action (lambda (x)
 		      (with-ivy-window
 			(MyDef-counsel-projectile-open-folder-action x)))
-            :caller 'MyDef-counsel-projectile-find-file))
+            :caller 'MyDef-counsel-projectile-open-folder))
 
 (defun counsel-rg-jump-to-folder (&optional initial-input initial-directory)
   "Jump to a file below the current directory.
@@ -136,7 +109,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :history 'file-name-history
               :keymap counsel-find-file-map
               :caller 'counsel-rg-jump-to-folder)))
-
 
 
 
