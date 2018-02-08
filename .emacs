@@ -8,6 +8,7 @@
 
 (setq custom-file (expand-file-name "myini/custom.el" user-emacs-directory))
 
+(require 'init-redefine-sys-fun)
 (require 'init-packages)
 (load-file custom-file)
 (require 'init-better-defaults)

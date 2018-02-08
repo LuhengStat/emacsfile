@@ -43,7 +43,8 @@
 	     (projectile-project-name)))))
  '(safe-local-variable-values
    (quote
-    ((projectile-project-name . Ref)
+    ((projectile-project-name . Python)
+     (projectile-project-name . Ref)
      (projectile-project-name . RCVCov)
      (projectile-project-name . "PhdThesis"))))
  '(save-abbrevs (quote silently))
