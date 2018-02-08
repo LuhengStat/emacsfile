@@ -1,4 +1,3 @@
-;; this part contains some user defined functions
 
 (defun MyDef-open-folder (filename)
   "Open folder of the current file"
