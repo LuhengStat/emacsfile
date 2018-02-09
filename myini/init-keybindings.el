@@ -181,10 +181,10 @@ if we are not in a project, just use the function counsel-ag"
       (progn
 	(if (not (buffer-file-name))
 	    (if (string-equal major-mode "dired-mode")
-		(counsel-rg)
+		(counsel-ag)
 	     (swiper))
-	  (counsel-rg)))
-    (counsel-projectile-rg)))
+	  (counsel-ag)))
+    (counsel-projectile-ag)))
 (define-key projectile-mode-map [?\s-g] 'MyDef-enhanced-counsel-search)
 
 (require 'init-user-funs)
@@ -193,7 +193,7 @@ if we are not in a project, just use the function counsel-ag"
 if we are not in a project, just use the function find-file"
   (interactive)
   (if (equal (projectile-project-name) "-")
-      (counsel-rg-jump)
+      (counsel-files-search-jump)
     (MyDef-counsel-projectile-find-file)))
 (define-key projectile-mode-map [?\s-f] 'MyDef-enhanced-find-file)
 
@@ -202,7 +202,7 @@ if we are not in a project, just use the function find-file"
 if we are not in a project, just use the function find-file"
   (interactive)
   (if (equal (projectile-project-name) "-")
-      (counsel-rg-jump-to-folder)
+      (counsel-files-search-jump-to-folder)
     (MyDef-counsel-projectile-open-folder)))
 ;;(define-key projectile-mode-map (kbd "s-d") 'MyDef-enhanced-open-folder)
 

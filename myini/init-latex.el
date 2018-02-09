@@ -78,8 +78,7 @@
 
  	
 (setq-default TeX-master nil) ; Query for master file.
-(setq reftex-toc-split-windows-fraction 0.25)
-;; do not promot for the reference <2018-01-23 Tue> by wlh
+;; do not promot for the reference <2018-01-23 Tue> 
 (setq reftex-ref-macro-prompt nil)
 
 
@@ -108,7 +107,7 @@
 ;; option -b highlights the current line; option -g opens Skim in the background  
 (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
 (setq TeX-view-program-list
-     '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b"))) 
+     '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))
 
 
 ;; set the face of the toc 
@@ -155,7 +154,10 @@
   "autotically choose whether to set the reftex-toc-split-window 
 true or not"
   (if (< (window-width) 125)
-      (setq reftex-toc-split-windows-horizontally nil)
+      (progn
+	(setq reftex-toc-split-windows-fraction 0.36)
+	(setq reftex-toc-split-windows-horizontally nil))
+    (setq reftex-toc-split-windows-fraction 0.25)
     (setq reftex-toc-split-windows-horizontally t)))
 
 (defun MyDef-reftex-toc ()

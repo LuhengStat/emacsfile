@@ -68,7 +68,7 @@
  '(font-latex-sectioning-2-face ((t (:inherit font-latex-sectioning-3-face :height 1.0))))
  '(font-latex-sectioning-3-face ((t (:inherit font-latex-sectioning-4-face :height 1.0))))
  '(font-latex-sectioning-4-face ((t (:inherit font-latex-sectioning-5-face :height 1.0))))
- '(font-latex-sectioning-5-face ((t (:inherit variable-pitch :foreground "blue4" :weight normal))))
+ '(font-latex-sectioning-5-face ((t (:foreground "blue4"))))
  '(font-latex-slide-title-face ((t (:inherit (variable-pitch font-lock-type-face) :weight bold :height 1.0))))
  '(font-latex-subscript-face ((t nil)))
  '(font-latex-superscript-face ((t nil)))

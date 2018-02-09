@@ -38,7 +38,7 @@ With a prefix ARG, invalidate the cache first."
 		      ("f" MyDef-counsel-projectile-open-folder-action "open finder"))
             :caller 'MyDef-counsel-projectile-find-file))
 
-(defun counsel-rg-jump (&optional initial-input initial-directory)
+(defun counsel-files-search-jump (&optional initial-input initial-directory)
   "Jump to a file below the current directory.
 List all files within the current directory or any of its subdirectories.
 INITIAL-INPUT can be given as the initial minibuffer input.
@@ -51,8 +51,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (let* ((default-directory (or initial-directory default-directory)))
     (ivy-read "Find file: "
               (split-string
-               (shell-command-to-string
-                (concat "rg" " --files "))
+               (shell-command-to-string "ag -g .")
                "\n" t)
               :matcher #'counsel--find-file-matcher
               :initial-input initial-input
@@ -63,7 +62,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :require-match 'confirm-after-completion
               :history 'file-name-history
               :keymap counsel-find-file-map
-              :caller 'counsel-rg-jump)))
+              :caller 'counsel-files-search-jump)))
 
 
 ;; open folder part
@@ -82,7 +81,7 @@ with a prefix ARG, invalidate the cache first."
 			(MyDef-counsel-projectile-open-folder-action x)))
             :caller 'MyDef-counsel-projectile-open-folder))
 
-(defun counsel-rg-jump-to-folder (&optional initial-input initial-directory)
+(defun counsel-files-search-jump-to-folder (&optional initial-input initial-directory)
   "Jump to a file below the current directory.
 List all files within the current directory or any of its subdirectories.
 INITIAL-INPUT can be given as the initial minibuffer input.
@@ -95,8 +94,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (let* ((default-directory (or initial-directory default-directory)))
     (ivy-read "Open Finder: "
               (split-string
-               (shell-command-to-string
-                (concat "rg" " --files "))
+               (shell-command-to-string "ag -g .")
                "\n" t)
               :matcher #'counsel--find-file-matcher
               :initial-input initial-input
@@ -107,7 +105,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :require-match 'confirm-after-completion
               :history 'file-name-history
               :keymap counsel-find-file-map
-              :caller 'counsel-rg-jump-to-folder)))
+              :caller 'counsel-files-search-jump-to-folder)))
 
 
 
