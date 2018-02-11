@@ -6,6 +6,9 @@
  '(TeX-quote-after-quote t)
  '(blink-cursor-mode nil)
  '(column-number-mode t)
+ '(company-dabbrev-code-modes
+   (quote
+    (prog-mode batch-file-mode csharp-mode css-mode erlang-mode haskell-mode jde-mode lua-mode python-mode ess-mode iess-mode)))
  '(fringe-mode (quote (nil . 0)) nil (fringe))
  '(hl-paren-colors
    (quote

@@ -25,6 +25,4 @@
       (shell-command (format "open \"%s\"" filename))
     (find-file-copy filename)))
 
-
-
 (provide 'init-redefine-sys-fun)
