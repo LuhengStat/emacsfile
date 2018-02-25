@@ -106,7 +106,7 @@
 ;;(define-key company-active-map (kbd "<C-tab>") 'company-select-previous)
 (setq company-selection-wrap-around t
       company-tooltip-align-annotations t
-      company-idle-delay 0
+      company-idle-delay 0.36
       company-minimum-prefix-length 2
       company-tooltip-limit 9
       company-show-numbers t)

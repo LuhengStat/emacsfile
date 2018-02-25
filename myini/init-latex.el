@@ -142,12 +142,16 @@
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
 	    (define-key LaTeX-mode-map (kbd "C-c C-c") 'TeX-command-run-all)
+	    (define-key LaTeX-mode-map (kbd "s-r") 'TeX-command-run-all)
 	    (define-key LaTeX-mode-map (kbd "C-c C-a") 'TeX-command-master)
 	    (define-key LaTeX-mode-map (kbd "C-c )") 'LaTeX-close-environment)
 	    (define-key LaTeX-mode-map (kbd "C-c 0") 'LaTeX-close-environment)
 	    (define-key LaTeX-mode-map (kbd "C-c 9") 'reftex-label)
 	    (define-key LaTeX-mode-map (kbd "C-c ]") 'reftex-reference)
 	    ))
+(add-hook 'reftex-mode-hook
+	  (lambda ()
+	    (define-key reftex-mode-map (kbd "C-c )") 'LaTeX-close-environment)))
 
 
 (defun MyDef-choose-horizon-toc ()
@@ -171,14 +175,6 @@ true or not"
   (interactive)
   (MyDef-choose-horizon-toc)
   (reftex-toc-recenter))
-
-;;(progn
-;;  (require 'reftex-toc)
-;;  (define-key reftex-mode-map (kbd "C-c =") 'MyDef-reftex-toc)
-;;  (define-key reftex-mode-map (kbd "C-c -") 'MyDef-reftex-toc-recenter))
-
-
-;;(add-hook 'reftex-select-bib-mode-hook 'visual-line-mode) not work
 
 (add-hook 'reftex-toc-mode-hook 'visual-line-mode)
 (add-hook 'reftex-mode-hook

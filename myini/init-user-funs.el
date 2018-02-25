@@ -51,7 +51,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (let* ((default-directory (or initial-directory default-directory)))
     (ivy-read "Find file: "
               (split-string
-               (shell-command-to-string "ag -g .")
+               (shell-command-to-string "rg --files")
                "\n" t)
               :matcher #'counsel--find-file-matcher
               :initial-input initial-input
@@ -94,7 +94,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (let* ((default-directory (or initial-directory default-directory)))
     (ivy-read "Open Finder: "
               (split-string
-               (shell-command-to-string "ag -g .")
+               (shell-command-to-string "rg --files")
                "\n" t)
               :matcher #'counsel--find-file-matcher
               :initial-input initial-input

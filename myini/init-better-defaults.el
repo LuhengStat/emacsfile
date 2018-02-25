@@ -40,6 +40,7 @@
 (add-to-list 'recentf-exclude "\\.rip\\'")
 (add-to-list 'recentf-exclude "\\.gz\\'")
 (add-to-list 'recentf-exclude "/Users/wlh/Documents/GitHub/emacsfile")
+(add-to-list 'recentf-exclude "/Users/wlh/Documents/Personal/phd/毕业论文/bak")
 (add-to-list 'recentf-exclude "\\.lof\\'")
 (add-to-list 'recentf-exclude "\\.log\\'")
 (add-to-list 'recentf-exclude "\\.sty\\'")

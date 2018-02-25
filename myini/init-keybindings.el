@@ -63,9 +63,11 @@
 
 ;; browser the kill ring
 (global-set-key (kbd "C-c C-y") 'browse-kill-ring)
+(global-set-key (kbd "C-c y") 'browse-kill-ring)
 (add-hook 'org-mode-hook
 	  (lambda ()
-	    (define-key org-mode-map (kbd "C-c C-y") 'browse-kill-ring)))
+	    (define-key org-mode-map (kbd "C-c C-y") 'browse-kill-ring)
+	    (define-key org-mode-map (kbd "C-c y") 'browse-kill-ring)))
 
 
 ;; change the window size
@@ -181,10 +183,10 @@ if we are not in a project, just use the function counsel-ag"
       (progn
 	(if (not (buffer-file-name))
 	    (if (string-equal major-mode "dired-mode")
-		(counsel-ag)
+		(counsel-rg)
 	     (swiper))
-	  (counsel-ag)))
-    (counsel-projectile-ag)))
+	  (counsel-rg)))
+    (counsel-projectile-rg)))
 (define-key projectile-mode-map [?\s-g] 'MyDef-enhanced-counsel-search)
 
 (require 'init-user-funs)

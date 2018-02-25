@@ -3,8 +3,16 @@
 ;; See this page here
 ;; https://stat.ethz.ch/pipermail/ess-help/2013-March/008719.html
 ;; Make sure that this is after the auto-complete package initialization
-(setq ess-use-company t)
+
+(auto-complete-mode)
+(setq  ess-tab-complete-in-script t)
+(setq ess-use-auto-complete t)
 (ess-toggle-underscore nil)
+(define-key ac-completing-map (kbd "M-h") 'ac-quick-help)
+(define-key ac-completing-map "\M-n" nil) ;; was ac-next
+(define-key ac-completing-map "\M-p" nil) ;; was ac-previous
+(define-key ac-completing-map "\M-," 'ac-next)
+(define-key ac-completing-map "\M-k" 'ac-previous)
 
 ;; auto-change the directionary to the position of the current file
 ;;(add-hook 'ess-mode-hook 'ess-use-this-dir)

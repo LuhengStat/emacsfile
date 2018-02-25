@@ -6,9 +6,6 @@
  '(TeX-quote-after-quote t)
  '(blink-cursor-mode nil)
  '(column-number-mode t)
- '(company-dabbrev-code-modes
-   (quote
-    (prog-mode batch-file-mode csharp-mode css-mode erlang-mode haskell-mode jde-mode lua-mode python-mode ess-mode iess-mode)))
  '(fringe-mode (quote (nil . 0)) nil (fringe))
  '(hl-paren-colors
    (quote
@@ -37,7 +34,7 @@
  '(org-clock-report-include-clocking-task t)
  '(package-selected-packages
    (quote
-    (magithub ztree flyspell-correct-popup rg youdao-dictionary use-package transpose-frame spacemacs-theme py-autopep8 popwin org-ac iedit highlight-parentheses flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy dim counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ag ace-window)))
+    (osx-dictionary magithub ztree flyspell-correct-popup rg youdao-dictionary use-package transpose-frame spacemacs-theme py-autopep8 popwin org-ac iedit highlight-parentheses flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy dim counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ag ace-window)))
  '(projectile-mode t nil (projectile))
  '(projectile-mode-line
    (quote
