@@ -238,8 +238,7 @@ if we are not in a project, just use the function find-file"
 (global-set-key (kbd "s-1") 'delete-other-windows)
 (global-set-key (kbd "s-2") 'split-window-below)
 (global-set-key (kbd "s-3") 'split-window-right)
-(global-set-key (kbd "s-n") nil)
-
-
+(global-set-key (kbd "s-n") 'nil)
+(global-set-key (kbd "s-e") 'nil)
 
 (provide 'init-keybindings)

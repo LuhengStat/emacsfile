@@ -51,6 +51,7 @@
 		     dim
 		     hungry-delete
 		     ztree
+		     git-timemachine
 		     ))
 
 ;; activate all the packages (in particular autoloads)

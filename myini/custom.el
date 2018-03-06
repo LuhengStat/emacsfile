@@ -4,8 +4,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(TeX-quote-after-quote t)
+ '(ansi-color-names-vector
+   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(blink-cursor-mode nil)
  '(column-number-mode t)
+ '(cursor-type (quote box))
+ '(custom-safe-themes
+   (quote
+    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(fringe-mode (quote (nil . 0)) nil (fringe))
  '(hl-paren-colors
    (quote
@@ -25,16 +31,13 @@
 		    (:foreground "balck"))
 		   :overlap-face nil :gap-face nil :no-end-time-face nil :long-face nil :short-face nil)))
  '(org-agenda-current-time-string "now - - - - - - - - - - - - - - - - - - - - - - - -")
- '(org-agenda-files
-   (quote
-    ("~/Documents/Personal/Org/timelog.org" "~/Documents/Learning/FlashIdeas.org" "~/Documents/Personal/Org/othernotes.org" "/Users/wlh/Documents/Personal/Org/diary.org" "/Users/wlh/Documents/Personal/Org/goodhabit.org" "/Users/wlh/Documents/Personal/Org/workdiary.org")))
  '(org-agenda-restore-windows-after-quit t)
  '(org-agenda-window-setup (quote only-window))
  '(org-clock-clocked-in-display (quote frame-title))
  '(org-clock-report-include-clocking-task t)
  '(package-selected-packages
    (quote
-    (osx-dictionary magithub ztree flyspell-correct-popup rg youdao-dictionary use-package transpose-frame spacemacs-theme py-autopep8 popwin org-ac iedit highlight-parentheses flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy dim counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ag ace-window)))
+    (git-timemachine osx-dictionary magithub ztree flyspell-correct-popup rg youdao-dictionary use-package transpose-frame spacemacs-theme py-autopep8 popwin org-ac iedit highlight-parentheses flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy dim counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ag ace-window)))
  '(projectile-mode t nil (projectile))
  '(projectile-mode-line
    (quote
@@ -53,7 +56,10 @@
  '(scroll-margin 3)
  '(show-paren-mode t)
  '(size-indication-mode t)
- '(tool-bar-mode nil))
+ '(sml/modified-char " * ")
+ '(sml/name-width 33)
+ '(tool-bar-mode nil)
+ '(undo-tree-auto-save-history t))
 
 
 (custom-set-faces
@@ -78,6 +84,7 @@
  '(org-level-1 ((t (:inherit outline-1 :height 1.15))))
  '(org-level-2 ((t (:inherit outline-2 :height 1.1))))
  '(org-level-3 ((t (:inherit outline-3 :height 1.05))))
- '(org-upcoming-deadline ((t (:foreground "blue violet")))))
+ '(org-upcoming-deadline ((t (:foreground "blue violet"))))
+ '(sml/modified ((t (:inherit sml/not-modified :foreground "black" :weight bold)))))
 
 

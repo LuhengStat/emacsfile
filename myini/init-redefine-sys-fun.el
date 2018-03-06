@@ -25,4 +25,12 @@
       (shell-command (format "open \"%s\"" filename))
     (find-file-copy filename)))
 
+(defun transpose-chars (arg)
+  "Interchange characters around point, moving forward one character.
+With prefix arg ARG, effect is to take character before point
+and drag it forward past ARG other characters (backward if ARG negative).
+If no argument and at end of line, the previous two chars are exchanged."
+  (interactive "*P")
+  (transpose-subr 'forward-char (prefix-numeric-value arg)))
+
 (provide 'init-redefine-sys-fun)

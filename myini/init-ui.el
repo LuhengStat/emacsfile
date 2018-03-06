@@ -1,8 +1,8 @@
 
 ;;(load-theme 'monokai t)
-;;(load-theme 'spacemacs-dark t)
-;;(custom-set-faces
-;; '(font-latex-script-char-face ((t (:foreground "burlywood")))))
+(load-theme 'spacemacs-dark t)
+(custom-set-faces
+ '(font-latex-script-char-face ((t (:foreground "burlywood")))))
 
 ;;(load-theme 'ample t)
 ;;(custom-set-faces
@@ -14,20 +14,11 @@
 
 ;;(set-face-bold-p 'bold nil)
 
-
-;;(defun acg-initial-buffer-choice ()
-;;  (if (get-buffer "*ESS*")
-;;      (kill-buffer "*ESS*"))
-;;  (setq curbuf (current-buffer))
-;;  (switch-to-buffer curbuf)
-;;  (delete-other-windows))
-;;(setq initial-buffer-choice 'acg-initial-buffer-choice)
 (if (get-buffer "*ESS*")
     (kill-buffer "*ESS*")
   )
 
 
-;;(sml/setup)
 (toggle-frame-maximized)
 
 (blink-cursor-mode 0)
@@ -35,7 +26,7 @@
   ;; set cursor-type with a line
   ;;(setq-default cursor-type 'bar)
   ;; set cursor color
-  (set-cursor-color "#3180f1")
+  ;;(set-cursor-color "#3180f1")
   )
 (if window-system
     (s-cursor))
@@ -51,11 +42,10 @@
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
 ;; line-spacing
-(setq-default line-spacing 3)
+(setq-default line-spacing 5)
 (setq modelinesize 125)
 (set-face-attribute 'mode-line nil :height modelinesize)
 (set-face-attribute 'mode-line-inactive nil  :height modelinesize)
-
 
 ;; initial window
 ;;(setq initial-frame-alist '((left . 50) (top . 50)))
@@ -233,7 +223,7 @@
 (set-selection-coding-system 'utf-8)
 ;; 文件默认保存为 utf-8
 (set-buffer-file-coding-system 'utf-8)
-(set-default buffer-file-coding-system 'utf8)
+(set-default buffer-file-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 ;; 解决粘贴中文出现乱码的问题
 (set-clipboard-coding-system 'utf-8)
@@ -243,31 +233,18 @@
 (setq default-process-coding-system '(utf-8 . utf-8))
 ;; 解决文件目录的中文名乱码
 (setq-default pathname-coding-system 'utf-8)
-;; 解决 Shell Mode(cmd) 下中文乱码问题
-(defun change-shell-mode-coding ()
-  (progn
-    (set-terminal-coding-system 'gbk)
-    (set-keyboard-coding-system 'gbk)
-    (set-selection-coding-system 'gbk)
-    (set-buffer-file-coding-system 'gbk)
-    (set-file-name-coding-system 'gbk)
-    (modify-coding-system-alist 'process "*" 'gbk)
-    (set-buffer-process-coding-system 'gbk 'gbk)
-    (set-file-name-coding-system 'gbk)))
-
 ;;设置文件名编码
 (setq file-name-coding-system 'utf-8)
 ;;设置目录路径名编码
-;;(setq path-name-coding-system 'utf-8)
+(setq path-name-coding-system 'utf-8)
+
 
 
 ;; always open files in the same window
 (setq ns-pop-up-frames nil)
 
-
 ;; choose horizon window if proper
 (setq split-width-threshold 140)
-
 
 
 (provide 'init-ui)

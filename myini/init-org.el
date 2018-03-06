@@ -44,7 +44,7 @@
 
 
 ;; agenda views
-;;(setq org-agenda-files '("/Users/wlh/Documents/Personal/Org/"))
+(setq org-agenda-files '("/Users/wlh/Documents/Personal/Org/"))
 (custom-set-faces
  '(error ((t (:foreground "Red" :weight normal))))
  '(org-agenda-clocking ((t (:background "SkyBlue1")))))
