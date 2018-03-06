@@ -1,8 +1,8 @@
 
 ;;(load-theme 'monokai t)
-(load-theme 'spacemacs-dark t)
-(custom-set-faces
- '(font-latex-script-char-face ((t (:foreground "burlywood")))))
+;; (load-theme 'spacemacs-dark t)
+;; (custom-set-faces
+;;  '(font-latex-script-char-face ((t (:foreground "burlywood")))))
 
 ;;(load-theme 'ample t)
 ;;(custom-set-faces
@@ -26,7 +26,7 @@
   ;; set cursor-type with a line
   ;;(setq-default cursor-type 'bar)
   ;; set cursor color
-  ;;(set-cursor-color "#3180f1")
+  (set-cursor-color "#3180f1")
   )
 (if window-system
     (s-cursor))

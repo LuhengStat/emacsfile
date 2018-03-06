@@ -86,7 +86,6 @@
  '(org-level-2 ((t (:inherit outline-2 :height 1.1))))
  '(org-level-3 ((t (:inherit outline-3 :height 1.05))))
  '(org-upcoming-deadline ((t (:foreground "blue violet"))))
- '(show-paren-match ((t (:background "turquoise4"))))
  '(sml/modified ((t (:inherit sml/not-modified :foreground "black" :weight bold)))))
 
 
