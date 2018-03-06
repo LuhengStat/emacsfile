@@ -69,6 +69,7 @@
  ;; If there is more than one, they won't work right.
  '(aw-leading-char-face ((t (:foreground "red" :height 1.2))))
  '(error ((t (:foreground "Red" :weight normal))))
+ '(font-latex-script-char-face ((t (:foreground "burlywood"))))
  '(font-latex-sectioning-0-face ((t (:inherit font-latex-sectioning-1-face :height 1.0))))
  '(font-latex-sectioning-1-face ((t (:inherit font-latex-sectioning-2-face :height 1.0))))
  '(font-latex-sectioning-2-face ((t (:inherit font-latex-sectioning-3-face :height 1.0))))
@@ -85,6 +86,7 @@
  '(org-level-2 ((t (:inherit outline-2 :height 1.1))))
  '(org-level-3 ((t (:inherit outline-3 :height 1.05))))
  '(org-upcoming-deadline ((t (:foreground "blue violet"))))
+ '(show-paren-match ((t (:background "turquoise4"))))
  '(sml/modified ((t (:inherit sml/not-modified :foreground "black" :weight bold)))))
 
 
