@@ -113,7 +113,9 @@ This is a useful function for adding to `kill-emacs-query-functions'."
 (define-key calendar-mode-map (kbd "b") 'calendar-backward-day)
 (define-key calendar-mode-map (kbd "n") 'calendar-forward-week)
 (define-key calendar-mode-map (kbd "p") 'calendar-backward-week)
-
+(define-key calendar-mode-map (kbd "n") 'calendar-forward-week)
+(define-key calendar-mode-map (kbd "M-]") 'calendar-forward-month)
+(define-key calendar-mode-map (kbd "M-[") 'calendar-backward-month)
 
 (defun MyDef-org-agenda-show-holiday ()
   "define the window of holiday"
