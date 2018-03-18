@@ -94,9 +94,12 @@
 
 ;; AucTeX
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
-;;(add-hook 'LaTeX-mode-hook 'flyspell-mode)
-;;(eval-after-load 'flyspell (lambda()
-;;			     (require 'flyspell-correct-popup)))
+(setq ispell-program-name "/usr/local/bin/aspell")
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(require 'flyspell-correct-ivy)
+(define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-previous-word-generic)
+(eval-after-load 'flyspell (lambda()
+			     (require 'flyspell-correct-popup)))
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 (setq reftex-plug-into-AUCTeX t)
 (setq TeX-PDF-mode t)
@@ -107,7 +110,7 @@
 ;; option -b highlights the current line; option -g opens Skim in the background  
 (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
 (setq TeX-view-program-list
-     '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o %b")))
+     '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))
 
 
 ;; set the face of the toc 

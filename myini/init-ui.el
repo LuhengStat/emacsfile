@@ -42,7 +42,8 @@
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
 ;; line-spacing
-(setq-default line-spacing 5)
+(setq-default line-spacing 6)
+;;(sml/setup)
 (setq modelinesize 125)
 (set-face-attribute 'mode-line nil :height modelinesize)
 (set-face-attribute 'mode-line-inactive nil  :height modelinesize)
@@ -246,5 +247,10 @@
 ;; choose horizon window if proper
 (setq split-width-threshold 140)
 
+;; show file path
+;; (setq frame-title-format
+;;       '((:eval (if (buffer-file-name)
+;;                    (abbreviate-file-name (buffer-file-name))
+;;                  "%b"))))
 
 (provide 'init-ui)

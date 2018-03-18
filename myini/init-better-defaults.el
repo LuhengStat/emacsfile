@@ -9,6 +9,7 @@
 ;; remember cursor position, for emacs 25.1 or later
 (save-place-mode 1)
 
+(setq default-directory "/Users/wlh/Documents")
 
 ;; automatically focus on the new window
 (add-to-list 'display-buffer-alist
