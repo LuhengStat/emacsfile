@@ -60,6 +60,7 @@
 
 ;; disable some keys
 (global-set-key (kbd "s-x") 'nil)
+(global-set-key (kbd "C-x C-n") 'nil)
 
 ;; browser the kill ring
 (global-set-key (kbd "C-c C-y") 'browse-kill-ring)

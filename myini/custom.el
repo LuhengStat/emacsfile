@@ -11,8 +11,55 @@
  '(cursor-type (quote box))
  '(custom-safe-themes
    (quote
-    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+    ("7153b82e50b6f7452b4519097f880d968a6eaf6f6ef38cc45a144958e553fbc6" "5e3fc08bcadce4c6785fc49be686a4a82a356db569f55d411258984e952f194a" "a0feb1322de9e26a4d209d1cfa236deaf64662bb604fa513cca6a057ddf0ef64" "ab04c00a7e48ad784b52f34aa6bfa1e80d0c3fcacc50e1189af3651013eb0d58" "04dd0236a367865e591927a3810f178e8d33c372ad5bfef48b5ce90d4b476481" "7356632cebc6a11a87bc5fcffaa49bae528026a78637acd03cae57c091afd9b9" "ee4dcfcb646d4ad11fe1bd90ed111e3e59a78703325fdef347b50a39ccba13d7" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+ '(diary-entry-marker (quote font-lock-variable-name-face))
+ '(emms-mode-line-icon-image-cache
+   (quote
+    (image :type xpm :ascent center :data "/* XPM */
+static char *note[] = {
+/* width height num_colors chars_per_pixel */
+\"    10   11        2            1\",
+/* colors */
+\". c #1ba1a1\",
+\"# c None s None\",
+/* pixels */
+\"###...####\",
+\"###.#...##\",
+\"###.###...\",
+\"###.#####.\",
+\"###.#####.\",
+\"#...#####.\",
+\"....#####.\",
+\"#..######.\",
+\"#######...\",
+\"######....\",
+\"#######..#\" };")))
+ '(fci-rule-color "#404040")
  '(fringe-mode (quote (nil . 0)) nil (fringe))
+ '(gnus-logo-colors (quote ("#4c8383" "#bababa")) t)
+ '(gnus-mode-line-image-cache
+   (quote
+    (image :type xpm :ascent center :data "/* XPM */
+static char *gnus-pointer[] = {
+/* width height num_colors chars_per_pixel */
+\"    18    13        2            1\",
+/* colors */
+\". c #1ba1a1\",
+\"# c None s None\",
+/* pixels */
+\"##################\",
+\"######..##..######\",
+\"#####........#####\",
+\"#.##.##..##...####\",
+\"#...####.###...##.\",
+\"#..###.######.....\",
+\"#####.########...#\",
+\"###########.######\",
+\"####.###.#..######\",
+\"######..###.######\",
+\"###....####.######\",
+\"###..######.######\",
+\"###########.######\" };")) t)
  '(hl-paren-colors
    (quote
     ("blue" "Red" "Magenta" "dark cyan" "dark goldenrod")))
@@ -37,13 +84,14 @@
  '(org-clock-report-include-clocking-task t)
  '(package-selected-packages
    (quote
-    (flyspell-correct-ivy flyspell-correct-popup smart-mode-line git-timemachine osx-dictionary magithub ztree rg youdao-dictionary use-package transpose-frame spacemacs-theme py-autopep8 popwin org-ac iedit highlight-parentheses flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy dim counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ag ace-window)))
+    (flyspell-correct-popup flyspell-correct-ivy smart-mode-line git-timemachine osx-dictionary magithub ztree rg youdao-dictionary use-package transpose-frame spacemacs-theme py-autopep8 popwin org-ac iedit highlight-parentheses flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy dim counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ag ace-window)))
  '(projectile-mode t nil (projectile))
  '(projectile-mode-line
    (quote
     (:eval
      (format " Proj[%s]"
 	     (projectile-project-name)))))
+ '(red "#ffffff")
  '(safe-local-variable-values
    (quote
     ((projectile-project-name . Python)
@@ -56,10 +104,34 @@
  '(scroll-margin 3)
  '(show-paren-mode t)
  '(size-indication-mode t)
- '(sml/modified-char " * ")
- '(sml/name-width 33)
+ '(sml/full-mode-string " ")
+ '(sml/modified-char " ** ")
+ '(sml/name-width 39)
+ '(sml/shorten-mode-string " ")
+ '(sml/shorten-modes nil)
  '(tool-bar-mode nil)
- '(undo-tree-auto-save-history t))
+ '(vc-annotate-background "#404040")
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#ea4141")
+     (40 . "#db4334")
+     (60 . "#e9e953")
+     (80 . "#c9d617")
+     (100 . "#dc7700")
+     (120 . "#bcaa00")
+     (140 . "#29b029")
+     (160 . "#47cd57")
+     (180 . "#60a060")
+     (200 . "#319448")
+     (220 . "#078607")
+     (240 . "#1ec1c4")
+     (260 . "#1ba1a1")
+     (280 . "#26d5d5")
+     (300 . "#58b1f3")
+     (320 . "#00a2f5")
+     (340 . "#1e7bda")
+     (360 . "#da26ce"))))
+ '(vc-annotate-very-old-color "#da26ce"))
 
 
 (custom-set-faces
@@ -81,11 +153,14 @@
  '(font-latex-superscript-face ((t nil)))
  '(font-latex-warning-face ((t (:foreground "red"))))
  '(iedit-occurrence ((t (:background "CadetBlue2"))))
+ '(mode-line ((t (:background "grey75" :foreground "black" :box (:line-width -1 :style released-button)))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "grey90" :foreground "grey20" :box (:line-width -1 :color "grey75") :weight light))))
  '(org-agenda-clocking ((t (:background "SkyBlue1"))))
  '(org-level-1 ((t (:inherit outline-1 :height 1.15))))
  '(org-level-2 ((t (:inherit outline-2 :height 1.1))))
  '(org-level-3 ((t (:inherit outline-3 :height 1.05))))
  '(org-upcoming-deadline ((t (:foreground "blue violet"))))
+ '(sml/filename ((t (:inherit sml/global :foreground "gray0" :weight bold))))
  '(sml/modified ((t (:inherit sml/not-modified :foreground "black" :weight bold)))))
 
 

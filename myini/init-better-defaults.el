@@ -138,10 +138,7 @@ If the new path's directories does not exist, create them."
 
 (disable-mouse-mode 1)
 
-
-(global-undo-tree-mode)
-(setq undo-tree-auto-save-history t)
-(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
-
+(remove-hook 'text-mode-hook #'turn-on-auto-fill)
+(add-hook 'text-mode-hook #'visual-line-mode)
 
 (provide 'init-better-defaults)

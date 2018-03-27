@@ -60,11 +60,6 @@
 (setq-default TeX-source-correlate-mode t) ;; Enable synctex
 (setq-default TeX-source-correlate-start-server t)
 
-
-(setq TeX-parse-self t) ; Enable parse on load.
-(setq TeX-auto-save t) ; Enable parse on save.
-
-
 ;; Turn on RefTeX in AUCTeX
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 ;; Activate nice interface between RefTeX and AUCTeX
@@ -94,12 +89,12 @@
 
 ;; AucTeX
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
+;;(add-hook 'LaTeX-mode-hook (lambda () (setq truncate-lines t)))
 (setq ispell-program-name "/usr/local/bin/aspell")
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-(require 'flyspell-correct-ivy)
-(define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-previous-word-generic)
-(eval-after-load 'flyspell (lambda()
-			     (require 'flyspell-correct-popup)))
+;;(require 'flyspell-correct-ivy)
+(require 'flyspell-correct-popup)
+(define-key flyspell-mode-map (kbd "C-c <tab>") 'flyspell-correct-previous-word-generic)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 (setq reftex-plug-into-AUCTeX t)
 (setq TeX-PDF-mode t)
@@ -154,7 +149,8 @@
 	    ))
 (add-hook 'reftex-mode-hook
 	  (lambda ()
-	    (define-key reftex-mode-map (kbd "C-c )") 'LaTeX-close-environment)))
+	    (define-key reftex-mode-map (kbd "C-c )") 'LaTeX-close-environment)
+	    (define-key reftex-mode-map (kbd "C-c 7") 'reftex-view-crossref)))
 
 
 (defun MyDef-choose-horizon-toc ()

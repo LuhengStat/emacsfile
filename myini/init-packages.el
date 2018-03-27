@@ -100,9 +100,9 @@
 
 ;; company-mode 
 (global-company-mode)
-(define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
-(define-key company-active-map (kbd "M-n") 'company-select-next) 
-(define-key company-active-map (kbd "M-p") 'company-select-previous)
+(define-key company-active-map (kbd "C-h") 'company-show-doc-buffer)
+(define-key company-active-map (kbd "C-n") 'company-select-next) 
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
 (define-key company-active-map [tab] 'company-complete-common)
 ;;(define-key company-active-map (kbd "<C-tab>") 'company-select-previous)
 (setq company-selection-wrap-around t
@@ -110,7 +110,7 @@
       company-idle-delay 0.36
       company-minimum-prefix-length 2
       company-tooltip-limit 9
-      company-show-numbers t)
+      company-show-numbers nil)
 
 ;; Add yasnippet support for all company backends
 (defvar company-mode/enable-yas t
@@ -124,29 +124,6 @@
 
 (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
-;; this configure is copied from https://oremacs.com/
-(let ((map company-active-map))
-  (mapc
-   (lambda (x)
-     (define-key map (format "%d" x) 'ora-company-number))
-   (number-sequence 0 9))
-  (define-key map " " (lambda ()
-                        (interactive)
-                        (company-abort)
-                        (self-insert-command 1)))
-  (define-key map (kbd "<return>") nil)) 
-
-(defun ora-company-number ()
-  "Forward to `company-complete-number'.
-Unless the number is potentially part of the candidate.
-In that case, insert the number."
-  (interactive)
-  (let* ((k (this-command-keys))
-         (re (concat "^" company-prefix k)))
-    (if (cl-find-if (lambda (s) (string-match re s))
-                    company-candidates)
-        (self-insert-command 1)
-      (company-complete-number (string-to-number k)))))
 
 
 ;; ag highlight
@@ -164,6 +141,8 @@ In that case, insert the number."
 ;; redo-undo tree
 (require 'undo-tree)
 (global-undo-tree-mode 1)
+;; (setq undo-tree-auto-save-history t)
+;; (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
 
 ;; auto jump to the pop window

@@ -43,7 +43,10 @@
 
 ;; line-spacing
 (setq-default line-spacing 6)
-;;(sml/setup)
+(sml/setup)
+(custom-set-faces
+ '(mode-line ((t (:background "grey75" :foreground "black" :box (:line-width -1 :style released-button)))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "grey90" :foreground "grey20" :box (:line-width -1 :color "grey75") :weight light)))))
 (setq modelinesize 125)
 (set-face-attribute 'mode-line nil :height modelinesize)
 (set-face-attribute 'mode-line-inactive nil  :height modelinesize)
@@ -243,6 +246,7 @@
 
 ;; always open files in the same window
 (setq ns-pop-up-frames nil)
+
 
 ;; choose horizon window if proper
 (setq split-width-threshold 140)
