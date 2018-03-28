@@ -146,6 +146,7 @@
 	    (define-key LaTeX-mode-map (kbd "C-c 0") 'LaTeX-close-environment)
 	    (define-key LaTeX-mode-map (kbd "C-c 9") 'reftex-label)
 	    (define-key LaTeX-mode-map (kbd "C-c ]") 'reftex-reference)
+	    (turn-on-auto-fill)
 	    ))
 (add-hook 'reftex-mode-hook
 	  (lambda ()
