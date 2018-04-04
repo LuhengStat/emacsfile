@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: laarray
+# key: laarray
+# --
+\begin{array}{$1}
+  $0
+\end{array}

@@ -19,8 +19,6 @@
   )
 
 
-(toggle-frame-maximized)
-
 (blink-cursor-mode 0)
 (defun s-cursor()
   ;; set cursor-type with a line
@@ -52,15 +50,19 @@
 (set-face-attribute 'mode-line-inactive nil  :height modelinesize)
 
 ;; initial window
-;;(setq initial-frame-alist '((left . 50) (top . 50)))
-;;(setq initial-frame-alist
+;; (setq initial-frame-alist '((left . 50) (top . 50)))
+;; (setq initial-frame-alist
 ;;      '(
 ;;        (width . 132) ; character
 ;;      (height . 35))) ;
-;;
-;;(when (window-system)
+
+;; (when (window-system)
 ;;  (set-frame-position (selected-frame) 156 86))
 
+;; (set-frame-position (selected-frame) 0 0)
+;;(add-to-list 'default-frame-alist '(height . 50))
+;;(add-to-list 'default-frame-alist '(width . 80))
+(toggle-frame-maximized)
 
 (show-paren-mode 1)
 ;;;;;;;;;;;;;;;;; highlight-parantheses

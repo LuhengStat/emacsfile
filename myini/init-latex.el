@@ -45,8 +45,8 @@
  )
 
 ;; Exclude bold/italic from keywords, can be customized
-(setq font-latex-deactivated-keyword-classes
-      '("italic-command" "bold-command" "italic-declaration" "bold-declaration"))
+;;(setq font-latex-deactivated-keyword-classes
+;;      '("italic-command" "bold-command" "italic-declaration" "bold-declaration"))
 
 
 (setq-default TeX-parse-self t) ;; Enable parsing of the file itself on load
