@@ -37,6 +37,6 @@
 (define-key ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
 (define-key inferior-ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
 
-
+(add-hook 'inferior-ess-mode-hook 'visual-line-mode)
 
 (provide 'init-ess)

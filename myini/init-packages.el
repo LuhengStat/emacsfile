@@ -1,7 +1,10 @@
 
+(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
-(setq package-archives '(("gnu"   . "https://elpa.emacs-china.org/gnu/")
-                         ("melpa" . "https://elpa.emacs-china.org/melpa/")))			 
+;; (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+;;                          ("marmalade" . "https://marmalade-repo.org/packages/")
+;;                          ("melpa" . "https://melpa.org/packages/")))
 
 (setq package-check-signature nil)
 
