@@ -15,6 +15,10 @@
  '(diary-entry-marker (quote font-lock-variable-name-face))
  '(fci-rule-color "#404040")
  '(gnus-logo-colors (quote ("#4c8383" "#bababa")) t)
+ '(graphviz-dot-auto-indent-on-semi nil)
+ '(graphviz-dot-auto-preview-on-save t)
+ '(graphviz-dot-delete-completions t)
+ '(graphviz-dot-preview-extension "pdf")
  '(hl-paren-colors
    (quote
     ("blue" "Red" "Magenta" "dark cyan" "dark goldenrod")))
@@ -39,7 +43,7 @@
  '(org-clock-report-include-clocking-task t)
  '(package-selected-packages
    (quote
-    (flyspell-correct-popup flyspell-correct-ivy smart-mode-line git-timemachine osx-dictionary magithub ztree rg youdao-dictionary use-package transpose-frame spacemacs-theme py-autopep8 popwin org-ac iedit highlight-parentheses flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy dim counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ag ace-window)))
+    (graphviz-dot-mode flyspell-correct-popup flyspell-correct-ivy smart-mode-line git-timemachine osx-dictionary magithub ztree rg youdao-dictionary use-package transpose-frame spacemacs-theme py-autopep8 popwin org-ac iedit highlight-parentheses flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy dim counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ag ace-window)))
  '(projectile-mode t nil (projectile))
  '(projectile-mode-line
    (quote

@@ -241,4 +241,5 @@ if we are not in a project, just use the function find-file"
 (global-set-key (kbd "s-3") 'split-window-right)
 (global-set-key (kbd "s-e") 'nil)
 
+
 (provide 'init-keybindings)
