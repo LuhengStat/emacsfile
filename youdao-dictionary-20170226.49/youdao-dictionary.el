@@ -201,7 +201,8 @@ i.e. `[语][计] dictionary' => 'dictionary'."
           (goto-char (point-min))
           (set (make-local-variable 'youdao-dictionary-current-buffer-word) word))
         (switch-to-buffer-other-window buffer-name))
-    (message "Nothing to look up")))
+    (message "Nothing to look up, try to use search from input")
+    (search-from-input)))
 
 :autoload
 (defun search-at-point ()
@@ -228,11 +229,14 @@ i.e. `[语][计] dictionary' => 'dictionary'."
         (-pos-tip (-format-result word))
       (message "Nothing to look up"))))
 
-:autoload
+:autoload ;; revised by Luheng Wang 
 (defun search-from-input ()
   "Search word from input and display result with buffer."
   (interactive)
   (let ((word (-prompt-input)))
+    (if (get-buffer-window "*Youdao Dictionary*")
+      (progn   (if (not (popwin:close-popup-window))
+		   (previous-buffer)))) 
     (-search-and-show-in-buffer word)))
 
 :autoload
