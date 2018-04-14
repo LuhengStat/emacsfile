@@ -4,7 +4,7 @@
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "youdao-dictionary" "youdao-dictionary.el"
-;;;;;;  (23157 21685 378946 938000))
+;;;;;;  (23249 41768 451981 889000))
 ;;; Generated autoloads from youdao-dictionary.el
 
 (autoload 'youdao-dictionary-search-at-point "youdao-dictionary" "\

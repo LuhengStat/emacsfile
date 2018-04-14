@@ -55,6 +55,9 @@
 		     hungry-delete
 		     ztree
 		     git-timemachine
+		     smart-mode-line
+		     flyspell-correct-popup
+		     graphviz-dot-mode
 		     ))
 
 ;; activate all the packages (in particular autoloads)
