@@ -129,6 +129,7 @@
     disable-mouse-mode
     auto-fill-function
     hungry-delete-mode
+    auto-revert-mode
     ))
 
 (defun purge-minor-modes ()
@@ -140,7 +141,7 @@
 (add-hook 'after-change-major-mode-hook 'purge-minor-modes)
 
 (dim-major-name 'help-mode "H")
-(dim-major-name 'emacs-lisp-mode "Lisp")
+(dim-major-name 'emacs-lisp-mode "L")
 
 ;;(add-to-list 'default-frame-alist '(font . "-*-Monaco-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")) 
 ;;(set-face-attribute 'default t :font "-*-Monaco-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1" )

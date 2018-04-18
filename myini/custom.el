@@ -33,6 +33,9 @@
 
 ")
  '(mark-ring-max 10)
+ '(mode-line-format
+   (quote
+    ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification sml/pos-id-separator mode-line-position sml/pre-modes-separator mode-line-modes mode-line-misc-info mode-line-end-spaces)))
  '(org-agenda-block-separator
    "=============================================================================")
  '(org-agenda-clock-consistency-checks

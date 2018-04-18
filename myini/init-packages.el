@@ -36,7 +36,7 @@
 		     ;;find-file-in-project
 		     evil
 		     elpy
-		     ;;magit
+		     magit
 		     flycheck
 		     exec-path-from-shell
 		     py-autopep8
@@ -183,7 +183,7 @@
 (add-hook 'comint-exec-hook 
 	  (lambda () (set-process-query-on-exit-flag (get-buffer-process (current-buffer)) nil)))
 
-
+;; calendar of china
 (require 'cal-china-x)
 (setq mark-holidays-in-calendar t)
 (setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
