@@ -258,6 +258,11 @@ this prefix arg."
 	   ((ess-boolean-command (concat "exists(" ess-view-oggetto ")\n")) (message "The object does not exists"))
 	   ((ess-boolean-command (concat "is.vector(" ess-view-oggetto ")\n")) (ess-view-print-vector ess-view-oggetto))
 	   ((ess-boolean-command (concat "is.data.frame(" ess-view-oggetto ")\n")) (ess-view-data-frame-view ess-view-oggetto ess-view--save ess-view-row))
+	   ((ess-boolean-command (concat "is.matrix(" ess-view-oggetto ")\n"))
+	    (progn
+	      (ess-command (concat ess-view-oggetto ".just.use.for.viewing=as.dataframe(" ess-view-oggetto ")\n"))
+	      (setq ess-view-oggetto (concat ess-view-oggetto ".just.use.for.viewing"))
+	      (ess-view-data-frame-view ess-view-oggetto ess-view--save ess-view-row)))
 	   (t (message "the object is neither a vector or a data.frame; don't know how to show it...")))))
     (ess-no-program)))
 
