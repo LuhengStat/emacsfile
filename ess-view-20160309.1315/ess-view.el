@@ -196,7 +196,7 @@ the row names of the dataframe as well."
       (sit-for 1)
 
       ;; start the spreadsheet software to open the temp csv file
-      (setq ess-view-spr-proc (start-process "spreadsheet" nil ess-view--spreadsheet-program ess-view-temp-file))
+      (setq ess-view-spr-proc (shell-command (format "open \"%s\"" ess-view-temp-file)))
       (if save
 	  (set-process-sentinel ess-view-spr-proc 'ess-view-write--sentinel))
 
