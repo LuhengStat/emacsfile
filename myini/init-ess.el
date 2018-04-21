@@ -8,8 +8,9 @@
 (setq ess-default-style 'RStudio)
 
 
-;;(require 'ess-view)
-;;(setq ess-view--spreadsheet-program "/Applications/Table Tool.app/Contents/MacOS/Table Tool")
+(require 'ess-view)
+(setq ess-view--spreadsheet-program "/Applications/Table Tool.app/Contents/MacOS/Table Tool")
+
 
 ;;(require 'ess-R-object-popup)
 ;;(define-key ess-mode-map "\C-c\C-g" 'ess-R-object-popup)

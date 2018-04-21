@@ -130,8 +130,6 @@
 
 (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
-
-
 ;; ag highlight
 (setq ag-highlight-search t)
 
@@ -165,6 +163,7 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
+(yas-minor-mode 1)
 
 
 ;; highlight selected words in the whole buffer
