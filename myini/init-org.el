@@ -94,9 +94,6 @@ This is a useful function for adding to `kill-emacs-query-functions'."
 (add-hook 'kill-emacs-query-functions 'my/org-clock-query-out)
 
 ;; set for the calendar
-(setq org-agenda-archives-mode nil)
-(setq org-agenda-skip-comment-trees nil)
-(setq org-agenda-skip-function nil)
 (push "*Calendar*" popwin:special-display-config)
 (defun MyDef-org-agenda-show-calendar ()
   "define the window of calendar"
