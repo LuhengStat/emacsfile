@@ -204,6 +204,47 @@ the row names of the dataframe as well."
       ;; remove the temporary environment
       (ess-send-string (get-process "R") (format "rm(%s)" envir)))))
 
+(defun ess-view-matrix-view (object save row-names)
+  "This function is used in case the passed OBJECT is a data frame.
+Argument SAVE if t means that the user wants to store the spreadsheet-modified
+version of the dataframe in the original object.
+Argument ROW-NAMES is either t or nil: in case it's true, user wants to save
+the row names of the dataframe as well."
+  ;;  (interactive)
+  (save-excursion
+
+    ;; create a temp environment where we will work
+    (let
+	((envir (ess-view-create-env))
+	 (win-place (current-window-configuration)))
+
+      (ess-send-string (get-process "R") (concat envir "<-new.env()\n") nil)
+      ;; create a copy of the passed object in the custom environment
+      (ess-send-string (get-process "R") (concat envir "$obj<-as.data.frame(" object ")\n") nil)
+      ;; create a variable containing the complete name of the object
+      ;; (in the form environm$object
+      (setq ess-view-newobj (concat envir "$obj"))
+      ;; remove NA and NAN so that objects is easier to read in spreadsheet file
+      (ess-view-clean-data-frame ess-view-newobj)
+      ;; create a csv temp file
+      (setq ess-view-temp-file (make-temp-file nil nil ".csv"))
+      (if row-names (setq row-names "row.names=FALSE,col.names=NA")
+	(setq row-names "row.names=FALSE"))
+      ;; write the passed object to the csv tempfile
+      (setq ess-view-string-command (concat "write.table(" ess-view-newobj ",file='" ess-view-temp-file "',sep=','," row-names ")\n"))
+      (ess-send-string (get-process "R") ess-view-string-command)
+      ;; wait a little just to be sure that the file has been written (is this necessary? to be checked)
+      (sit-for 1)
+
+      ;; start the spreadsheet software to open the temp csv file, by wlh
+      (setq ess-view-spr-proc (shell-command (format "open \"%s\"" ess-view-temp-file)))
+      (if save
+	  (set-process-sentinel ess-view-spr-proc 'ess-view-write--sentinel))
+
+      (set-window-configuration win-place)
+      ;; remove the temporary environment
+      (ess-send-string (get-process "R") (format "rm(%s)" envir)))))
+
 
 (defun ess-no-program ()
   "Request user to set the default spreadsheet software."
@@ -258,6 +299,7 @@ this prefix arg."
 	   ((ess-boolean-command (concat "exists(" ess-view-oggetto ")\n")) (message "The object does not exists"))
 	   ((ess-boolean-command (concat "is.vector(" ess-view-oggetto ")\n")) (ess-view-print-vector ess-view-oggetto))
 	   ((ess-boolean-command (concat "is.data.frame(" ess-view-oggetto ")\n")) (ess-view-data-frame-view ess-view-oggetto ess-view--save ess-view-row))
+	   ((ess-boolean-command (concat "is.matrix(" ess-view-oggetto ")\n")) (ess-view-matrix-view ess-view-oggetto ess-view--save ess-view-row))
 	   (t (message "the object is neither a vector or a data.frame; don't know how to show it...")))))
     (ess-no-program)))
 

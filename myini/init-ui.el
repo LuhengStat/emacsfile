@@ -223,7 +223,7 @@
 
 
 ;;;; 设置编辑环境
-(setenv "LANG" "zh_CN.UTF-8")
+(setenv "LC_ALL" "en_US.UTF-8")
 ;; 设置emacs 使用 utf-8
 (setq locale-coding-system 'utf-8)
 ;; 设置键盘输入时的字符编码
