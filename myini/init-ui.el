@@ -221,6 +221,16 @@
 (if window-system
     (s2-font))
 
+;; Use monospaced font faces in current buffer
+(defun my-buffer-face-mode-fixed ()
+  "font in the inferiror python or ess mode"
+  (interactive)
+  (setq buffer-face-mode-face '(:family "Inconsolata" :height 150))
+  (buffer-face-mode))
+
+;; Set default font faces for other modes
+(add-hook 'inferior-python-mode-hook 'my-buffer-face-mode-fixed)
+(add-hook 'inferior-ess-mode-hook 'my-buffer-face-mode-fixed)
 
 ;;;; 设置编辑环境
 (setenv "LC_ALL" "en_US.UTF-8")
