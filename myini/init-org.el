@@ -72,10 +72,10 @@
 (global-set-key [?\s-t] 'MyDef-org-agenda-view)
 
 ;; use org-agenda-view
-(setq inhibit-splash-screen t)
-(setq org-agenda-inhibit-startup t)
-(org-agenda nil "d")
-(delete-other-windows)
+;; (setq inhibit-splash-screen t)
+;; (setq org-agenda-inhibit-startup t)
+;; (org-agenda nil "d")
+;; (delete-other-windows)
 
 
 (defun my/org-clock-query-out ()
@@ -94,6 +94,9 @@ This is a useful function for adding to `kill-emacs-query-functions'."
 (add-hook 'kill-emacs-query-functions 'my/org-clock-query-out)
 
 ;; set for the calendar
+(setq org-agenda-archives-mode nil)
+(setq org-agenda-skip-comment-trees nil)
+(setq org-agenda-skip-function nil)
 (push "*Calendar*" popwin:special-display-config)
 (defun MyDef-org-agenda-show-calendar ()
   "define the window of calendar"
@@ -105,9 +108,11 @@ This is a useful function for adding to `kill-emacs-query-functions'."
     (org-agenda-goto-calendar)))
 
 (global-set-key (kbd "s-c") 'calendar)
-(define-key org-agenda-mode-map (kbd "s-c") 'MyDef-org-agenda-show-calendar)
+(add-hook 'org-agenda-mode-hook
+          (lambda ()
+	    (define-key org-agenda-mode-map (kbd "s-c") 'MyDef-org-agenda-show-calendar)
+	    (define-key org-agenda-mode-map (kbd "c") 'MyDef-org-agenda-show-calendar)))
 (define-key calendar-mode-map (kbd "s-c") 'MyDef-org-agenda-show-calendar)
-(define-key org-agenda-mode-map (kbd "c") 'MyDef-org-agenda-show-calendar)
 (define-key calendar-mode-map (kbd "c") 'MyDef-org-agenda-show-calendar)
 (define-key calendar-mode-map (kbd "f") 'calendar-forward-day)
 (define-key calendar-mode-map (kbd "b") 'calendar-backward-day)
@@ -123,8 +128,10 @@ This is a useful function for adding to `kill-emacs-query-functions'."
   (if (get-buffer "*Holidays*")
       (kill-buffer "*Holidays*")
     (org-agenda-holidays)))
-(define-key org-agenda-mode-map (kbd "H") 'MyDef-org-agenda-show-holiday)
-(define-key org-agenda-mode-map (kbd "h") 'MyDef-org-agenda-show-holiday)
+(add-hook 'org-agenda-mode-hook
+          (lambda ()
+	    (define-key org-agenda-mode-map (kbd "H") 'MyDef-org-agenda-show-holiday)
+	    (define-key org-agenda-mode-map (kbd "h") 'MyDef-org-agenda-show-holiday)))
 
 
 (provide 'init-org)

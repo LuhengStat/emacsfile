@@ -67,10 +67,6 @@
 ;; set a cite type
 ;;(setq reftex-cite-format 'natbib)
 
-(eval-after-load 'LaTeX
-  (progn
-    (define-key org-mode-map (kbd "C-<SPC>") nil)))
-
  	
 (setq-default TeX-master nil) ; Query for master file.
 ;; do not promot for the reference <2018-01-23 Tue> 
