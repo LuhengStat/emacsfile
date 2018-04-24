@@ -204,8 +204,9 @@ the row names of the dataframe as well."
       ;; remove the temporary environment
       (ess-send-string (get-process "R") (format "rm(%s)" envir)))))
 
+;; add by wlh
 (defun ess-view-matrix-view (object save row-names)
-  "This function is used in case the passed OBJECT is a data frame.
+  "This function is used in case the passed OBJECT is matrix.
 Argument SAVE if t means that the user wants to store the spreadsheet-modified
 version of the dataframe in the original object.
 Argument ROW-NAMES is either t or nil: in case it's true, user wants to save
