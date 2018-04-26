@@ -123,7 +123,15 @@
             (lambda ()
               (set (make-local-variable 'company-backends)
                    '((company-dabbrev-code company-yasnippet)))))
+(add-hook 'inferior-ess-mode-hook
+            (lambda ()
+              (set (make-local-variable 'company-backends)
+                   '((company-dabbrev-code company-yasnippet)))))
 (add-hook 'elpy-mode-hook
+            (lambda ()
+              (set (make-local-variable 'company-backends)
+                   '((company-dabbrev-code company-yasnippet)))))
+(add-hook 'inferior-python-mode-hook
             (lambda ()
               (set (make-local-variable 'company-backends)
                    '((company-dabbrev-code company-yasnippet)))))
