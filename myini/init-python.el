@@ -14,7 +14,18 @@
 (define-key inferior-python-mode-map (kbd "RET") 'MyDef-RET)
 
 (define-key elpy-mode-map (kbd "C-x C-n") 'elpy-shell-send-group-and-step)
-(define-key elpy-mode-map (kbd "C-x C-j") 'elpy-shell-send-statement-and-step)
+
+(defun MyDef-eval-line ()
+  "eval line and step"
+  (interactive)
+  (setq current-line (what-line))
+  (elpy-shell-send-statement-and-step)
+  (if (string=  current-line (what-line))
+      (progn
+	(end-of-line)
+	(newline))))
+(define-key elpy-mode-map (kbd "C-x C-j") 'MyDef-eval-line)
+
 (define-key elpy-mode-map (kbd "s-r") 'elpy-shell-send-region-or-buffer)
 
 (setq python-shell-prompt-detect-failure-warning nil)
