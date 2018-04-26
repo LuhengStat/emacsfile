@@ -118,17 +118,20 @@
       company-tooltip-limit 9
       company-show-numbers nil)
 
-;; Add yasnippet support for all company backends
-(defvar company-mode/enable-yas t
-  "Enable yasnippet for all backends.")
+;; add yasnippet support 
+(add-hook 'ess-mode-hook
+            (lambda ()
+              (set (make-local-variable 'company-backends)
+                   '((company-dabbrev-code company-yasnippet)))))
+(add-hook 'elpy-mode-hook
+            (lambda ()
+              (set (make-local-variable 'company-backends)
+                   '((company-dabbrev-code company-yasnippet)))))
+(add-hook 'LaTeX-mode-hook
+            (lambda ()
+              (set (make-local-variable 'company-backends)
+                   '((company-dabbrev-code company-yasnippet)))))
 
-(defun company-mode/backend-with-yas (backend)
-  (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
-      backend
-    (append (if (consp backend) backend (list backend))
-            '(:with company-yasnippet))))
-
-(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
 ;; ag highlight
 (setq ag-highlight-search t)
@@ -136,8 +139,6 @@
 ;; autocomplete the parenthesis
 (require 'autopair)
 (autopair-global-mode 1)
-;;(setq ac-auto-show-menu 0)
-;;(setq ac-delay 0)
 
 (require 'avy)
 (require 'counsel)
@@ -159,11 +160,8 @@
 ;;(setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
 ;;(setq savehist-file "~/.emacs.d/tmp/savehist")
 
-
-(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
-(yas-minor-mode 1)
 
 
 ;; highlight selected words in the whole buffer

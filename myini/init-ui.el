@@ -130,6 +130,7 @@
     auto-fill-function
     hungry-delete-mode
     auto-revert-mode
+    buffer-face-mode
     ))
 
 (defun purge-minor-modes ()

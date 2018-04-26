@@ -75,7 +75,7 @@
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(sml/full-mode-string " ")
- '(sml/modified-char " ** ")
+ '(sml/modified-char "*")
  '(sml/name-width 39)
  '(sml/shorten-mode-string " ")
  '(sml/shorten-modes nil)
@@ -131,6 +131,6 @@
  '(org-level-3 ((t (:inherit outline-3 :height 1.05))))
  '(org-upcoming-deadline ((t (:foreground "blue violet"))))
  '(sml/filename ((t (:inherit sml/global :foreground "gray0" :weight bold))))
- '(sml/modified ((t (:inherit sml/not-modified :foreground "black" :weight bold)))))
+ '(sml/modified ((t (:inherit sml/not-modified :foreground "tomato" :weight bold)))))
 
 

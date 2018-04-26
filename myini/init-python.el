@@ -14,6 +14,7 @@
 (define-key inferior-python-mode-map (kbd "RET") 'MyDef-RET)
 
 (define-key elpy-mode-map (kbd "C-x C-n") 'elpy-shell-send-group-and-step)
+(define-key elpy-mode-map (kbd "C-x C-j") 'elpy-shell-send-statement-and-step)
 (define-key elpy-mode-map (kbd "s-r") 'elpy-shell-send-region-or-buffer)
 
 (setq python-shell-prompt-detect-failure-warning nil)
