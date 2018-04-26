@@ -58,7 +58,7 @@
 	  ;;(alltodo "" ((org-agenda-overriding-header "Global Tasks:")))
 	  ))))
 
-(defun MyDef-org-agenda-view ()
+(defun mydef-org-agenda-view ()
   "set a org-agenda-view i choose most"
   (interactive)
   (if (get-buffer-window "*Org Agenda*")
@@ -69,7 +69,7 @@
 
 ;; org-agenda
 (global-set-key (kbd "C-c t") 'org-agenda)
-(global-set-key [?\s-t] 'MyDef-org-agenda-view)
+(global-set-key [?\s-t] 'mydef-org-agenda-view)
 
 ;; use org-agenda-view
 ;; (setq inhibit-splash-screen t)
@@ -95,7 +95,7 @@ This is a useful function for adding to `kill-emacs-query-functions'."
 
 ;; set for the calendar
 (push "*Calendar*" popwin:special-display-config)
-(defun MyDef-org-agenda-show-calendar ()
+(defun mydef-org-agenda-show-calendar ()
   "define the window of calendar"
   (interactive)
   (if (get-buffer-window "*Calendar*")
@@ -107,10 +107,10 @@ This is a useful function for adding to `kill-emacs-query-functions'."
 (global-set-key (kbd "s-c") 'calendar)
 (add-hook 'org-agenda-mode-hook
           (lambda ()
-	    (define-key org-agenda-mode-map (kbd "s-c") 'MyDef-org-agenda-show-calendar)
-	    (define-key org-agenda-mode-map (kbd "c") 'MyDef-org-agenda-show-calendar)))
-(define-key calendar-mode-map (kbd "s-c") 'MyDef-org-agenda-show-calendar)
-(define-key calendar-mode-map (kbd "c") 'MyDef-org-agenda-show-calendar)
+	    (define-key org-agenda-mode-map (kbd "s-c") 'mydef-org-agenda-show-calendar)
+	    (define-key org-agenda-mode-map (kbd "c") 'mydef-org-agenda-show-calendar)))
+(define-key calendar-mode-map (kbd "s-c") 'mydef-org-agenda-show-calendar)
+(define-key calendar-mode-map (kbd "c") 'mydef-org-agenda-show-calendar)
 (define-key calendar-mode-map (kbd "f") 'calendar-forward-day)
 (define-key calendar-mode-map (kbd "b") 'calendar-backward-day)
 (define-key calendar-mode-map (kbd "n") 'calendar-forward-week)
@@ -119,7 +119,7 @@ This is a useful function for adding to `kill-emacs-query-functions'."
 (define-key calendar-mode-map (kbd "M-]") 'calendar-forward-month)
 (define-key calendar-mode-map (kbd "M-[") 'calendar-backward-month)
 
-(defun MyDef-org-agenda-show-holiday ()
+(defun mydef-org-agenda-show-holiday ()
   "define the window of holiday"
   (interactive)
   (if (get-buffer "*Holidays*")
@@ -127,8 +127,8 @@ This is a useful function for adding to `kill-emacs-query-functions'."
     (org-agenda-holidays)))
 (add-hook 'org-agenda-mode-hook
           (lambda ()
-	    (define-key org-agenda-mode-map (kbd "H") 'MyDef-org-agenda-show-holiday)
-	    (define-key org-agenda-mode-map (kbd "h") 'MyDef-org-agenda-show-holiday)))
+	    (define-key org-agenda-mode-map (kbd "H") 'mydef-org-agenda-show-holiday)
+	    (define-key org-agenda-mode-map (kbd "h") 'mydef-org-agenda-show-holiday)))
 
 
 (provide 'init-org)

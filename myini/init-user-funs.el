@@ -1,29 +1,29 @@
 
-(defun MyDef-open-folder (filename)
+(defun mydef-open-folder (filename)
   "Open folder of the current file"
   (interactive
    (find-file-read-args "Open Finder: "
                         (confirm-nonexistent-file-or-buffer)))
   (shell-command (format "open -R \"%s\"" filename)))
 
-(defun MyDef-dired-open-folder ()
+(defun mydef-dired-open-folder ()
   "let the dired mode can open file correctly"
   (interactive)
   (let ((find-file-run-dired t))
-    (MyDef-open-folder (dired-get-file-for-visit))))
+    (mydef-open-folder (dired-get-file-for-visit))))
 
 (add-hook 'dired-mode-hook
 	  (lambda ()
-	    (define-key dired-mode-map (kbd "<C-return>") 'MyDef-dired-open-folder)
+	    (define-key dired-mode-map (kbd "<C-return>") 'mydef-dired-open-folder)
 	    (define-key dired-mode-map (kbd "<DEL>") 'dired-up-directory)))
 
-(defun MyDef-counsel-projectile-open-folder-action (file)
+(defun mydef-counsel-projectile-open-folder-action (file)
   "Find FILE and run `projectile-find-file-hook'."
   (interactive)
-  (MyDef-open-folder (projectile-expand-root file))
+  (mydef-open-folder (projectile-expand-root file))
   (run-hooks 'projectile-find-file-hook))
 
-(defun MyDef-counsel-projectile-find-file (&optional arg)
+(defun mydef-counsel-projectile-find-file (&optional arg)
   "Jump to a file in the current project.
 
 With a prefix ARG, invalidate the cache first."
@@ -35,8 +35,8 @@ With a prefix ARG, invalidate the cache first."
             :require-match t
             :action '(1
 		      ("o" counsel-projectile-find-file-action "open file")
-		      ("f" MyDef-counsel-projectile-open-folder-action "open finder"))
-            :caller 'MyDef-counsel-projectile-find-file))
+		      ("f" mydef-counsel-projectile-open-folder-action "open finder"))
+            :caller 'mydef-counsel-projectile-find-file))
 
 (defun counsel-files-search-jump (&optional initial-input initial-directory)
   "Jump to a file below the current directory.
@@ -57,7 +57,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :initial-input initial-input
               :action '(1
 			("o" find-file "open file")
-			("f" MyDef-open-folder "open finder"))
+			("f" mydef-open-folder "open finder"))
               :preselect (counsel--preselect-file)
               :require-match 'confirm-after-completion
               :history 'file-name-history
@@ -66,7 +66,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 ;; open folder part
-(defun MyDef-counsel-projectile-open-folder (&optional arg)
+(defun mydef-counsel-projectile-open-folder (&optional arg)
   "Jump to a file in the current project.
 
 with a prefix ARG, invalidate the cache first."
@@ -78,8 +78,8 @@ with a prefix ARG, invalidate the cache first."
             :require-match t
             :action (lambda (x)
 		      (with-ivy-window
-			(MyDef-counsel-projectile-open-folder-action x)))
-            :caller 'MyDef-counsel-projectile-open-folder))
+			(mydef-counsel-projectile-open-folder-action x)))
+            :caller 'mydef-counsel-projectile-open-folder))
 
 (defun counsel-files-search-jump-to-folder (&optional initial-input initial-directory)
   "Jump to a file below the current directory.
@@ -100,7 +100,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :initial-input initial-input
               :action (lambda (x)
                         (with-ivy-window
-                          (MyDef-open-folder (expand-file-name x ivy--directory))))
+                          (mydef-open-folder (expand-file-name x ivy--directory))))
               :preselect (counsel--preselect-file)
               :require-match 'confirm-after-completion
               :history 'file-name-history

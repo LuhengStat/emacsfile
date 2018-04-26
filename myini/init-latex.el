@@ -105,31 +105,31 @@
 
 
 ;; set the face of the toc 
-(defface MyDef-reftex-section-heading-face
+(defface mydef-reftex-section-heading-face
   '((t :inherit font-lock-function-name-face :height 125))
   "My RefTeX section heading face.")
-(setq reftex-section-heading-face 'MyDef-reftex-section-heading-face)
+(setq reftex-section-heading-face 'mydef-reftex-section-heading-face)
 
 ;; description of the toc buffer
-(defface MyDef-reftex-toc-header-face
+(defface mydef-reftex-toc-header-face
   '((t :inherit font-lock-doc-face :height 115))
   "My RefTeX section heading face.")
-(setq reftex-toc-header-face 'MyDef-reftex-toc-header-face)
+(setq reftex-toc-header-face 'mydef-reftex-toc-header-face)
 
 ;; 2016 Statistica Sinica 26, 69--95
-(defface MyDef-reftex-bib-extra-face
+(defface mydef-reftex-bib-extra-face
   '((t :inherit font-lock-comment-face :height 136))
   "My RefTeX section heading face.")
-(setq reftex-bib-extra-face 'MyDef-reftex-bib-extra-face)
-(setq reftex-bib-year-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-bib-extra-face 'mydef-reftex-bib-extra-face)
+(setq reftex-bib-year-face 'mydef-reftex-bib-extra-face)
 
-(defface MyDef-reftex-bib-extra-face
+(defface mydef-reftex-bib-extra-face
   '((t :inherit font-lock-comment-face :height 136))
   "My RefTeX section heading face.")
-(setq reftex-index-header-face 'MyDef-reftex-bib-extra-face)
-(setq reftex-index-section-face 'MyDef-reftex-bib-extra-face)
-(setq reftex-index-tag-face 'MyDef-reftex-bib-extra-face)
-(setq reftex-index-face 'MyDef-reftex-bib-extra-face)
+(setq reftex-index-header-face 'mydef-reftex-bib-extra-face)
+(setq reftex-index-section-face 'mydef-reftex-bib-extra-face)
+(setq reftex-index-tag-face 'mydef-reftex-bib-extra-face)
+(setq reftex-index-face 'mydef-reftex-bib-extra-face)
 
 
 ;; redefine some keyblindings for the Latex mode
@@ -150,7 +150,7 @@
 	    (define-key reftex-mode-map (kbd "C-c 7") 'reftex-view-crossref)))
 
 
-(defun MyDef-choose-horizon-toc ()
+(defun mydef-choose-horizon-toc ()
   "autotically choose whether to set the reftex-toc-split-window 
 true or not"
   (if (< (window-width) 125)
@@ -160,23 +160,23 @@ true or not"
     (setq reftex-toc-split-windows-fraction 0.25)
     (setq reftex-toc-split-windows-horizontally t)))
 
-(defun MyDef-reftex-toc ()
+(defun mydef-reftex-toc ()
   "let reftex-toc being more reasonable"
   (interactive)
-  (MyDef-choose-horizon-toc)
+  (mydef-choose-horizon-toc)
   (reftex-toc))
 
-(defun MyDef-reftex-toc-recenter ()
+(defun mydef-reftex-toc-recenter ()
   "let the reftex-toc-recenter more reasonable"
   (interactive)
-  (MyDef-choose-horizon-toc)
+  (mydef-choose-horizon-toc)
   (reftex-toc-recenter))
 
 (add-hook 'reftex-toc-mode-hook 'visual-line-mode)
 (add-hook 'reftex-mode-hook
 	  (lambda ()
-	    (define-key reftex-mode-map (kbd "C-c =") 'MyDef-reftex-toc)
-	    (define-key reftex-mode-map (kbd "C-c -") 'MyDef-reftex-toc-recenter)
+	    (define-key reftex-mode-map (kbd "C-c =") 'mydef-reftex-toc)
+	    (define-key reftex-mode-map (kbd "C-c -") 'mydef-reftex-toc-recenter)
 	    ))
 
 

@@ -90,7 +90,7 @@
 
 
 ;; show the search results number
-(defun MyDef-isearch-update-post-hook()
+(defun mydef-isearch-update-post-hook()
   (let (suffix num-before num-after num-total-set-keyal)
     (setq num-before (count-matches isearch-string (point-min) (point)))
     (setq num-after (count-matches isearch-string (point) (point-max)))
@@ -100,7 +100,7 @@
                    (format "  [%d of %d]" num-before num-total)))
     (setq isearch-message-suffix-add suffix)
     (isearch-message)))
-(add-hook 'isearch-update-post-hook 'MyDef-isearch-update-post-hook)
+(add-hook 'isearch-update-post-hook 'mydef-isearch-update-post-hook)
 
 
 

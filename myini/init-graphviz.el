@@ -1,6 +1,6 @@
 
 ;;;###autoload
-(defun MyDef-graphviz-dot-preview ()
+(defun mydef-graphviz-dot-preview ()
   (interactive)
   (save-buffer)
   (let ((windows (window-list))
@@ -16,7 +16,7 @@
           (find-file f-name))))))
 
 ;;;###autoload
-(defun MyDef-compile (command &optional comint)
+(defun mydef-compile (command &optional comint)
   "Compile the program including the current buffer.  Default: run `make'.
 Runs COMMAND, a shell command, in a separate process asynchronously
 with output going to the buffer `*compilation*'.
@@ -60,12 +60,12 @@ to a function that generates a unique name."
   (if (get-buffer-window "*compilation*")
       (progn   (if (not (popwin:close-popup-window))
 		   (previous-buffer))))
-  (MyDef-graphviz-dot-preview))
+  (mydef-graphviz-dot-preview))
 
 (add-hook 'graphviz-dot-mode-hook
 	  (lambda ()
-	    (define-key graphviz-dot-mode-map (kbd "C-c C-c") 'MyDef-compile)
-	    (define-key graphviz-dot-mode-map (kbd "C-c C-o") 'MyDef-graphviz-dot-preview)
+	    (define-key graphviz-dot-mode-map (kbd "C-c C-c") 'mydef-compile)
+	    (define-key graphviz-dot-mode-map (kbd "C-c C-o") 'mydef-graphviz-dot-preview)
 	    ))
 
 (provide 'init-graphviz)

@@ -3,37 +3,37 @@
   (global-hungry-delete-mode))
 
 ;; user define functions
-(defun MyDef-quick-save-flash-ideas ()
+(defun mydef-quick-save-flash-ideas ()
   "quickly save some flash ideas"
   (interactive)
   (find-file-other-window "/Users/wlh/Documents/Learning/FlashIdeas.org"))
-(global-set-key (kbd "s-6") 'MyDef-quick-save-flash-ideas)
+(global-set-key (kbd "s-6") 'mydef-quick-save-flash-ideas)
 
-(defun MyDef-open-line-and-next ()
+(defun mydef-open-line-and-next ()
   "open a new line and go to the next line"
   (interactive)
   (open-line 1)
   (next-line)
   )
-(global-set-key (kbd "C-j") 'MyDef-open-line-and-next)
+(global-set-key (kbd "C-j") 'mydef-open-line-and-next)
 (add-hook 'bibtex-mode-hook
 	  (lambda ()
-	    (define-key bibtex-mode-map (kbd "C-j") 'MyDef-open-line-and-next)))
+	    (define-key bibtex-mode-map (kbd "C-j") 'mydef-open-line-and-next)))
 
-(defun MyDef-mark-whole-line ()
+(defun mydef-mark-whole-line ()
   "mark the whole line"
   (interactive)
   (call-interactively 'move-beginning-of-line)
   (call-interactively 'set-mark-command)
   (call-interactively 'move-end-of-line))
-(global-set-key (kbd "C-x C-l") 'MyDef-mark-whole-line)
+(global-set-key (kbd "C-x C-l") 'mydef-mark-whole-line)
 
-(defun MyDef-fill-paragraph ()
+(defun mydef-fill-paragraph ()
   "let the position being better after indented"
   (interactive)
   (fill-paragraph)
   (recenter 16))
-;;(global-set-key (kbd "M-q") 'MyDef-fill-paragraph)
+;;(global-set-key (kbd "M-q") 'mydef-fill-paragraph)
 
 
 ;; easy move in read-only buffers
@@ -87,33 +87,33 @@
 ;;(push '("*Youdao Dictionary*" :width 0.5 :height 0.36 :position bottom) popwin:special-display-config)
 (push "*Youdao Dictionary*" popwin:special-display-config)
 
-(defun MyDef-youdao ()
+(defun mydef-youdao ()
   "If there has a youdao buffer, close it"
   (interactive)
   (if (get-buffer-window "*Youdao Dictionary*")
       (progn   (if (not (popwin:close-popup-window))
 		   (previous-buffer)))
     (youdao-dictionary-search-at-point)))
-(global-set-key (kbd "s-y") 'MyDef-youdao)
+(global-set-key (kbd "s-y") 'mydef-youdao)
 
-(defun MyDef-youdao-input ()
+(defun mydef-youdao-input ()
   "close the older youdao windw before input the new word"
   (interactive)
   (youdao-dictionary-search-from-input)
   (popwin:popup-last-buffer))
 (add-hook 'youdao-dictionary-mode-hook
 	  (lambda ()
-	    (define-key youdao-dictionary-mode-map (kbd "<tab>") 'MyDef-youdao-input)))
+	    (define-key youdao-dictionary-mode-map (kbd "<tab>") 'mydef-youdao-input)))
 
 
 ;; set for the swiper
-(defun MyDef-push-mark-swiper ()
+(defun mydef-push-mark-swiper ()
   "push a mark to add the current position to the mark ring"
   (interactive)
   (push-mark)
   (swiper))
 ;; ivy
-(global-set-key "\C-s" 'MyDef-push-mark-swiper)
+(global-set-key "\C-s" 'mydef-push-mark-swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
 (global-set-key (kbd "C-x C-b") 'ivy-switch-buffer)
@@ -134,7 +134,7 @@
 ;; avy go to anywhere 
 (global-set-key (kbd "C-'") 'avy-goto-line)
 ;;(global-set-key (kbd "C-;") 'avy-goto-char)
-(defun MyDef-avy-goto-char ()
+(defun mydef-avy-goto-char ()
   "let avy-goto-char go to the below of the searching charachter"
   (interactive)
   (call-interactively 'avy-goto-char)
@@ -176,7 +176,7 @@
 
 (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
 
-(defun MyDef-enhanced-counsel-search ()
+(defun mydef-enhanced-counsel-search ()
   "Enhanced the function of counsel-projectile-ag
 if we are not in a project, just use the function counsel-ag"
   (interactive)
@@ -188,26 +188,26 @@ if we are not in a project, just use the function counsel-ag"
 	     (swiper))
 	  (counsel-rg)))
     (counsel-projectile-rg)))
-(define-key projectile-mode-map [?\s-g] 'MyDef-enhanced-counsel-search)
+(define-key projectile-mode-map [?\s-g] 'mydef-enhanced-counsel-search)
 
 (require 'init-user-funs)
-(defun MyDef-enhanced-find-file ()
+(defun mydef-enhanced-find-file ()
   "Enhanced the function of counsel-projectile-find-file
 if we are not in a project, just use the function find-file"
   (interactive)
   (if (equal (projectile-project-name) "-")
       (counsel-files-search-jump)
-    (MyDef-counsel-projectile-find-file)))
-(define-key projectile-mode-map [?\s-f] 'MyDef-enhanced-find-file)
+    (mydef-counsel-projectile-find-file)))
+(define-key projectile-mode-map [?\s-f] 'mydef-enhanced-find-file)
 
-(defun MyDef-enhanced-open-folder ()
+(defun mydef-enhanced-open-folder ()
   "Enhanced the function of counsel-projectile-find-file
 if we are not in a project, just use the function find-file"
   (interactive)
   (if (equal (projectile-project-name) "-")
       (counsel-files-search-jump-to-folder)
-    (MyDef-counsel-projectile-open-folder)))
-;;(define-key projectile-mode-map (kbd "s-d") 'MyDef-enhanced-open-folder)
+    (mydef-counsel-projectile-open-folder)))
+;;(define-key projectile-mode-map (kbd "s-d") 'mydef-enhanced-open-folder)
 
 (global-set-key (kbd "s-SPC") 'set-mark-command)
 (global-set-key (kbd "s-b") 'ivy-switch-buffer)

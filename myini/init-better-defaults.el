@@ -23,7 +23,7 @@
           '(lambda ()
              (switch-to-buffer-other-window "*Occur*")))
 ;; auto go to the faces buffer
-(defun MyDef-list-faces-display ()
+(defun mydef-list-faces-display ()
   "auto switch to the faces buffer"
   (interactive)
   (list-faces-display)
@@ -50,7 +50,7 @@
 
 
 ;; make backup to a designated dir, mirroring the full path
-(defun MyDef-backup-file-name (fpath)
+(defun mydef-backup-file-name (fpath)
   "Return a new file path of a given file path.
 If the new path's directories does not exist, create them."
   (let* (
@@ -62,7 +62,7 @@ If the new path's directories does not exist, create them."
     backupFilePath
     )
   )
-(setq make-backup-file-name-function 'MyDef-backup-file-name)
+(setq make-backup-file-name-function 'mydef-backup-file-name)
 
 ;; Save all tempfiles in $TMPDIR/emacs$UID/                                                        
 (defconst emacs-tmp-dir (expand-file-name (format "emacs%d" (user-uid)) "~/Documents/.emacs-backup/emacssaves"))
