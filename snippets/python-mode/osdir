@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: osdir
+# key: osdir
+# --
+import os
+os.chdir('$1')
+$0

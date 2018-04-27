@@ -226,7 +226,7 @@
 (defun my-buffer-face-mode-fixed ()
   "font in the inferiror python or ess mode"
   (interactive)
-  (setq buffer-face-mode-face '(:family "Inconsolata" :height 136))
+  (setq buffer-face-mode-face '(:family "Inconsolata" :height 150))
   (buffer-face-mode))
 
 ;; Set default font faces for other modes
