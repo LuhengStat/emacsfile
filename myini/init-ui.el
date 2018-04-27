@@ -272,5 +272,6 @@
 ;;                    (abbreviate-file-name (buffer-file-name))
 ;;                  "%b"))))
 
+;;(setq fancy-splash-image nil)
 
 (provide 'init-ui)
