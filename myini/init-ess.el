@@ -24,6 +24,7 @@
 (define-key ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
 (define-key inferior-ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
 (define-key ess-mode-map (kbd "s-r") 'ess-eval-region-or-function-or-paragraph-and-step)
+(define-key inferior-ess-mode-map (kbd "RET") 'mydef-RET)
 
 (add-hook 'inferior-ess-mode-hook 'visual-line-mode)
 
