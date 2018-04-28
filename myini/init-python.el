@@ -33,6 +33,7 @@
 (setq python-shell-interpreter "jupyter"
       python-shell-interpreter-args "console --simple-prompt")
 
+(setq python-check-command (expand-file-name "~/.local/bin/flake8"))
 
 (provide 'init-python)
 
