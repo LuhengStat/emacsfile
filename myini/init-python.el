@@ -24,7 +24,7 @@
       (progn
 	(end-of-line)
 	(newline))))
-(define-key elpy-mode-map (kbd "C-x C-j") 'mydef-eval-line)
+(define-key elpy-mode-map (kbd "<C-return>") 'mydef-eval-line)
 
 (define-key elpy-mode-map (kbd "s-r") 'elpy-shell-send-region-or-buffer)
 
