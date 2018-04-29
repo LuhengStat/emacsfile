@@ -146,6 +146,7 @@
 (dim-major-name 'inferior-python-mode "iPy")
 (dim-major-name 'python-mode "Py")
 
+;; set default font 
 (defun s-font()
   (set-face-attribute
    'default nil
