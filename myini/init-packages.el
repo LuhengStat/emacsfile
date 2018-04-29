@@ -168,10 +168,10 @@
 (require 'iedit)
 
 
-;;evil-mode
-;;(require 'evil)
-;;(evil-mode 1)
-;;(setq evil-emacs-state-cursor '("blue" bar)
+;; evil-mode
+;; (require 'evil)
+;; (evil-mode 1)
+;; (setq evil-emacs-state-cursor '("#3180f1" box)
 ;;      evil-normal-state-cursor '("black")
 ;;      evil-insert-state-cursor '("black" bar))
 
