@@ -1,8 +1,7 @@
 
-;;(load-theme 'monokai t)
 ;; (load-theme 'spacemacs-dark t)
 ;; (custom-set-faces
-;;  '(font-latex-script-char-face ((t (:foreground "burlywood")))))
+;;   '(font-latex-script-char-face ((t (:foreground "burlywood")))))
 
 ;;(load-theme 'ample t)
 ;;(custom-set-faces
