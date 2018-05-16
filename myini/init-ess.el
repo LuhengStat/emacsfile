@@ -11,6 +11,7 @@
 (require 'ess-view)
 (setq ess-view--spreadsheet-program "/Applications/Table Tool.app/Contents/MacOS/Table Tool")
 
+(setq ess-use-company 'script-only)
 
 ;;(require 'ess-R-object-popup)
 ;;(define-key ess-mode-map "\C-c\C-g" 'ess-R-object-popup)
@@ -25,6 +26,19 @@
 (define-key inferior-ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
 (define-key ess-mode-map (kbd "s-r") 'ess-eval-region-or-function-or-paragraph-and-step)
 (define-key inferior-ess-mode-map (kbd "RET") 'mydef-RET)
+
+(defun mydef-ess-eval-region-or-line-and-step ()
+  "eval line and step"
+  (interactive)
+  (setq current-line (what-line))
+  (ess-eval-region-or-line-and-step)
+  (if (string=  current-line (what-line))
+      (progn
+	(end-of-line)
+	(newline))))
+(define-key ess-mode-map (kbd "<C-return>")
+  'mydef-ess-eval-region-or-line-and-step)
+
 
 (add-hook 'inferior-ess-mode-hook 'visual-line-mode)
 

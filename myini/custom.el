@@ -55,13 +55,14 @@
  '(org-clock-report-include-clocking-task t)
  '(package-selected-packages
    (quote
-    (graphviz-dot-mode flyspell-correct-popup flyspell-correct-ivy smart-mode-line git-timemachine osx-dictionary magithub ztree rg youdao-dictionary use-package transpose-frame spacemacs-theme py-autopep8 popwin org-ac iedit highlight-parentheses flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy dim counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ag ace-window)))
+    (markdown-mode graphviz-dot-mode flyspell-correct-popup flyspell-correct-ivy smart-mode-line git-timemachine osx-dictionary magithub ztree rg youdao-dictionary use-package transpose-frame spacemacs-theme py-autopep8 popwin org-ac iedit highlight-parentheses flycheck expand-region exec-path-from-shell evil ess-view ess-R-data-view elpy dim counsel-projectile company-auctex cal-china-x browse-kill-ring autopair auto-complete-auctex ag ace-window)))
  '(projectile-mode t nil (projectile))
  '(projectile-mode-line
    (quote
     (:eval
      (format " Proj[%s]"
 	     (projectile-project-name)))))
+ '(python-indent-guess-indent-offset nil)
  '(red "#ffffff")
  '(safe-local-variable-values
    (quote

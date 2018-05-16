@@ -118,20 +118,19 @@
       company-tooltip-limit 9
       company-show-numbers nil)
 
-;; add yasnippet support 
+;; add yasnippet support
 (add-hook 'ess-mode-hook
-            (lambda ()
-              (set (make-local-variable 'company-backends)
-                   '((company-dabbrev-code company-yasnippet)))))
-(add-hook 'elpy-mode-hook
-            (lambda ()
-              (set (make-local-variable 'company-backends)
-                   '((company-dabbrev-code company-yasnippet elpy-company-backend)))))
+	  (lambda ()
+	    (set (make-local-variable 'company-backends)
+		 (list
+		  (cons 'company-yasnippet
+			(car company-backends))))))
 (add-hook 'LaTeX-mode-hook
-            (lambda ()
-              (set (make-local-variable 'company-backends)
-                   '((company-dabbrev-code company-yasnippet)))))
-
+	  (lambda ()
+	    (set (make-local-variable 'company-backends)
+		 (list
+		  (cons 'company-yasnippet
+			(car company-backends))))))
 
 ;; ag highlight
 (setq ag-highlight-search t)
@@ -191,6 +190,13 @@
 	      cal-china-x-general-holidays
 	      other-holidays))
 
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
 
 (provide 'init-packages)
 
