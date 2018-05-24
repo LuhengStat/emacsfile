@@ -119,6 +119,10 @@
       company-show-numbers nil)
 
 ;; add yasnippet support
+(add-hook 'elpy-mode-hook
+	  (lambda ()
+	    (set (make-local-variable 'company-backends)
+		 (list 'elpy-company-backend 'company-yasnippet))))
 (add-hook 'ess-mode-hook
 	  (lambda ()
 	    (set (make-local-variable 'company-backends)

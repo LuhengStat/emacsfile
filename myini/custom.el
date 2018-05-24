@@ -130,11 +130,10 @@
  '(mode-line ((t (:background "grey75" :foreground "black" :box (:line-width -1 :style released-button)))))
  '(mode-line-inactive ((t (:inherit mode-line :background "grey90" :foreground "grey20" :box (:line-width -1 :color "grey75") :weight light))))
  '(org-agenda-clocking ((t (:background "SkyBlue1"))))
- '(org-level-1 ((t (:inherit outline-1 :height 1.15))))
- '(org-level-2 ((t (:inherit outline-2 :height 1.1))))
- '(org-level-3 ((t (:inherit outline-3 :height 1.05))))
+ '(org-level-1 ((t (:inherit outline-1 :height 1.1))))
+ '(org-level-2 ((t (:inherit outline-2 :height 1.0))))
+ '(org-level-3 ((t (:inherit outline-3 :height 1.0))))
  '(org-upcoming-deadline ((t (:foreground "blue violet"))))
  '(sml/filename ((t (:inherit sml/global :foreground "gray0" :weight bold))))
  '(sml/modified ((t (:inherit sml/not-modified :foreground "tomato" :weight bold)))))
-
 

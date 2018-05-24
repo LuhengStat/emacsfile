@@ -1,22 +1,7 @@
 
-;; (load-theme 'spacemacs-dark t)
-;; (custom-set-faces
-;;   '(font-latex-script-char-face ((t (:foreground "burlywood")))))
-
-;;(load-theme 'ample t)
-;;(custom-set-faces
-;; '(font-latex-script-char-face ((t (:foreground "burlywood"))))
-;; '(minibuffer-prompt ((t (:inherit bold :foreground "#4f97d7")))))
-;;(load-theme 'dracula t)
-;;(load-theme 'sanityinc-tomorrow-night t)
-;;(load-theme 'leuven t)
-
-;;(set-face-bold-p 'bold nil)
-
 (if (get-buffer "*ESS*")
     (kill-buffer "*ESS*")
   )
-
 
 (blink-cursor-mode 0)
 (defun s-cursor()
@@ -39,7 +24,7 @@
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
 ;; line-spacing
-(setq-default line-spacing 6)
+(setq-default line-spacing 4)
 (sml/setup)
 (custom-set-faces
  '(mode-line ((t (:background "grey75" :foreground "black" :box (:line-width -1 :style released-button)))))
@@ -161,7 +146,6 @@
 		:weight 'normal
 		:slant 'normal)))
   (setq face-font-rescale-alist '(("Hiragino Sans GB" . 1.05))))
-
 (if window-system
     (s-font))
 
@@ -169,7 +153,7 @@
 (defun my-buffer-face-mode-smaller ()
   "font in the inferiror python or ess mode"
   (interactive)
-  (setq buffer-face-mode-face '(:family "Inconsolata" :height 150))
+  (setq buffer-face-mode-face '(:family "Inconsolata" :height 140))
   (buffer-face-mode))
 
 ;; Set default font faces for other modes
@@ -217,5 +201,6 @@
 ;;                  "%b"))))
 
 ;;(setq fancy-splash-image nil)
+
 
 (provide 'init-ui)
