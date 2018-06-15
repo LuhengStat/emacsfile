@@ -11,7 +11,16 @@
 (require 'ess-view)
 (setq ess-view--spreadsheet-program "/Applications/Table Tool.app/Contents/MacOS/Table Tool")
 
-(setq ess-use-company 'script-only)
+;;(setq ess-use-company 'script-only)
+
+;; don't auto-insert ess backends
+(add-to-list 'company-dabbrev-code-modes 'ess-mode)
+(setq ess-use-company nil)
+(defun my-ess-config ()
+  (make-variable-buffer-local 'company-backends)
+  (add-to-list 'company-backends
+               '(company-R-args company-R-objects company-yasnippet company-dabbrev-code :separate)))
+(add-hook 'ess-mode-hook #'my-ess-config)
 
 ;;(require 'ess-R-object-popup)
 ;;(define-key ess-mode-map "\C-c\C-g" 'ess-R-object-popup)

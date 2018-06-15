@@ -1,9 +1,5 @@
 
 (elpy-enable)
-;; For elpy
-;;(setq elpy-rpc-python-command "python2")
-;; For interactive shell
-;;(setq python-shell-interpreter "python2")
 
 (add-hook 'elpy-mode-hook (lambda () (highlight-indentation-mode -1)))
 
@@ -39,6 +35,8 @@
       python-shell-interpreter-args "console --simple-prompt")
 
 (setq python-check-command (expand-file-name "~/.local/bin/flake8"))
+
+
 
 (provide 'init-python)
 

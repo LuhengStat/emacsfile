@@ -26,7 +26,7 @@
 		     ;;org-ac
 		     browse-kill-ring
 		     youdao-dictionary
-		     ess-view
+		     ;; ess-view
 		     ess-R-data-view
 		     ;;ess-R-object-popup
 		     transpose-frame
@@ -119,16 +119,15 @@
       company-show-numbers nil)
 
 ;; add yasnippet support
+(add-to-list 'company-backends 'company-dabbrev-code)
 (add-hook 'elpy-mode-hook
           (lambda ()
             (set (make-local-variable 'company-backends)
                  (append company-backends '(company-yasnippet)))))
-(add-hook 'ess-mode-hook
-	  (lambda ()
-	    (set (make-local-variable 'company-backends)
-		 (list
-		  (cons 'company-yasnippet
-			(car company-backends))))))
+;; (add-hook 'ess-mode-hook
+;; 	  (lambda ()
+;; 	    (set (make-local-variable 'company-backends)
+;; 		 (append company-backends '(company-yasnippet company-dabbrev-code)))))
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
 	    (set (make-local-variable 'company-backends)

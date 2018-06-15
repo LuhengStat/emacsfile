@@ -5,7 +5,6 @@
 (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/myini/")
-
 (setq custom-file (expand-file-name "myini/custom.el" user-emacs-directory))
 
 (require 'init-redefine-sys-fun)
@@ -16,7 +15,7 @@
 
 (require 'init-org)
 (require 'init-ess)
-;;(require 'init-latex)
+(require 'init-latex)
 (require 'init-python)
 (require 'init-graphviz)
 

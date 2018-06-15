@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: envpy
+# key: envpy
+# --
+#!/usr/bin/env python
