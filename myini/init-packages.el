@@ -26,8 +26,8 @@
 		     ;;org-ac
 		     browse-kill-ring
 		     youdao-dictionary
-		     ;; ess-view
-		     ess-R-data-view
+		     ;;ess-view
+		     ;;ess-R-data-view
 		     ;;ess-R-object-popup
 		     transpose-frame
 		     iedit
@@ -98,11 +98,6 @@
 (setq projectile-enable-caching t)
 (setq projectile-completion-system 'ivy)
 
-
-;;;;;;;;;;;;;;;;; auto-complete
-;;(require 'auto-complete-config)
-;;(ac-config-default)
-;;(setq ac-auto-start 2)
 
 ;; company-mode 
 (global-company-mode)

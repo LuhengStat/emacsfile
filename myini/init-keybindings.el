@@ -175,6 +175,7 @@
 ;;(global-set-key (kbd "C-c \\") 'find-file-in-project)
 
 (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 (defun mydef-enhanced-counsel-search ()
   "Enhanced the function of counsel-projectile-ag
@@ -240,6 +241,7 @@ if we are not in a project, just use the function find-file"
 (global-set-key (kbd "s-2") 'split-window-below)
 (global-set-key (kbd "s-3") 'split-window-right)
 (global-set-key (kbd "s-e") 'nil)
+(global-set-key (kbd "s-n") 'nil)
 
 
 (provide 'init-keybindings)

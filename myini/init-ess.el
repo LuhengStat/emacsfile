@@ -1,5 +1,5 @@
 
-(ess-toggle-underscore nil)
+(ess-toggle-underscore nil) ; leave underscore key alone!
 
 ;; auto-change the directionary to the position of the current file
 ;;(add-hook 'ess-mode-hook 'ess-use-this-dir)
@@ -8,8 +8,8 @@
 (setq ess-default-style 'RStudio)
 
 
-(require 'ess-view)
-(setq ess-view--spreadsheet-program "/Applications/Table Tool.app/Contents/MacOS/Table Tool")
+;;(require 'ess-view)
+;;(setq ess-view--spreadsheet-program "/Applications/Table Tool.app/Contents/MacOS/Table Tool")
 
 ;;(setq ess-use-company 'script-only)
 
@@ -31,8 +31,8 @@
   (kill-process (ess-get-process)))
 (define-key ess-mode-map (kbd "C-c C-a") 'ess-abort)
 (define-key inferior-ess-mode-map (kbd "C-c C-a") 'ess-abort)
-(define-key ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
-(define-key inferior-ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
+;;(define-key ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
+;;(define-key inferior-ess-mode-map (kbd "C-x C-w") 'ess-view-inspect-df)
 (define-key ess-mode-map (kbd "s-r") 'ess-eval-region-or-function-or-paragraph-and-step)
 (define-key inferior-ess-mode-map (kbd "RET") 'mydef-RET)
 
