@@ -9,6 +9,7 @@
 
 
 ;;(require 'ess-view)
+;;(setq ess-view--spreadsheet-program "/Applications/Microsoft Excel.app/Contents/MacOS/Microsoft Excel")
 ;;(setq ess-view--spreadsheet-program "/Applications/Table Tool.app/Contents/MacOS/Table Tool")
 
 ;;(setq ess-use-company 'script-only)
@@ -46,7 +47,7 @@
 	(end-of-line)
 	(newline))))
 (define-key ess-mode-map (kbd "<C-return>")
-  'mydef-ess-eval-region-or-line-and-step)
+  'ess-eval-region-or-line-and-step)
 
 
 (add-hook 'inferior-ess-mode-hook 'visual-line-mode)

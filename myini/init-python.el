@@ -14,7 +14,8 @@
       (comint-send-input)))
 (define-key inferior-python-mode-map (kbd "RET") 'mydef-RET)
 
-(define-key elpy-mode-map (kbd "C-c C-n") 'elpy-shell-send-group-and-step)
+(define-key elpy-mode-map (kbd "C-c C-c") 'elpy-shell-send-group-and-step)
+(define-key elpy-mode-map (kbd "C-c C-l") 'elpy-shell-send-region-or-buffer)
 
 (defun mydef-eval-line ()
   "eval line and step"

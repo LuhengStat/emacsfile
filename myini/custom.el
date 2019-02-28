@@ -10,10 +10,23 @@
  '(elpy-modules
    (quote
     (elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-django elpy-module-sane-defaults)))
- '(menu-bar-mode nil)
+ '(ess-R-font-lock-keywords
+   (quote
+    ((ess-R-fl-keyword:modifiers . t)
+     (ess-R-fl-keyword:fun-defs . t)
+     (ess-R-fl-keyword:keywords . t)
+     (ess-R-fl-keyword:assign-ops . t)
+     (ess-R-fl-keyword:constants . t)
+     (ess-fl-keyword:fun-calls . t)
+     (ess-fl-keyword:numbers . t)
+     (ess-fl-keyword:operators . t)
+     (ess-fl-keyword:delimiters . t)
+     (ess-fl-keyword:= . t)
+     (ess-R-fl-keyword:F&T . t)
+     (ess-R-fl-keyword:%op% . t))))
  '(package-selected-packages
    (quote
-    (markdown-mode graphviz-dot-mode flyspell-correct-popup smart-mode-line git-timemachine ztree hungry-delete dim ace-window cal-china-x rg ag popwin counsel-projectile projectile company-auctex spacemacs-theme py-autopep8 exec-path-from-shell flycheck magit elpy evil expand-region auto-complete-auctex iedit transpose-frame youdao-dictionary browse-kill-ring yasnippet undo-tree avy autopair counsel swiper highlight-parentheses auto-complete use-package)))
+    (ess-view markdown-mode graphviz-dot-mode flyspell-correct-popup smart-mode-line git-timemachine ztree hungry-delete dim ace-window cal-china-x rg ag popwin counsel-projectile projectile company-auctex spacemacs-theme py-autopep8 exec-path-from-shell flycheck magit elpy evil expand-region auto-complete-auctex iedit transpose-frame youdao-dictionary browse-kill-ring yasnippet undo-tree avy autopair counsel swiper highlight-parentheses auto-complete use-package)))
  '(projectile-mode-line
    (quote
     (:eval
@@ -33,6 +46,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(error ((t (:foreground "Red" :weight normal))))
+ '(eshell-prompt ((t (:weight bold))))
  '(font-latex-subscript-face ((t nil)))
  '(font-latex-superscript-face ((t nil)))
  '(mode-line ((t (:background "grey75" :foreground "black" :box (:line-width -1 :style released-button)))))

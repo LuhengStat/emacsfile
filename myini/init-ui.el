@@ -137,7 +137,7 @@
    :font (font-spec :name "-*-Inconsolata-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1"
 		    :weight 'normal
 		    :slant 'normal
-		    :size 18))
+		    :size 16))
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font
      (frame-parameter nil 'font)
@@ -153,7 +153,7 @@
 (defun my-buffer-face-mode-smaller ()
   "font in the inferiror python or ess mode"
   (interactive)
-  (setq buffer-face-mode-face '(:family "Inconsolata" :height 140))
+  (setq buffer-face-mode-face '(:family "Inconsolata" :height 125))
   (buffer-face-mode))
 
 ;; Set default font faces for other modes

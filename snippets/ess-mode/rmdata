@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: rmdata
+# key: rmdata
+# --
+rm(list=ls())$0
