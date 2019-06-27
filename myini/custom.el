@@ -26,12 +26,8 @@
      (ess-R-fl-keyword:%op% . t))))
  '(package-selected-packages
    (quote
-    (ess-view markdown-mode graphviz-dot-mode flyspell-correct-popup smart-mode-line git-timemachine ztree hungry-delete dim ace-window cal-china-x rg ag popwin counsel-projectile projectile company-auctex spacemacs-theme py-autopep8 exec-path-from-shell flycheck magit elpy evil expand-region auto-complete-auctex iedit transpose-frame youdao-dictionary browse-kill-ring yasnippet undo-tree avy autopair counsel swiper highlight-parentheses auto-complete use-package)))
- '(projectile-mode-line
-   (quote
-    (:eval
-     (format " Proj[%s]"
-	     (projectile-project-name)))))
+    (cnfonts ess-view markdown-mode graphviz-dot-mode flyspell-correct-popup smart-mode-line git-timemachine ztree hungry-delete dim ace-window cal-china-x rg ag popwin counsel-projectile projectile company-auctex spacemacs-theme py-autopep8 exec-path-from-shell flycheck magit elpy evil expand-region auto-complete-auctex iedit transpose-frame youdao-dictionary browse-kill-ring yasnippet undo-tree avy autopair counsel swiper highlight-parentheses auto-complete use-package)))
+ '(projectile-mode-line-prefix " Proj")
  '(scroll-bar-mode nil)
  '(scroll-conservatively 1000)
  '(scroll-margin 3)

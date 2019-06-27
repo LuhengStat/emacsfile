@@ -31,11 +31,18 @@
 (define-key elpy-mode-map (kbd "s-r") 'elpy-shell-send-region-or-buffer)
 
 (setq python-shell-prompt-detect-failure-warning nil)
-(setq python-shell-completion-native-enable nil) 
-(setq python-shell-interpreter "jupyter"
-      python-shell-interpreter-args "console --simple-prompt")
+(setq python-shell-completion-native-enable nil)
 
-(setq python-check-command (expand-file-name "~/.local/bin/flake8"))
+;; interactive python
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "--simple-prompt -c exec('__import__(\\'readline\\')') -i")
+(setq python-shell-interpreter "python3"
+      elpy-rpc-python-command "python3"
+      python-shell-interpreter-args "-i")
+
+
+
+;;(setq python-check-command (expand-file-name "~/.local/bin/flake8"))
 
 
 

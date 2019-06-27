@@ -6,7 +6,7 @@
 (blink-cursor-mode 0)
 (defun s-cursor()
   ;; set cursor-type with a line
-  ;;(setq-default cursor-type 'bar)
+  (setq-default cursor-type 'bar)
   ;; set cursor color
   (set-cursor-color "#3180f1")
   )
@@ -32,24 +32,10 @@
 (setq modelinesize 125)
 (set-face-attribute 'mode-line nil :height modelinesize)
 (set-face-attribute 'mode-line-inactive nil  :height modelinesize)
-
-;; initial window
-;; (setq initial-frame-alist '((left . 50) (top . 50)))
-;; (setq initial-frame-alist
-;;      '(
-;;        (width . 132) ; character
-;;      (height . 35))) ;
-
-;; (when (window-system)
-;;  (set-frame-position (selected-frame) 156 86))
-
-;; (set-frame-position (selected-frame) 0 0)
-;;(add-to-list 'default-frame-alist '(height . 50))
-;;(add-to-list 'default-frame-alist '(width . 80))
 (toggle-frame-maximized)
 
 (show-paren-mode 1)
-;;;;;;;;;;;;;;;;; highlight-parantheses
+
 (require 'highlight-parentheses)
 (define-globalized-minor-mode global-highlight-parentheses-mode
   highlight-parentheses-mode
@@ -66,7 +52,7 @@
 
 
 ;; highlight current line
-;;(global-hl-line-mode +1)
+(global-hl-line-mode +1)
 ;;(set-face-background 'hl-line "grey9")
 (unless (display-graphic-p)
   (global-hl-line-mode +1)
@@ -85,7 +71,6 @@
     (setq isearch-message-suffix-add suffix)
     (isearch-message)))
 (add-hook 'isearch-update-post-hook 'mydef-isearch-update-post-hook)
-
 
 
 ;; hide the mode in the mode-line
@@ -130,11 +115,11 @@
 (dim-major-name 'inferior-python-mode "iPy")
 (dim-major-name 'python-mode "Py")
 
-;; set default font 
+;; set default font
 (defun s-font()
   (set-face-attribute
    'default nil
-   :font (font-spec :name "-*-Inconsolata-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1"
+   :font (font-spec :name "-*-Helvetica-normal-normal-normal-*-16-*-*-*-p-0-iso10646-1"
 		    :weight 'normal
 		    :slant 'normal
 		    :size 16))
@@ -149,14 +134,35 @@
 (if window-system
     (s-font))
 
+;; set font for org mode
+(defun org-font()
+  (set-face-attribute
+   'default nil
+   :font (font-spec :name "-*-Inconsolata-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1"
+		    :weight 'normal
+		    :slant 'normal
+		    :size 16))
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font
+     (frame-parameter nil 'font)
+     charset
+     (font-spec :name "-*-Hiragino Sans GB-normal-normal-normal-*-*-*-*-*-p-0-iso10646-1"
+		:weight 'normal
+		:slant 'normal)))
+  (setq face-font-rescale-alist '(("Hiragino Sans GB" . 1.1))))
+(defun my-buffer-face-mode-smaller ()
+  "font in the inferiror python or ess mode"
+  (interactive)
+  (org-font)
+  (buffer-face-mode))
+(add-hook 'org-mode-hook 'my-buffer-face-mode-smaller)
+
 ;; smaller font for some buffer
 (defun my-buffer-face-mode-smaller ()
   "font in the inferiror python or ess mode"
   (interactive)
-  (setq buffer-face-mode-face '(:family "Inconsolata" :height 125))
+  (setq buffer-face-mode-face '(:family "Inconsolata" :height 132))
   (buffer-face-mode))
-
-;; Set default font faces for other modes
 (add-hook 'inferior-python-mode-hook 'my-buffer-face-mode-smaller)
 (add-hook 'inferior-ess-mode-hook 'my-buffer-face-mode-smaller)
 
@@ -204,3 +210,4 @@
 
 
 (provide 'init-ui)
+

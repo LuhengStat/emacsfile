@@ -97,6 +97,8 @@
 (setq projectile-indexing-method 'native)
 (setq projectile-enable-caching t)
 (setq projectile-completion-system 'ivy)
+(setq projectile-mode-line-function '(lambda ()
+				       (format " Proj[%s]" (projectile-project-name))))
 
 
 ;; company-mode 

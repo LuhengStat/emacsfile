@@ -17,6 +17,6 @@
 (require 'init-ess)
 (require 'init-latex)
 (require 'init-python)
-(require 'init-graphviz)
+;;(require 'init-graphviz)
 
 (require 'init-keybindings)
