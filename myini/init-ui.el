@@ -121,7 +121,6 @@
 (setq Win-fontsize 18)
 (setq Win-smaller-fontsize 100)
 (setq Mac-English-font "-*-Menlo-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-(setq Mac-Org-font "-*-Inconsolata-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1")
 (setq Mac-Chinese-font "-*-Hiragino Sans GB-normal-normal-normal-*-*-*-*-*-p-0-iso10646-1")
 (setq Mac-fontsize 16)
 (setq Mac-smaller-fontsize 100)
@@ -130,14 +129,12 @@
  ((string-equal system-type "windows-nt") ; Microsoft Windows
   (progn
     (setq English-font Win-English-font)
-    (setq Org-font Win-English-font)
     (setq Chinese-font Win-Chinese-font)
     (setq Font-size Win-fontsize)
     (setq Smaller-fontsize Win-smaller-fontsize)))
  ((string-equal system-type "darwin") ; Mac OS X
   (progn
     (setq English-font Mac-English-font)
-    (setq Org-font Mac-Org-font)
     (setq Chinese-font Mac-Chinese-font)
     (setq Font-size Mac-fontsize)
     (setq Smaller-fontsize Mac-smaller-fontsize)))
@@ -164,25 +161,10 @@
     (s-font))
 
 ;; set font for org mode
-(defun org-font()
-  (set-face-attribute
-   'default nil
-   :font (font-spec :name Org-font
-		    :weight 'normal
-		    :slant 'normal
-		    :size 15))
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font
-     (frame-parameter nil 'font)
-     charset
-     (font-spec :name Chinese-font
-		:weight 'normal
-		:slant 'normal)))
-  (setq face-font-rescale-alist '(("Hiragino Sans GB" . 1.1))))
 (defun org-face-font ()
   "font in the inferiror python or ess mode"
   (interactive)
-  (org-font)
+  (setq buffer-face-mode-face '(:family "Inconsolata" :height 155))
   (buffer-face-mode))
 (add-hook 'org-mode-hook 'org-face-font)
 
