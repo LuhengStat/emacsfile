@@ -20,7 +20,7 @@
 
 
 (setq truncate-lines nil)
-(setq truncate-partial-width-windows nil)
+(setq truncate-partial-width-Win nil)
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
 ;; line-spacing
@@ -115,19 +115,45 @@
 (dim-major-name 'inferior-python-mode "iPy")
 (dim-major-name 'python-mode "Py")
 
-;; set default font
+;; set default font for different OS type
+(setq Win-English-font "-outline-Inconsolata-normal-normal-normal-mono-19-*-*-*-c-*-fontset-auto8")
+(setq Win-Chinese-font "-outline-FangSong_GB2312-normal-normal-normal-mono-*-*-*-*-c-*-iso10646-1")
+(setq Win-fontsize 18)
+(setq Win-smaller-fontsize 100)
+(setq Mac-English-font "-*-Inconsolata-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1")
+(setq Mac-Chinese-font "-*-Hiragino Sans GB-normal-normal-normal-*-*-*-*-*-p-0-iso10646-1")
+(setq Mac-fontsize 16)
+(setq Mac-smaller-fontsize 100)
+;; check OS type
+(cond
+ ((string-equal system-type "windows-nt") ; Microsoft Windows
+  (progn
+    (setq English-font Win-English-font)
+    (setq Chinese-font Win-Chinese-font)
+    (setq Font-size Win-fontsize)
+    (setq Smaller-fontsize Win-smaller-fontsize)))
+ ((string-equal system-type "darwin") ; Mac OS X
+  (progn
+    (setq English-font Mac-English-font)
+    (setq Chinese-font Mac-Chinese-font)
+    (setq Font-size Mac-fontsize)
+    (setq Smaller-fontsize Mac-smaller-fontsize)))
+ ((string-equal system-type "gnu/linux") ; linux
+  (progn
+    (message "Linux"))))
+
 (defun s-font()
   (set-face-attribute
    'default nil
-   :font (font-spec :name "-*-Helvetica-normal-normal-normal-*-16-*-*-*-p-0-iso10646-1"
+   :font (font-spec :name English-font
 		    :weight 'normal
 		    :slant 'normal
-		    :size 16))
+		    :size Font-size))
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font
      (frame-parameter nil 'font)
      charset
-     (font-spec :name "-*-Hiragino Sans GB-normal-normal-normal-*-*-*-*-*-p-0-iso10646-1"
+     (font-spec :name Chinese-font
 		:weight 'normal
 		:slant 'normal)))
   (setq face-font-rescale-alist '(("Hiragino Sans GB" . 1.05))))
@@ -138,15 +164,15 @@
 (defun org-font()
   (set-face-attribute
    'default nil
-   :font (font-spec :name "-*-Inconsolata-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1"
+   :font (font-spec :name English-font
 		    :weight 'normal
 		    :slant 'normal
-		    :size 16))
+		    :size Font-size))
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font
      (frame-parameter nil 'font)
      charset
-     (font-spec :name "-*-Hiragino Sans GB-normal-normal-normal-*-*-*-*-*-p-0-iso10646-1"
+     (font-spec :name Chinese-font
 		:weight 'normal
 		:slant 'normal)))
   (setq face-font-rescale-alist '(("Hiragino Sans GB" . 1.1))))
@@ -161,14 +187,12 @@
 (defun my-buffer-face-mode-smaller ()
   "font in the inferiror python or ess mode"
   (interactive)
-  (setq buffer-face-mode-face '(:family "Inconsolata" :height 132))
+  (setq buffer-face-mode-face '(:family "Inconsolata" :height 115))
   (buffer-face-mode))
 (add-hook 'inferior-python-mode-hook 'my-buffer-face-mode-smaller)
 (add-hook 'inferior-ess-mode-hook 'my-buffer-face-mode-smaller)
 
-
 ;;;; Set env of edit
-(setenv "LC_ALL" "en_US.UTF-8")
 (setq locale-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
@@ -183,22 +207,28 @@
 (setq-default pathname-coding-system 'utf-8)
 ;; file name
 (setq file-name-coding-system 'utf-8)
+(cond
+ ((string-equal system-type "windows-nt") ; Microsoft Windows
+  (progn
+    (set-language-environment 'Chinese-GB18030)))
+ ((string-equal system-type "darwin") ; Mac OS X
+  (progn
+    (setenv "LC_ALL" "en_US.UTF-8"))))
 
 
 ;; always open files in the same window
 (setq ns-pop-up-frames nil)
 
-
 ;; choose horizon window if proper
 (setq split-width-threshold 140)
 
-;; show file path
+;;show file path
 ;; (setq frame-title-format
 ;;       '((:eval (if (buffer-file-name)
 ;;                    (abbreviate-file-name (buffer-file-name))
 ;;                  "%b"))))
 
-;;(setq fancy-splash-image nil)
+;; (setq fancy-splash-image nil)
 
 
 (provide 'init-ui)
