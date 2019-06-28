@@ -167,10 +167,10 @@
 (defun org-font()
   (set-face-attribute
    'default nil
-   :font (font-spec :name "-*-Helvetica-normal-normal-normal-*-16-*-*-*-p-0-iso10646-1"
+   :font (font-spec :name Org-font
 		    :weight 'normal
 		    :slant 'normal
-		    :size 18))
+		    :size 15))
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font
      (frame-parameter nil 'font)
@@ -179,12 +179,12 @@
 		:weight 'normal
 		:slant 'normal)))
   (setq face-font-rescale-alist '(("Hiragino Sans GB" . 1.1))))
-(defun my-buffer-face-mode-smaller ()
+(defun org-face-font ()
   "font in the inferiror python or ess mode"
   (interactive)
   (org-font)
   (buffer-face-mode))
-(add-hook 'org-mode-hook 'my-buffer-face-mode-smaller)
+(add-hook 'org-mode-hook 'org-face-font)
 
 ;; smaller font for some buffer
 (defun my-buffer-face-mode-smaller ()
