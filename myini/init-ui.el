@@ -6,7 +6,7 @@
 (blink-cursor-mode 0)
 (defun s-cursor()
   ;; set cursor-type with a line
-  (setq-default cursor-type 'bar)
+  ;;(setq-default cursor-type 'bar)
   ;; set cursor color
   (set-cursor-color "#3180f1")
   )
@@ -17,7 +17,7 @@
   (menu-bar-mode -1))
 (unless (display-graphic-p)
   (load-theme 'spacemacs-dark t))
-
+;;(load-theme 'spacemacs-dark t)
 
 (setq truncate-lines nil)
 (setq truncate-partial-width-Win nil)
@@ -52,7 +52,7 @@
 
 
 ;; highlight current line
-(global-hl-line-mode +1)
+;; (global-hl-line-mode +1)
 ;;(set-face-background 'hl-line "grey9")
 (unless (display-graphic-p)
   (global-hl-line-mode +1)
@@ -120,7 +120,8 @@
 (setq Win-Chinese-font "-outline-FangSong_GB2312-normal-normal-normal-mono-*-*-*-*-c-*-iso10646-1")
 (setq Win-fontsize 18)
 (setq Win-smaller-fontsize 100)
-(setq Mac-English-font "-*-Inconsolata-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1")
+(setq Mac-English-font "-*-Menlo-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+(setq Mac-Org-font "-*-Inconsolata-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1")
 (setq Mac-Chinese-font "-*-Hiragino Sans GB-normal-normal-normal-*-*-*-*-*-p-0-iso10646-1")
 (setq Mac-fontsize 16)
 (setq Mac-smaller-fontsize 100)
@@ -129,12 +130,14 @@
  ((string-equal system-type "windows-nt") ; Microsoft Windows
   (progn
     (setq English-font Win-English-font)
+    (setq Org-font Win-English-font)
     (setq Chinese-font Win-Chinese-font)
     (setq Font-size Win-fontsize)
     (setq Smaller-fontsize Win-smaller-fontsize)))
  ((string-equal system-type "darwin") ; Mac OS X
   (progn
     (setq English-font Mac-English-font)
+    (setq Org-font Mac-Org-font)
     (setq Chinese-font Mac-Chinese-font)
     (setq Font-size Mac-fontsize)
     (setq Smaller-fontsize Mac-smaller-fontsize)))
@@ -164,10 +167,10 @@
 (defun org-font()
   (set-face-attribute
    'default nil
-   :font (font-spec :name English-font
+   :font (font-spec :name "-*-Helvetica-normal-normal-normal-*-16-*-*-*-p-0-iso10646-1"
 		    :weight 'normal
 		    :slant 'normal
-		    :size Font-size))
+		    :size 18))
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font
      (frame-parameter nil 'font)

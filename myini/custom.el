@@ -6,7 +6,7 @@
  '(blink-cursor-mode nil)
  '(custom-safe-themes
    (quote
-    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
+    ("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(elpy-modules
    (quote
     (elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-django elpy-module-sane-defaults)))
@@ -26,7 +26,7 @@
      (ess-R-fl-keyword:%op% . t))))
  '(package-selected-packages
    (quote
-    (cnfonts ess-view markdown-mode graphviz-dot-mode flyspell-correct-popup smart-mode-line git-timemachine ztree hungry-delete dim ace-window cal-china-x rg ag popwin counsel-projectile projectile company-auctex spacemacs-theme py-autopep8 exec-path-from-shell flycheck magit elpy evil expand-region auto-complete-auctex iedit transpose-frame youdao-dictionary browse-kill-ring yasnippet undo-tree avy autopair counsel swiper highlight-parentheses auto-complete use-package)))
+    (color-theme-sanityinc-tomorrow cnfonts ess-view markdown-mode graphviz-dot-mode flyspell-correct-popup smart-mode-line git-timemachine ztree hungry-delete dim ace-window cal-china-x rg ag popwin counsel-projectile projectile company-auctex spacemacs-theme py-autopep8 exec-path-from-shell flycheck magit elpy evil expand-region auto-complete-auctex iedit transpose-frame youdao-dictionary browse-kill-ring yasnippet undo-tree avy autopair counsel swiper highlight-parentheses auto-complete use-package)))
  '(projectile-mode-line-prefix " Proj")
  '(scroll-bar-mode nil)
  '(scroll-conservatively 1000)
@@ -45,6 +45,7 @@
  '(eshell-prompt ((t (:weight bold))))
  '(font-latex-subscript-face ((t nil)))
  '(font-latex-superscript-face ((t nil)))
+ '(iedit-occurrence ((t (:inherit isearch))))
  '(mode-line ((t (:background "grey75" :foreground "black" :box (:line-width -1 :style released-button)))))
  '(mode-line-inactive ((t (:inherit mode-line :background "grey90" :foreground "grey20" :box (:line-width -1 :color "grey75") :weight light))))
  '(org-agenda-clocking ((t (:background "SkyBlue1"))))
