@@ -34,16 +34,68 @@
 (setq python-shell-completion-native-enable nil)
 
 ;; interactive python
+;; (setq python-shell-interpreter "ipython"
+;;       python-shell-interpreter-args "--simple-prompt -c exec('__import__(\\'readline\\')') -i")
+;; (setq python-shell-interpreter "python3"
+;;       elpy-rpc-python-command "python3"
+;;       python-shell-interpreter-args "-i")
+
+(defun elpy-shell-send-file (file-name &optional process temp-file-name
+				       delete msg)
+  "Like `python-shell-send-file' but evaluates last expression separately.
+
+See `python-shell-send-file' for a description of the
+arguments. This function differs in that it breaks up the
+Python code in FILE-NAME into statements. If the last statement
+is a Python expression, it is evaluated separately in 'eval'
+mode. This way, the interactive python shell can capture (and
+print) the output of the last expression."
+  (interactive
+   (list
+    (read-file-name "File to send: ")   ; file-name
+    nil                                 ; process
+    nil                                 ; temp-file-name
+    nil                                 ; delete
+    t))                                 ; msg
+  (let* ((process (or process (python-shell-get-process-or-error msg)))
+         (encoding (with-temp-buffer
+                     (insert-file-contents
+                      (or temp-file-name file-name))
+                     (python-info-encoding)))
+         (file-name (expand-file-name
+                     (or (file-remote-p file-name 'localname)
+                         file-name)))
+         (temp-file-name (when temp-file-name
+                           (expand-file-name
+                            (or (file-remote-p temp-file-name 'localname)
+                                temp-file-name)))))
+    (python-shell-send-string
+     (format
+      (concat
+       "import sys, codecs, os, ast;"
+       "__pyfile = codecs.open('''%s''', encoding='''%s''');"
+       "__code = __pyfile.read().encode('''%s''');"
+       "__pyfile.close();"
+       (when (and delete temp-file-name)
+         (format "os.remove('''%s''');" temp-file-name))
+       "__block = ast.parse(__code, '''%s''', mode='exec');"
+       "__last = __block.body[-1];" ;; the last statement
+       "__isexpr = isinstance(__last,ast.Expr);" ;; is it an expression?
+       "_ = __block.body.pop() if __isexpr else None;" ;; if so, remove it
+       "exec(compile(__block, '''%s''', mode='exec'));" ;; execute everything else
+       "eval(compile(ast.Expression(__last.value), '''%s''', mode='eval')) if __isexpr else None" ;; if it was an expression, it has been removed; now evaluate it
+       )
+      (or temp-file-name file-name) encoding encoding file-name file-name file-name)
+     process)))
+
+;; (setq python-shell-interpreter "jupyter"
+;;       python-shell-interpreter-args "console --simple-prompt"
+;;       python-shell-prompt-detect-failure-warning nil)
+;; (add-to-list 'python-shell-completion-native-disabled-interpreters
+;;              "jupyter")
+
 (setq python-shell-interpreter "ipython"
-      python-shell-interpreter-args "--simple-prompt -c exec('__import__(\\'readline\\')') -i")
-(setq python-shell-interpreter "python3"
-      elpy-rpc-python-command "python3"
-      python-shell-interpreter-args "-i")
-
-
-
-;;(setq python-check-command (expand-file-name "~/.local/bin/flake8"))
-
+      python-shell-interpreter-args "-i --simple-prompt")
 
 
 (provide 'init-python)

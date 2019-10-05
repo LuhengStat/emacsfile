@@ -17,6 +17,7 @@
   (menu-bar-mode -1))
 (unless (display-graphic-p)
   (load-theme 'spacemacs-dark t))
+(load-theme 'sanityinc-tomorrow-eighties t)
 ;;(load-theme 'spacemacs-dark t)
 
 (setq truncate-lines nil)
@@ -27,9 +28,9 @@
 (setq-default line-spacing 4)
 (sml/setup)
 (custom-set-faces
- '(mode-line ((t (:background "grey75" :foreground "black" :box (:line-width -1 :style released-button)))))
- '(mode-line-inactive ((t (:inherit mode-line :background "grey90" :foreground "grey20" :box (:line-width -1 :color "grey75") :weight light)))))
-(setq modelinesize 125)
+ '(mode-line ((t (:background "#c6c4da" :foreground "black" :box (:line-width -1 :style released-button)))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "grey56" :foreground "grey20" :box (:line-width -1 :color "grey75") :weight light)))))
+(setq modelinesize 115)
 (set-face-attribute 'mode-line nil :height modelinesize)
 (set-face-attribute 'mode-line-inactive nil  :height modelinesize)
 (toggle-frame-maximized)
@@ -100,6 +101,7 @@
     hungry-delete-mode
     auto-revert-mode
     buffer-face-mode
+    highlight-indentation-mode
     ))
 
 (defun purge-minor-modes ()
@@ -123,7 +125,7 @@
 (setq Mac-English-font "-*-Menlo-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 (setq Mac-Chinese-font "-*-Hiragino Sans GB-normal-normal-normal-*-*-*-*-*-p-0-iso10646-1")
 (setq Mac-fontsize 16)
-(setq Mac-smaller-fontsize 100)
+(setq Mac-smaller-fontsize 125)
 ;; check OS type
 (cond
  ((string-equal system-type "windows-nt") ; Microsoft Windows
@@ -172,7 +174,7 @@
 (defun my-buffer-face-mode-smaller ()
   "font in the inferiror python or ess mode"
   (interactive)
-  (setq buffer-face-mode-face '(:family "Inconsolata" :height 115))
+  (setq buffer-face-mode-face '(:family "Menlo" :height 125))
   (buffer-face-mode))
 (add-hook 'inferior-python-mode-hook 'my-buffer-face-mode-smaller)
 (add-hook 'inferior-ess-mode-hook 'my-buffer-face-mode-smaller)
@@ -192,6 +194,7 @@
 (setq-default pathname-coding-system 'utf-8)
 ;; file name
 (setq file-name-coding-system 'utf-8)
+;; Chinese font in coding environment
 (cond
  ((string-equal system-type "windows-nt") ; Microsoft Windows
   (progn

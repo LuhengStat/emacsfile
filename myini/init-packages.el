@@ -58,6 +58,7 @@
 		     smart-mode-line
 		     flyspell-correct-popup
 		     graphviz-dot-mode
+		     company-tabnine
 		     ))
 
 ;; activate all the packages (in particular autoloads)
@@ -98,7 +99,7 @@
 (setq projectile-enable-caching t)
 (setq projectile-completion-system 'ivy)
 (setq projectile-mode-line-function '(lambda ()
-				       (format " Proj[%s]" (projectile-project-name))))
+				       (format " P[%s]" (projectile-project-name))))
 
 
 ;; company-mode 
@@ -110,7 +111,6 @@
 ;;(define-key company-active-map (kbd "<C-tab>") 'company-select-previous)
 (setq company-selection-wrap-around t
       company-tooltip-align-annotations t
-      company-idle-delay 0.36
       company-minimum-prefix-length 2
       company-tooltip-limit 9
       company-show-numbers nil)
@@ -131,6 +131,16 @@
 		 (list
 		  (cons 'company-yasnippet
 			(car company-backends))))))
+
+(add-to-list 'company-backends #'company-tabnine)
+(setq company-idle-delay 0)
+(setq company-show-numbers t) 
+(company-tng-configure-default)
+(setq company-frontends
+      '(company-tng-frontend
+	company-pseudo-tooltip-frontend
+	company-echo-metadata-frontend))
+
 
 ;; ag highlight
 (setq ag-highlight-search t)
@@ -199,6 +209,4 @@
   :init (setq markdown-command "multimarkdown"))
 
 (provide 'init-packages)
-
-
 

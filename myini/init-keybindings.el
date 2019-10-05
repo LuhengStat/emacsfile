@@ -242,5 +242,7 @@ if we are not in a project, just use the function find-file"
 (global-set-key (kbd "s-3") 'split-window-right)
 (global-set-key (kbd "s-e") 'nil)
 (global-set-key (kbd "s-n") 'nil)
+(global-set-key (kbd "s-m") 'nil)
+(global-set-key (kbd "C-z") 'nil)
 
 (provide 'init-keybindings)

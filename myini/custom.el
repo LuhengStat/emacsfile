@@ -24,9 +24,11 @@
      (ess-fl-keyword:= . t)
      (ess-R-fl-keyword:F&T . t)
      (ess-R-fl-keyword:%op% . t))))
+ '(fancy-splash-image "image.jpg")
+ '(fringe-mode (quote (nil . 0)) nil (fringe))
  '(package-selected-packages
    (quote
-    (color-theme-sanityinc-tomorrow cnfonts ess-view markdown-mode graphviz-dot-mode flyspell-correct-popup smart-mode-line git-timemachine ztree hungry-delete dim ace-window cal-china-x rg ag popwin counsel-projectile projectile company-auctex spacemacs-theme py-autopep8 exec-path-from-shell flycheck magit elpy evil expand-region auto-complete-auctex iedit transpose-frame youdao-dictionary browse-kill-ring yasnippet undo-tree avy autopair counsel swiper highlight-parentheses auto-complete use-package)))
+    (color-theme-sanityinc-tomorrow cnfonts ess-view markdown-mode graphviz-dot-mode flyspell-correct-popup smart-mode-line git-timemachine ztree hungry-delete dim ace-window cal-china-x rg ag popwin counsel-projectile projectile company-auctex spacemacs-theme py-autopep8 exec-path-from-shell flycheck magit evil expand-region auto-complete-auctex iedit transpose-frame youdao-dictionary browse-kill-ring yasnippet undo-tree avy autopair counsel swiper highlight-parentheses auto-complete use-package)))
  '(projectile-mode-line-prefix " Proj")
  '(scroll-bar-mode nil)
  '(scroll-conservatively 1000)
@@ -46,8 +48,11 @@
  '(font-latex-subscript-face ((t nil)))
  '(font-latex-superscript-face ((t nil)))
  '(iedit-occurrence ((t (:inherit isearch))))
+ '(ivy-current-match ((t (:inherit highlight :background "#444155" :foreground "#ef6c70" :underline nil))))
  '(mode-line ((t (:background "grey75" :foreground "black" :box (:line-width -1 :style released-button)))))
  '(mode-line-inactive ((t (:inherit mode-line :background "grey90" :foreground "grey20" :box (:line-width -1 :color "grey75") :weight light))))
  '(org-agenda-clocking ((t (:background "SkyBlue1"))))
- '(sml/filename ((t (:inherit sml/global :foreground "black" :weight bold)))))
+ '(show-paren-match ((t (:inherit bold :background "gray32" :foreground "#86dc2f" :underline nil))))
+ '(sml/filename ((t (:inherit sml/global :foreground "black" :weight bold))))
+ '(swiper-line-face ((t (:background "gray26" :underline nil)))))
 
